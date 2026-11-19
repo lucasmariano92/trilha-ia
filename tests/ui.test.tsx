@@ -66,10 +66,18 @@ describe('fluxos da interface', () => {
     for (const b of btns) expect(b.disabled).toBe(true);
   });
 
-  it('simulado completo fica bloqueado e informa quantas questões faltam', () => {
+  it('simulado completo fica liberado com 60 questões revisadas', () => {
     renderAt('/simulados');
-    expect(screen.getByText(/faltam 60 questões revisadas/i)).toBeTruthy();
-    expect((screen.getByRole('button', { name: /Iniciar simulado completo/ }) as HTMLButtonElement).disabled).toBe(true);
+    expect(screen.queryByText(/faltam \d+ questões revisadas/i)).toBeNull();
+    expect((screen.getByRole('button', { name: /Iniciar simulado completo/ }) as HTMLButtonElement).disabled).toBe(false);
+  });
+
+  it('simulado em andamento com questão retirada do banco não quebra a página', () => {
+    const exam = { id: 'ex1', mode: 'treino', questionIds: ['q1.3-05', 'q1.1-01'], answers: {}, flags: [], current: 0, startedAtMs: Date.now(), durationSec: 220 };
+    renderAt('/simulados', { ...fresh(), activeExam: exam });
+    expect(screen.getByText(/retirada do banco/)).toBeTruthy();
+    fireEvent.click(screen.getByRole('button', { name: 'Próxima' }));
+    expect(screen.getByText(/Questão 2 de 2/)).toBeTruthy();
   });
 
   it('simulado de treino inicia, persiste e mostra o cronômetro', () => {

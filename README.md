@@ -2,7 +2,7 @@
 
 Plataforma de estudo de Inteligência Artificial em português, organizada pelos 5 mundos e 46 módulos do PDF "Trilha de Aprendizagem em IA — do zero ao código (100% gratuita)". Cada módulo segue três níveis: **Entender**, **Praticar** e **Aplicar**.
 
-> **Estado: 2.0.0-alpha.2 (Etapas A–D concluídas).** O **Mundo 1 inteiro (módulos 1.1 a 1.9)** está desenvolvido nos três níveis, com o projeto Glossário vivo e o checkpoint com avaliação prática. Os Mundos 2 a 5 (37 módulos) mostram apenas o texto do PDF e estão marcados como pendentes. Veja `docs/RELATORIO-ETAPAS-A-C.md` e `docs/RELATORIO-ETAPA-D.md`.
+> **Estado: 2.0.0-alpha.4 (Etapas A–D concluídas; questões do Mundo 1 revisadas por uma pessoa).** O **Mundo 1 inteiro (módulos 1.1 a 1.9)** está desenvolvido nos três níveis, com o projeto Glossário vivo e o checkpoint com avaliação prática. Os Mundos 2 a 5 (37 módulos) mostram apenas o texto do PDF e estão marcados como pendentes. Na revisão humana de 19/11/2026, 60 questões foram aprovadas (o simulado completo foi liberado, por enquanto só com o Mundo 1), 37 foram reescritas e aguardam validação final e 3 foram descartadas e substituídas. Veja `docs/RELATORIO-ETAPAS-A-C.md`, `docs/RELATORIO-ETAPA-D.md` e `docs/REVISAO-MUNDO1-2026-11-19.md`.
 
 ## Como rodar
 
@@ -11,7 +11,7 @@ Requisitos: Node.js 22.12 ou superior e npm.
 ```bash
 npm ci            # instala exatamente as versões do package-lock.json
 npm run dev       # servidor de desenvolvimento (http://localhost:5173)
-npm test          # 207 testes automatizados
+npm test          # 223 testes automatizados
 npm run typecheck # TypeScript estrito
 npm run build     # gera dist/ para hospedagem estática
 npm run preview   # serve o build localmente

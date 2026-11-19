@@ -26,7 +26,7 @@ export const m1_3: ModuleContent = {
       objectiveIds: ['1.3-O1'], prerequisites: ['Módulos 1.1 (inferência) e 1.2 (tokens).'],
       glossaryIds: ['janela-contexto', 'tokens-entrada-saida', 'inferencia'],
       referenceIds: ['openai-tokens-help', 'karpathy-intro-llms'],
-      checkQuestionIds: ['q1.3-01', 'q1.3-02', 'q1.3-03', 'q1.3-04', 'q1.3-05'],
+      checkQuestionIds: ['q1.3-01', 'q1.3-02', 'q1.3-03', 'q1.3-04', 'q1.3-11'],
       blocks: [
         { type: 'callout', tone: 'pdf', title: 'O que o PDF da trilha diz', text: 'A janela de contexto é a "memória de trabalho" da conversa: tudo o que o modelo enxerga de uma vez — instruções, histórico, arquivos e resposta.' },
         { type: 'p', text: 'No módulo 1.1 você viu que o modelo não muda durante a conversa: o aplicativo reenvia o histórico a cada mensagem. A pergunta natural é: **reenvia até onde?** A resposta é a janela de contexto.' },
@@ -116,11 +116,6 @@ export const m1_3: ModuleContent = {
       0, 'O modelo não muda durante o uso; a "memória" é texto reinserido no contexto.',
       { 1: 'Os parâmetros não mudam durante o uso (módulo 1.1).', 2: 'O limite da janela é do modelo; a memória o consome, não o amplia.', 3: 'Não há essa condição.' },
       'intermediaria', 'interpretacao', []),
-    q(5, ['1.3-O1'], 'Por que o mesmo documento pode ocupar mais da janela de contexto em português do que em inglês?',
-      ['Porque a janela é medida em tokens, e o texto em português costuma gerar mais tokens.', 'Porque a janela é menor para usuários brasileiros.', 'Porque documentos em português não podem ser resumidos.', 'Porque acentos ocupam uma janela separada.'],
-      0, 'O limite é em tokens, e o português tende a gerar mais tokens para o mesmo conteúdo (módulo 1.2).',
-      { 1: 'O tamanho da janela é do modelo, não do país.', 2: 'Textos em português podem ser resumidos normalmente.', 3: 'Não existe janela separada para acentos.' },
-      'intermediaria', 'compreensao', ['petrov-tokenizers']),
     q(6, ['1.3-O2'], 'Numa conversa longa, o que costuma acontecer com as mensagens mais antigas quando a janela enche?',
       ['São cortadas ou resumidas, e o modelo deixa de enxergá-las, muitas vezes sem avisar.', 'São gravadas nos parâmetros do modelo para uso futuro.', 'Ficam disponíveis normalmente, porque a janela cresce sozinha.', 'São reenviadas por e-mail ao usuário.'],
       0, 'Corte e resumo são as estratégias mais comuns; o efeito é que o modelo não vê mais aquele conteúdo.',
@@ -146,6 +141,12 @@ export const m1_3: ModuleContent = {
       0, 'Processar por partes ou selecionar o trecho relevante respeita o limite e reduz o risco de cortes.',
       { 1: 'Se não couber, partes serão cortadas ou o envio será recusado.', 2: 'O modelo não enxerga outras conversas.', 3: 'Temperatura controla aleatoriedade, não capacidade de leitura.' },
       'basica', 'aplicacao', []),
+    // q1.3-05 foi descartada na revisão humana de 19/11/2026 (repetia a q1.2-04); substituída pela q1.3-11.
+    q(11, ['1.3-O1'], 'Um modelo tem janela de 16.000 tokens, e nele entrada e resposta dividem o mesmo limite. A chamada leva 1.200 tokens de instruções, 5.300 de histórico e um documento de 7.000. Quanto espaço sobra, no máximo, para a resposta?',
+      ['2.500 tokens', '9.000 tokens', '3.700 tokens', '16.000 tokens'],
+      0, 'Tudo o que é enviado ocupa a janela: 16.000 − (1.200 + 5.300 + 7.000) = 16.000 − 13.500 = 2.500 tokens para a resposta.',
+      { 1: 'Desconta só o documento e esquece instruções e histórico, que também são enviados.', 2: 'Esquece as instruções do sistema, que também ocupam a janela.', 3: 'Trata a resposta como se tivesse um limite separado; neste modelo, ela divide a janela com a entrada.' },
+      'intermediaria', 'aplicacao', ['openai-tokens-help']),
   ],
   flashcards: [
     card(1, ['1.3-O1'], 'O que é a janela de contexto?', 'O limite de tokens que o modelo considera numa chamada: sua "memória de trabalho".', ['openai-tokens-help']),

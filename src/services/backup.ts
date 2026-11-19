@@ -5,7 +5,7 @@ import { LIMITS } from './validate';
 
 export const BACKUP_FORMAT = 'trilha-ia-backup';
 export const BACKUP_FORMAT_VERSION = 1;
-export const APP_VERSION = '2.0.0-alpha.2';
+export const APP_VERSION = '2.0.0-alpha.4';
 
 export const BACKUP_NOTICE =
   'Este arquivo contém seus dados de estudo (respostas, anotações, dúvidas e projetos). Ele NÃO é criptografado: guarde-o em local protegido e não o compartilhe.';

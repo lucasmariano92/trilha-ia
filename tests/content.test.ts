@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { flashcards, getModule, getObjective, getQuestion, glossary, modules, projects, questions, references, worlds, lessons } from '../src/content';
+import { REVIEWS, flashcards, getModule, getObjective, getQuestion, glossary, modules, projects, questions, references, worlds, lessons } from '../src/content';
 import { placeCorrect } from '../src/content/question-utils';
 
 const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
@@ -124,8 +124,10 @@ describe('banco de questões', () => {
     const ids = new Set(structured.map((m) => m.id));
     expect(questions.filter((q) => ids.has(q.moduleId) && q.review === 'provisoria')).toHaveLength(0);
   });
-  it('nenhuma questão é marcada como revisada sem revisão humana', () => {
-    expect(questions.filter((q) => q.review === 'revisada')).toHaveLength(0);
+  it('só fica "revisada" a questão aprovada numa revisão humana registrada', () => {
+    const approved = new Set(REVIEWS.filter((r) => r.kind === 'humana').flatMap((r) => Object.entries(r.items).filter(([, i]) => i.decision === 'aprovada').map(([id]) => id)));
+    const revised = questions.filter((q) => q.review === 'revisada').map((q) => q.id);
+    expect(new Set(revised)).toEqual(approved);
   });
   it('verificações de lição apontam para questões existentes do mesmo objetivo', () => {
     for (const l of lessons) for (const id of l.checkQuestionIds) {

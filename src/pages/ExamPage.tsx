@@ -42,7 +42,8 @@ export default function ExamPage() {
 
   if (exam) {
     const qid = exam.questionIds[exam.current];
-    const q = getQuestion(qid)!;
+    // A questão pode ter sido removida do banco depois do início (ex.: descartada numa revisão).
+    const q = getQuestion(qid);
     const st = examStatus(exam);
     const remaining = remainingSeconds(exam, now);
     const finish = (reason: 'finalizado' | 'antecipado') => {
@@ -80,8 +81,16 @@ export default function ExamPage() {
               );
             })}
           </nav>
-          <div className="mb-2 flex gap-2"><ReviewBadge review={q.review} /><Chip>{q.moduleId}</Chip></div>
-          <QuestionCard question={q} selected={exam.answers[qid] ?? null} onSelect={(c) => update((d) => updateActiveExam(d, { answers: { ...exam.answers, [qid]: c } }))} revealed={false} showMeta={false} />
+          {q ? (
+            <>
+              <div className="mb-2 flex gap-2"><ReviewBadge review={q.review} /><Chip>{q.moduleId}</Chip></div>
+              <QuestionCard question={q} selected={exam.answers[qid] ?? null} onSelect={(c) => update((d) => updateActiveExam(d, { answers: { ...exam.answers, [qid]: c } }))} revealed={false} showMeta={false} />
+            </>
+          ) : (
+            <p role="status" className="rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm dark:border-amber-800 dark:bg-amber-950/40">
+              Esta questão foi retirada do banco depois que o simulado começou (por exemplo, descartada numa revisão). Ela conta como não respondida; siga para a próxima.
+            </p>
+          )}
           <div className="mt-5 flex flex-wrap justify-between gap-2">
             <button className="btn-ghost" aria-pressed={exam.flags.includes(qid)} onClick={() => update((d) => updateActiveExam(d, { flags: exam.flags.includes(qid) ? exam.flags.filter((x) => x !== qid) : [...exam.flags, qid] }))}>
               <Flag size={16} aria-hidden="true" /> {exam.flags.includes(qid) ? 'Desmarcar revisão' : 'Marcar para revisão'}

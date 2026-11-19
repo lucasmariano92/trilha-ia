@@ -15,11 +15,19 @@ const fake = (n: number, review: Question['review'] = 'revisada'): Question[] =>
   Array.from({ length: n }, (_, i) => ({ ...questions[0], id: `x${i}`, moduleId: `${1 + (i % 5)}.${1 + (i % 3)}`, review }));
 
 describe('simulados: elegibilidade e seleção', () => {
-  it('banco atual não permite simulado completo e informa quantas faltam', () => {
+  it('banco atual libera o simulado completo só com questões revisadas', () => {
     const e = fullExamEligibility(questions);
+    expect(e.eligible).toBeGreaterThanOrEqual(60);
+    expect(e.canStart).toBe(true);
+    const exam = createExam(questions, 'completo', 0, 7);
+    expect(new Set(exam.questionIds).size).toBe(60);
+    expect(exam.questionIds.every((id) => getQuestion(id)!.review === 'revisada')).toBe(true);
+  });
+  it('com 59 revisadas, bloqueia e informa que falta 1', () => {
+    const e = fullExamEligibility(fake(59));
     expect(e.canStart).toBe(false);
-    expect(e.missing).toBe(60 - e.eligible);
-    expect(() => createExam(questions, 'completo', 0)).toThrow(/Faltam 60/);
+    expect(e.missing).toBe(1);
+    expect(() => createExam(fake(59), 'completo', 0)).toThrow(/Faltam 1 /);
   });
   it('com 60 revisadas, cria simulado de 60 questões distintas e 1h50', () => {
     const exam = createExam(fake(70), 'completo', 1000, 42);

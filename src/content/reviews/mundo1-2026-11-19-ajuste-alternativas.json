@@ -1,0 +1,643 @@
+{
+ "source": "Ajuste das alternativas pelo assistente para remover pistas de resposta (tamanho e palavras absolutas), a pedido do revisor",
+ "reviewedOn": "2026-11-19",
+ "kind": "assistente",
+ "items": {
+  "q1.1-02": {
+   "decision": "reescrita",
+   "stem": "Uma planilha marca um pedido como urgente somente quando encontra a palavra exata “urgente”. Não há treinamento nem análise de exemplos. Qual descrição é mais precisa?",
+   "options": [
+    "Automação por regra explícita, sem aprendizado de máquina.",
+    "Classificador supervisionado, já que separa pedidos em categorias definidas.",
+    "Aprendizado não supervisionado, já que agrupa pedidos sem receber rótulos.",
+    "IA generativa, já que o sistema produz uma etiqueta para cada pedido."
+   ],
+   "correct": 0,
+   "rationale": "A regra foi definida manualmente e não foi aprendida a partir de dados; automação por regras não é necessariamente IA.",
+   "distractorRationales": {
+    "1": "Separar em categorias não basta: um classificador supervisionado aprende com exemplos rotulados, e aqui não houve treinamento.",
+    "2": "Não há agrupamento aprendido: a regra foi escrita à mão.",
+    "3": "A etiqueta é fixa e predefinida; não há geração de conteúdo por um modelo."
+   }
+  },
+  "q1.1-03": {
+   "decision": "reescrita",
+   "stem": "Em aprendizado profundo (deep learning), a que se refere principalmente a palavra “profundo”?",
+   "options": [
+    "Ao grande volume de exemplos usados para treinar a rede.",
+    "À quantidade de parâmetros ajustáveis, seja qual for a arquitetura.",
+    "Ao nível de abstração das tarefas que o modelo consegue resolver.",
+    "Às várias camadas empilhadas da rede neural."
+   ],
+   "correct": 3,
+   "rationale": "Profundidade descreve a organização de várias camadas de transformação de representações.",
+   "distractorRationales": {
+    "0": "Volume de dados não define profundidade; uma rede rasa também pode ser treinada com muitos dados.",
+    "1": "Parâmetros e profundidade são coisas diferentes: uma rede larga e rasa pode ter muitos parâmetros.",
+    "2": "Redes profundas podem resolver tarefas abstratas, mas o termo descreve a arquitetura, não a tarefa."
+   }
+  },
+  "q1.1-05": {
+   "decision": "reescrita",
+   "stem": "Um LLM que gera texto foi treinado com dados usando uma rede neural de múltiplas camadas. Qual classificação é adequada?",
+   "options": [
+    "IA generativa, mas não aprendizado de máquina, porque produz conteúdo em vez de classificar.",
+    "IA que usa aprendizado de máquina e aprendizado profundo, com capacidade generativa.",
+    "Aprendizado de máquina, mas não IA generativa, porque foi treinado com dados.",
+    "Aprendizado profundo, mas não IA, porque IA se refere só a sistemas baseados em regras."
+   ],
+   "correct": 1,
+   "rationale": "Esse LLM se enquadra em IA, usa aprendizado de máquina e redes profundas e tem capacidade generativa; as categorias não são sinônimas nem formam sempre uma única hierarquia linear.",
+   "distractorRationales": {
+    "0": "Gerar conteúdo não exclui aprendizado de máquina: o modelo foi treinado com dados.",
+    "2": "Ser treinado com dados e gerar texto não se excluem; esse LLM é as duas coisas.",
+    "3": "Aprendizado profundo está dentro do campo da IA, e IA não se limita a regras."
+   }
+  },
+  "q1.1-11": {
+   "decision": "reescrita",
+   "stem": "Qual sequência representa um fluxo didático comum — mas não obrigatório — de desenvolvimento de um assistente baseado em LLM?",
+   "options": [
+    "Ajuste supervisionado → pré-treinamento → alinhamento.",
+    "Alinhamento → pré-treinamento → ajuste supervisionado.",
+    "Pré-treinamento → alinhamento → ajuste supervisionado.",
+    "Pré-treinamento → ajuste supervisionado → alinhamento."
+   ],
+   "correct": 3,
+   "rationale": "É uma sequência frequentemente ensinada; projetos reais podem combinar, omitir ou reorganizar etapas conforme a técnica.",
+   "distractorRationales": {
+    "0": "O ajuste supervisionado parte de um modelo já pré-treinado.",
+    "1": "Não há o que alinhar antes de existir um modelo-base.",
+    "2": "Na sequência mais ensinada, o alinhamento vem depois do ajuste supervisionado, que ensina o formato de instrução e resposta."
+   }
+  },
+  "q1.1-12": {
+   "decision": "reescrita",
+   "stem": "Você envia “Qual é a capital da França?” a um modelo-base treinado apenas para prever a continuação de texto. Qual afirmação é mais segura?",
+   "options": [
+    "Responderá \"Paris\" de forma direta, como faz um assistente.",
+    "Pode responder \"Paris\" ou só continuar o padrão do texto.",
+    "Recusará a pergunta, por não ter passado por alinhamento.",
+    "Dará uma resposta errada, por não ter aprendido fatos."
+   ],
+   "correct": 1,
+   "rationale": "O pré-treinamento ensina padrões de continuação; modelos-base podem responder perguntas, mas não há garantia de comportamento instrucional.",
+   "distractorRationales": {
+    "0": "Sem ajuste para seguir instruções, não há garantia de resposta direta; ele pode, por exemplo, continuar com outras perguntas.",
+    "2": "Recusar é um comportamento aprendido no alinhamento; um modelo-base não tem motivo para recusar.",
+    "3": "O pré-treinamento expõe o modelo a muitos fatos; a continuação pode, sim, conter a resposta certa."
+   }
+  },
+  "q1.1-14": {
+   "decision": "reescrita",
+   "stem": "Em projetos de LLM de grande porte, qual etapa costuma concentrar grande parte do custo computacional total de treinamento inicial?",
+   "options": [
+    "O ajuste fino com exemplos de instrução e resposta.",
+    "O alinhamento com avaliações humanas das respostas.",
+    "A coleta e a limpeza dos dados de treinamento.",
+    "O pré-treinamento sobre um grande volume de dados."
+   ],
+   "correct": 3,
+   "rationale": "Em LLMs grandes, o pré-treinamento frequentemente exige recursos muito elevados; custos concretos variam por arquitetura, dados e escala.",
+   "distractorRationales": {
+    "0": "O ajuste fino usa bem menos dados e computação que o pré-treinamento.",
+    "1": "O alinhamento custa caro em trabalho humano, mas usa bem menos computação que o pré-treinamento.",
+    "2": "Preparar os dados dá trabalho, mas o gasto de computação se concentra em treinar o modelo sobre eles."
+   }
+  },
+  "q1.1-15": {
+   "decision": "reescrita",
+   "stem": "Uma colega afirma: “O alinhamento ensina todos os fatos ao modelo e elimina suas respostas erradas”. Qual avaliação é adequada?",
+   "options": [
+    "Está errada: os fatos vêm sobretudo do pré-treinamento; o alinhamento ajusta comportamento e não elimina erros.",
+    "Está certa: o alinhamento é a etapa em que o modelo aprende a maior parte dos fatos que usa nas respostas.",
+    "Está certa em parte: o alinhamento não ensina fatos novos, mas impede que o modelo dê respostas erradas.",
+    "Está errada: o alinhamento serve apenas para reduzir o tamanho e o custo de execução do modelo."
+   ],
+   "correct": 0,
+   "rationale": "O alinhamento orienta comportamento e pode alterar desempenho factual, mas não garante respostas sempre corretas.",
+   "distractorRationales": {
+    "1": "A maior parte do conhecimento vem do pré-treinamento, que usa muito mais dados.",
+    "2": "O alinhamento pode reduzir alguns erros, mas não impede respostas erradas.",
+    "3": "O alinhamento orienta o comportamento; não é uma técnica de compressão."
+   }
+  },
+  "q1.1-16": {
+   "decision": "reescrita",
+   "stem": "Em um chat comum, sem treinamento contínuo durante a conversa, o que ocorre com os pesos do modelo a cada mensagem?",
+   "options": [
+    "São atualizados um pouco a cada pergunta, para aprender com o usuário.",
+    "São substituídos temporariamente pelo histórico da conversa.",
+    "Ficam fixos; o que muda a resposta é o contexto enviado.",
+    "São atualizados quando o usuário avalia a resposta com um joinha."
+   ],
+   "correct": 2,
+   "rationale": "Na inferência convencional, os pesos não são atualizados a cada mensagem. Aprendizado ou atualizações podem existir em processos separados.",
+   "distractorRationales": {
+    "0": "Na inferência comum os pesos não mudam; aprender com usuários, quando acontece, é um processo separado de treinamento.",
+    "1": "O histórico entra como contexto; não substitui os pesos.",
+    "3": "Avaliações podem ser usadas depois, num novo treinamento, mas não alteram os pesos na hora."
+   }
+  },
+  "q1.1-17": {
+   "decision": "reescrita",
+   "stem": "Um chat não possui memória entre conversas nem recupera histórico antigo. Você ensinou uma regra em uma conversa e iniciou outra. Por que a regra pode não ser seguida?",
+   "options": [
+    "Os pesos que guardavam a regra foram apagados ao fim da conversa anterior.",
+    "A nova conversa usa uma versão mais antiga do modelo, sem a regra.",
+    "A regra não está no contexto da nova conversa e nunca foi para os pesos.",
+    "O modelo guardou a regra, mas só a aplica depois de algumas mensagens."
+   ],
+   "correct": 2,
+   "rationale": "Sem memória ou recuperação, o contexto anterior não está disponível na nova conversa; a conversa não retreina automaticamente os pesos.",
+   "distractorRationales": {
+    "0": "A conversa não grava nada nos pesos, então não há o que apagar.",
+    "1": "Iniciar outra conversa não troca a versão do modelo; o que muda é o contexto.",
+    "3": "Sem memória entre conversas, a regra não foi guardada em lugar nenhum."
+   }
+  },
+  "q1.2-04": {
+   "decision": "reescrita",
+   "stem": "Ao comparar a tokenização de textos equivalentes em português e inglês, qual conclusão é tecnicamente correta?",
+   "options": [
+    "O português gera sempre cerca do dobro de tokens do inglês.",
+    "Depende do tokenizador; em vários deles, o português usa mais tokens.",
+    "Os dois idiomas geram a mesma contagem, pois o sentido é o mesmo.",
+    "O português gera menos tokens, pois suas palavras são mais longas."
+   ],
+   "correct": 1,
+   "rationale": "Tokenizadores usam vocabulários e segmentações próprios; diferenças entre idiomas são tendências contextuais, não regras universais.",
+   "distractorRationales": {
+    "0": "Não há proporção fixa; ela varia com o tokenizador e com o texto.",
+    "2": "Sentido igual não significa a mesma divisão em tokens.",
+    "3": "Palavras longas tendem a ser quebradas em mais pedaços, não em menos."
+   }
+  },
+  "q1.2-05": {
+   "decision": "reescrita",
+   "stem": "Uma empresa vai traduzir para português instruções antes enviadas em inglês a uma API que cobra por token. Como estimar a mudança de custo?",
+   "options": [
+    "Contar as palavras das duas versões e multiplicar pela tarifa por palavra.",
+    "Tokenizar as duas versões no modelo escolhido e aplicar a tarifa por token.",
+    "Considerar o custo igual, já que o significado das instruções não muda.",
+    "Usar a regra de 4 caracteres por token, que vale para qualquer idioma."
+   ],
+   "correct": 1,
+   "rationale": "O custo depende da quantidade efetiva de tokens, das tarifas e possivelmente de outros componentes da chamada; é preciso medir.",
+   "distractorRationales": {
+    "0": "APIs de texto cobram por token, não por palavra, e cada palavra pode virar um número diferente de tokens.",
+    "2": "O mesmo significado pode gerar contagens de tokens diferentes em cada idioma.",
+    "3": "Essa regra é uma aproximação para o inglês; em português a proporção costuma ser outra."
+   }
+  },
+  "q1.2-06": {
+   "decision": "reescrita",
+   "stem": "O PDF da trilha usa a regra de bolso de cerca de 500 a 800 tokens por página de texto em português. Como interpretar essa faixa?",
+   "options": [
+    "É o limite máximo de tokens que cabe numa página de PDF.",
+    "É a contagem exata para qualquer página de texto em português.",
+    "É a faixa que as APIs usam para cobrar por página enviada.",
+    "É uma estimativa que varia com o texto e o tokenizador."
+   ],
+   "correct": 3,
+   "rationale": "A faixa de 500–800 tokens é apresentada como aproximação curricular, não como medição universal.",
+   "distractorRationales": {
+    "0": "Página não tem limite de tokens; a faixa descreve um texto típico.",
+    "1": "É uma aproximação: a densidade do texto e o tokenizador mudam a contagem.",
+    "2": "APIs de texto cobram pelos tokens contados, não por página."
+   }
+  },
+  "q1.2-07": {
+   "decision": "reescrita",
+   "stem": "Adotando exclusivamente a regra de bolso do PDF (500–800 tokens por página), qual faixa estimada corresponde a 8 páginas de entrada e 1 de saída, sem contar instruções extras?",
+   "options": [
+    "Entrada: 4.000–6.400; saída: 500–800 tokens.",
+    "Entrada: 500–800; saída: 4.000–6.400 tokens.",
+    "Entrada: 8.000–12.800; saída: 500–800 tokens.",
+    "Entrada: 4.000–6.400; saída: 4.000–6.400 tokens."
+   ],
+   "correct": 0,
+   "rationale": "O cálculo é 8 × (500–800) para entrada e 1 × (500–800) para saída. São estimativas; instruções e formatação podem acrescentar tokens.",
+   "distractorRationales": {
+    "1": "Inverte as estimativas de entrada e de saída.",
+    "2": "Usa 1.000–1.600 tokens por página, o dobro da regra.",
+    "3": "Aplica à saída o total da entrada, mas a saída tem só 1 página."
+   }
+  },
+  "q1.2-09": {
+   "decision": "reescrita",
+   "stem": "Um aplicativo reenvia integralmente o histórico da conversa a cada chamada, sem resumo nem cache de cobrança. Por que uma pergunta curta no fim pode custar mais tokens de entrada?",
+   "options": [
+    "Porque a tarifa por token aumenta à medida que a conversa fica longa.",
+    "Porque o tokenizador conta cada pergunta antiga duas vezes.",
+    "Porque a chamada inclui as mensagens anteriores, além da atual.",
+    "Porque o modelo gera respostas maiores quando há histórico."
+   ],
+   "correct": 2,
+   "rationale": "No cenário descrito, a entrada inclui o histórico reenviado, aumentando a contagem de tokens.",
+   "distractorRationales": {
+    "0": "A tarifa por token é fixa; o que cresce é a quantidade de tokens enviados.",
+    "1": "Cada trecho é contado uma vez por chamada; o aumento vem de reenviar o histórico.",
+    "3": "A pergunta é sobre tokens de entrada; o tamanho da resposta afeta só a saída."
+   }
+  },
+  "q1.3-02": {
+   "decision": "reescrita",
+   "stem": "Ao planejar uma chamada a um modelo com limite de contexto, o que deve ser contabilizado no orçamento de tokens?",
+   "options": [
+    "Instruções, histórico e anexos, além do espaço reservado à resposta conforme a API.",
+    "Somente a última mensagem do usuário, porque o resto já foi processado antes.",
+    "Somente a entrada, porque a resposta é gerada depois que o pedido foi enviado.",
+    "Instruções e histórico, porque arquivos anexados são lidos fora da janela de contexto."
+   ],
+   "correct": 0,
+   "rationale": "A entrada utiliza contexto; dependendo da API/modelo, a geração também precisa caber no limite total ou em limite próprio.",
+   "distractorRationales": {
+    "1": "Instruções e histórico são reenviados e contados em cada chamada.",
+    "2": "Dependendo da API, a resposta precisa caber no mesmo limite ou tem um limite próprio; nos dois casos, entra no planejamento.",
+    "3": "Anexos enviados viram tokens de entrada como qualquer outro texto."
+   }
+  },
+  "q1.3-04": {
+   "decision": "reescrita",
+   "stem": "Um aplicativo oferece “memória” entre conversas, armazenada fora do modelo. Como essa memória pode afetar o contexto de uma nova conversa?",
+   "options": [
+    "Grava as preferências nos pesos do modelo ao final de cada conversa salva.",
+    "Insere trechos guardados na entrada, que ocupam tokens do contexto.",
+    "Amplia a janela do modelo para caber as conversas anteriores.",
+    "Guarda as informações num espaço do modelo separado da janela."
+   ],
+   "correct": 1,
+   "rationale": "Memória externa pode ser recuperada, filtrada e incluída no contexto; não é sinônimo de mudança nos pesos.",
+   "distractorRationales": {
+    "0": "A memória do aplicativo é texto guardado fora do modelo; os pesos não mudam.",
+    "2": "O limite é do modelo; a memória consome a janela, não a amplia.",
+    "3": "O modelo só enxerga o que entra no contexto; não existe espaço extra fora da janela."
+   }
+  },
+  "q1.3-06": {
+   "decision": "reescrita",
+   "stem": "Um aplicativo recebe uma conversa maior do que o contexto aceito pelo modelo. Qual comportamento é possível?",
+   "options": [
+    "O modelo passa a ler só as mensagens que considera mais importantes.",
+    "O modelo amplia a própria janela automaticamente para caber toda a conversa.",
+    "As mensagens mais antigas são gravadas nos pesos para não se perderem.",
+    "O aplicativo pode cortar, resumir ou recusar a entrada, conforme o caso."
+   ],
+   "correct": 3,
+   "rationale": "Aplicações tratam excesso de contexto de modos distintos; não se deve assumir uma política única.",
+   "distractorRationales": {
+    "0": "Quem decide o que entra é o aplicativo, antes da chamada; o modelo não escolhe sozinho o que ler.",
+    "1": "A janela tem um limite fixo para cada modelo.",
+    "2": "A conversa não altera os pesos do modelo."
+   }
+  },
+  "q1.3-07": {
+   "decision": "reescrita",
+   "stem": "No estudo “Lost in the Middle”, sobre uso de informações em contextos longos, qual padrão foi observado nos experimentos relatados?",
+   "options": [
+    "Os modelos usavam melhor o que estava no início ou no fim do que no meio.",
+    "A posição da informação no contexto não fez diferença em nenhum dos testes.",
+    "Os modelos usavam melhor o que estava no meio do que nas pontas.",
+    "Janelas maiores melhoraram o uso de informações em qualquer posição."
+   ],
+   "correct": 0,
+   "rationale": "Os experimentos relataram sensibilidade à posição da informação, não uma lei universal para todos os modelos e tarefas.",
+   "distractorRationales": {
+    "1": "Mudar a posição da informação alterou bastante o desempenho.",
+    "2": "O padrão observado foi o oposto: queda quando a informação estava no meio.",
+    "3": "Modelos com janelas longas também mostraram queda no meio."
+   },
+   "referenceIds": [
+    "lost-in-the-middle"
+   ]
+  },
+  "q1.3-08": {
+   "decision": "reescrita",
+   "stem": "Você informou uma restrição importante no início de uma conversa longa, mas a resposta final a viola. Qual diagnóstico é mais adequado?",
+   "options": [
+    "Prova que a restrição saiu da janela de contexto da conversa.",
+    "Prova que o modelo alterou os pesos e esqueceu a restrição.",
+    "Pede verificar se ela ainda estava no contexto e se foi ignorada.",
+    "Indica que a temperatura estava alta e basta reduzi-la a zero."
+   ],
+   "correct": 2,
+   "rationale": "Falhas podem decorrer de truncamento, resumo ou desobediência à instrução; verifique a entrada e valide a saída.",
+   "distractorRationales": {
+    "0": "Truncamento é uma causa possível, mas a restrição pode estar presente e ainda assim ser ignorada.",
+    "1": "Conversar não altera os pesos do modelo.",
+    "3": "Temperatura baixa não garante que restrições sejam seguidas."
+   }
+  },
+  "q1.3-09": {
+   "decision": "reescrita",
+   "stem": "Ao pedir análise de um documento extenso com uma regra crítica de segurança, qual estratégia é mais robusta?",
+   "options": [
+    "Colocar a regra no meio do documento, junto do trecho a que ela se aplica.",
+    "Enviar a regra numa mensagem anterior e o documento numa nova conversa.",
+    "Destacar a regra perto do pedido e conferir a resposta contra ela.",
+    "Usar um modelo de janela maior, que segue regras longas sem falhar."
+   ],
+   "correct": 2,
+   "rationale": "Posicionamento e prioridade das instruções ajudam, mas validação externa é necessária para regras críticas.",
+   "distractorRationales": {
+    "0": "Informação no meio de textos longos tende a ser menos aproveitada.",
+    "1": "Numa nova conversa, a regra não está no contexto.",
+    "3": "Janela maior não garante obediência; regras críticas exigem conferência."
+   }
+  },
+  "q1.4-03": {
+   "decision": "reescrita",
+   "stem": "Uma avaliação recompensa respostas corretas, mas penaliza respostas “não sei”, mesmo quando a pergunta é incerta. Qual risco isso pode criar em modelos de linguagem?",
+   "options": [
+    "O modelo passa a responder \"não sei\" com mais frequência.",
+    "O modelo passa a citar fontes para justificar cada resposta.",
+    "O modelo passa a gerar respostas mais curtas e cautelosas.",
+    "O modelo passa a arriscar palpites em vez de admitir incerteza."
+   ],
+   "correct": 3,
+   "rationale": "Critérios de avaliação que favorecem palpites podem incentivar respostas não fundamentadas.",
+   "distractorRationales": {
+    "0": "É o oposto: se \"não sei\" é punido, admitir incerteza deixa de compensar.",
+    "1": "O critério só olha o acerto; não premia citar fontes.",
+    "2": "O incentivo é arriscar uma resposta, não ser cauteloso."
+   },
+   "referenceIds": [
+    "openai-why-hallucinate"
+   ]
+  },
+  "q1.4-05": {
+   "decision": "reescrita",
+   "stem": "Um assistente respondeu a uma consulta jurídica com números de processos, artigos de lei e links de decisões. Qual checagem deve ter prioridade?",
+   "options": [
+    "Conferir se o texto está claro e bem escrito para um cliente sem formação jurídica.",
+    "Conferir se processos, artigos e links existem e dizem o que foi citado.",
+    "Conferir se a resposta segue a estrutura usual de um parecer jurídico.",
+    "Pedir ao próprio assistente que confirme se as citações estão corretas."
+   ],
+   "correct": 1,
+   "rationale": "Referências, números e normas são verificáveis e podem ser inventados ou atribuídos incorretamente.",
+   "distractorRationales": {
+    "0": "Clareza não demonstra que os dados são verdadeiros.",
+    "2": "Uma estrutura correta pode conter citações inventadas.",
+    "3": "O modelo pode confirmar com segurança uma citação inventada; é preciso checar na fonte."
+   }
+  },
+  "q1.5-02": {
+   "decision": "reescrita",
+   "stem": "Em um sistema de busca semântica, por que embeddings de textos sobre “gato” e “cachorro” podem ficar próximos?",
+   "options": [
+    "O treinamento aproxima textos usados em contextos parecidos.",
+    "A distância entre vetores segue a ordem alfabética das palavras.",
+    "Palavras do mesmo tema recebem sempre o mesmo vetor.",
+    "Palavras com grafia parecida ficam próximas no espaço."
+   ],
+   "correct": 0,
+   "rationale": "Embeddings podem refletir semelhança semântica; a proximidade concreta depende de modelo, contexto e métrica.",
+   "distractorRationales": {
+    "1": "A ordem alfabética não tem papel no cálculo.",
+    "2": "Palavras relacionadas ficam próximas, não idênticas.",
+    "3": "A proximidade vem do uso e do sentido, não da grafia; \"gato\" e \"cachorro\" nem se parecem na escrita."
+   }
+  },
+  "q1.5-06": {
+   "decision": "reescrita",
+   "stem": "Dois embeddings gerados pelo mesmo modelo têm similaridade de cosseno 0,95. O que é possível concluir diretamente?",
+   "options": [
+    "Os dois textos têm 95% das palavras em comum, na mesma ordem.",
+    "Os textos significam a mesma coisa em qualquer contexto.",
+    "Uma resposta baseada neles terá 95% de chance de acerto.",
+    "Os vetores apontam em direções muito parecidas."
+   ],
+   "correct": 3,
+   "rationale": "Cosseno 0,95 indica forte alinhamento angular entre vetores; não garante equivalência de significado.",
+   "distractorRationales": {
+    "0": "O cosseno compara vetores, não conta palavras iguais.",
+    "1": "Proximidade alta sugere semelhança, mas não equivalência total.",
+    "2": "A métrica não mede a chance de acerto de respostas."
+   }
+  },
+  "q1.6-04": {
+   "decision": "reescrita",
+   "stem": "Você quer extrair CNPJ e valor de notas fiscais com um LLM. Qual abordagem é mais confiável?",
+   "options": [
+    "Pedir texto livre com temperatura alta e copiar os valores à mão.",
+    "Pedir saída estruturada e validar formato e conteúdo de cada campo.",
+    "Usar temperatura zero, que garante a extração correta dos números.",
+    "Pedir que o modelo confira os próprios números antes de responder."
+   ],
+   "correct": 1,
+   "rationale": "Extração exige esquema, validação e conferência; temperatura baixa pode reduzir variação, mas não garante exatidão.",
+   "distractorRationales": {
+    "0": "Temperatura alta aumenta a variação, e copiar à mão abre espaço para erros.",
+    "2": "Temperatura zero reduz a variação, mas não garante números corretos.",
+    "3": "A autoconferência do modelo ajuda pouco; validar o formato fora dele (por exemplo, os dígitos verificadores do CNPJ) é mais confiável."
+   }
+  },
+  "q1.6-06": {
+   "decision": "reescrita",
+   "stem": "Na amostragem top-p (nucleus sampling), o que representa um limiar de 0,9?",
+   "options": [
+    "Sorteia entre os 90 tokens mais prováveis da lista.",
+    "Multiplica a temperatura por 0,9 antes do sorteio.",
+    "Descarta os tokens com menos de 90% de probabilidade.",
+    "Sorteia no menor grupo que soma 90% de probabilidade."
+   ],
+   "correct": 3,
+   "rationale": "Top-p seleciona um conjunto pela massa de probabilidade acumulada, com detalhes dependentes da implementação.",
+   "distractorRationales": {
+    "0": "Isso descreve o top-k; no top-p, o número de candidatos varia com a distribuição.",
+    "1": "Top-p e temperatura são parâmetros diferentes.",
+    "2": "Quase nenhum token tem 90% sozinho; o limite é da soma acumulada."
+   }
+  },
+  "q1.6-10": {
+   "decision": "reescrita",
+   "stem": "Você precisa de ideias variadas para nomes de uma padaria sem perder relevância. Qual estratégia é mais defensável?",
+   "options": [
+    "Ajustar a amostragem aos poucos, dar critérios no pedido e avaliar as ideias.",
+    "Usar a temperatura máxima, que produz as ideias mais variadas e mais criativas.",
+    "Usar temperatura zero e repetir o mesmo pedido até surgirem nomes diferentes.",
+    "Pedir ideias \"criativas e relevantes\" e aceitar a primeira lista que vier."
+   ],
+   "correct": 0,
+   "rationale": "Parâmetros influenciam diversidade, mas não garantem qualidade; critérios e avaliação continuam necessários.",
+   "distractorRationales": {
+    "1": "No máximo, as sugestões tendem a perder coerência e relevância.",
+    "2": "Com temperatura zero, repetir o pedido tende a trazer as mesmas respostas.",
+    "3": "Sem critérios concretos e sem avaliação, não há como garantir relevância."
+   },
+   "difficulty": "intermediaria"
+  },
+  "q1.7-02": {
+   "decision": "reescrita",
+   "stem": "Qual característica distingue modelos comercializados como voltados a raciocínio em várias etapas?",
+   "options": [
+    "Podem processar mais antes de responder, sem precisar mostrar as etapas.",
+    "Consultam uma base de soluções prontas para problemas de várias etapas.",
+    "Mostram ao usuário todas as etapas internas que usaram para responder.",
+    "Respondem mais rápido, porque dividem o problema em partes menores."
+   ],
+   "correct": 0,
+   "rationale": "Esses modelos podem dedicar mais processamento à resolução de problemas; detalhes internos e visibilidade variam.",
+   "distractorRationales": {
+    "1": "Eles geram a solução na hora, com processamento adicional; não consultam respostas prontas.",
+    "2": "Muitos serviços mostram só um resumo das etapas internas, ou nada.",
+    "3": "Processar mais costuma aumentar o tempo de resposta."
+   }
+  },
+  "q1.7-04": {
+   "decision": "reescrita",
+   "stem": "Por que uma chamada a determinado modelo de raciocínio pode custar mais do que a chamada a outro modelo?",
+   "options": [
+    "Porque cobra uma taxa fixa extra por pergunta, igual em todos os fornecedores.",
+    "Porque pode gerar tokens de raciocínio, que também são cobrados.",
+    "Porque precisa receber o histórico completo, mesmo em perguntas novas.",
+    "Porque só aceita perguntas longas, que geram mais tokens de entrada."
+   ],
+   "correct": 1,
+   "rationale": "O custo pode incluir tokens de raciocínio e diferentes tarifas; cobrança e medição variam por API.",
+   "distractorRationales": {
+    "0": "Não existe taxa fixa universal; a cobrança varia por fornecedor.",
+    "2": "O histórico enviado depende do aplicativo, não do tipo de modelo.",
+    "3": "Modelos de raciocínio aceitam perguntas curtas; o custo extra vem do que eles geram."
+   }
+  },
+  "q1.7-08": {
+   "decision": "reescrita",
+   "stem": "No contexto da recomendação do PDF para estudar modelos locais com um computador de 8 GB de RAM, qual caminho é mais prudente?",
+   "options": [
+    "Instalar um modelo de 70 bilhões de parâmetros em versão quantizada.",
+    "Usar só serviços pagos, porque modelos locais exigem assinatura.",
+    "Testar modelos de 1 a 3 bilhões de parâmetros, como indica o PDF.",
+    "Instalar modelos de 7 a 8 bilhões, que o PDF indica para 8 GB."
+   ],
+   "correct": 2,
+   "rationale": "É orientação curricular contextual: tamanho, quantização, sistema e limites dos serviços podem mudar.",
+   "distractorRationales": {
+    "0": "Mesmo quantizado, um modelo de 70 bilhões exige muito mais memória.",
+    "1": "Rodar localmente é gratuito; o limite é o hardware.",
+    "3": "O PDF indica modelos de 3 a 8 bilhões para 16 GB de RAM; com 8 GB, recomenda 1 a 3 bilhões ou o Google Colab."
+   }
+  },
+  "q1.7-09": {
+   "decision": "reescrita",
+   "stem": "Um escritório quer analisar documentos internos sem enviá-los a um provedor externo de IA. Qual opção atende melhor a esse requisito, sem dispensar outras proteções?",
+   "options": [
+    "Usar um chat público e apagar a conversa logo depois de terminar a análise.",
+    "Usar uma API externa com uma conta sem dados pessoais.",
+    "Rodar um modelo local em infraestrutura controlada pelo escritório.",
+    "Usar um chat público com o histórico desativado nas configurações."
+   ],
+   "correct": 2,
+   "rationale": "Execução local pode evitar envio ao provedor externo, mas exige controles de segurança e privacidade próprios.",
+   "distractorRationales": {
+    "0": "Apagar a conversa não desfaz o envio ao provedor.",
+    "1": "Uma conta genérica não impede que os documentos sejam enviados ao provedor.",
+    "3": "Desativar o histórico pode reduzir a retenção, mas os documentos continuam sendo enviados ao provedor."
+   }
+  },
+  "q1.8-01": {
+   "decision": "reescrita",
+   "stem": "Ao consultar a ficha técnica de um modelo, o que normalmente significa “data de corte do conhecimento”?",
+   "options": [
+    "A data em que o serviço deixará de funcionar.",
+    "A data da última atualização do aplicativo de chat.",
+    "O limite aproximado dos dados usados no treinamento.",
+    "A data da última busca na internet feita pelo modelo."
+   ],
+   "correct": 2,
+   "rationale": "A data de corte indica até quando, aproximadamente, vão os dados do treinamento. Ela não define sozinha o que o sistema consegue consultar: ferramentas como busca podem trazer informações mais novas.",
+   "distractorRationales": {
+    "0": "Não é prazo de validade do serviço.",
+    "1": "O aplicativo pode ser atualizado sem que o modelo seja retreinado.",
+    "3": "Busca na internet é uma ferramenta à parte; o corte diz respeito ao que o modelo aprendeu no treinamento."
+   }
+  },
+  "q1.8-06": {
+   "decision": "reescrita",
+   "stem": "Um colaborador quer usar um chat público de IA para revisar uma mensagem de atendimento. Qual ação minimiza melhor a exposição de dados?",
+   "options": [
+    "Enviar a conversa inteira, já que o objetivo é só revisar o texto.",
+    "Trocar o nome do cliente, mas manter CPF e número do contrato.",
+    "Enviar o texto original e pedir ao chat que não guarde os dados.",
+    "Trocar nomes, CPF e outros dados por informações fictícias."
+   ],
+   "correct": 3,
+   "rationale": "Minimização e anonimização/pseudonimização apropriadas reduzem exposição; não enviar segredos ou dados pessoais desnecessários.",
+   "distractorRationales": {
+    "0": "A finalidade não justifica expor dados pessoais.",
+    "1": "CPF e contrato ainda identificam a pessoa.",
+    "2": "Um pedido ao modelo não muda a política de retenção do serviço."
+   }
+  },
+  "q1.8-09": {
+   "decision": "reescrita",
+   "stem": "O PDF recomenda usar só dados fictícios ou públicos no plano gratuito da API do Gemini, porque ali os dados podem ser usados para melhorar os produtos do Google. Qual atitude é mais segura antes de enviar dados reais a qualquer serviço de IA?",
+   "options": [
+    "Usar um plano pago, porque ele impede qualquer retenção dos dados enviados.",
+    "Usar dados reais, já que planos gratuitos os bloqueiam tecnicamente.",
+    "Ler os termos atuais do serviço e evitar dados pessoais desnecessários.",
+    "Usar o serviço em português, que tem regras de privacidade próprias."
+   ],
+   "correct": 2,
+   "rationale": "Políticas de uso e retenção mudam; a recomendação de dados fictícios reduz risco, mas deve ser combinada com consulta às condições vigentes.",
+   "distractorRationales": {
+    "0": "Planos pagos podem ter outras regras, mas não garantem ausência de retenção; é preciso ler os termos.",
+    "1": "Não há bloqueio técnico: o risco está no uso que o serviço pode fazer dos dados.",
+    "3": "O idioma não muda a política de dados do serviço."
+   }
+  },
+  "q1.9-03": {
+   "decision": "reescrita",
+   "stem": "Uma API cobra R$ 2 por milhão de tokens de entrada e R$ 8 por milhão de tokens de saída. Se você reduzir exatamente 1.000 tokens de apenas um desses lados, qual redução economiza mais?",
+   "options": [
+    "As duas reduções economizam o mesmo valor.",
+    "Reduzir a entrada economiza 4 vezes mais.",
+    "Reduzir a entrada economiza 2 vezes mais.",
+    "Reduzir a saída economiza 4 vezes mais."
+   ],
+   "correct": 3,
+   "rationale": "A tarifa de saída é quatro vezes a de entrada; para a mesma quantidade de tokens, a economia também é quatro vezes maior.",
+   "distractorRationales": {
+    "0": "As tarifas são diferentes, então a economia também é.",
+    "1": "Inverte a relação: a saída é que custa 4 vezes mais.",
+    "2": "A razão entre as tarifas é 4, não 2, e a mais cara é a saída."
+   }
+  },
+  "q1.9-05": {
+   "decision": "reescrita",
+   "stem": "Você está experimentando APIs de IA e quer evitar cobranças inesperadas. Qual prática oferece melhor controle?",
+   "options": [
+    "Usar o modelo mais caro, porque ele costuma ter uma cobrança mais previsível.",
+    "Não cadastrar cartão e acompanhar o consumo no painel da plataforma.",
+    "Compartilhar a mesma chave com colegas para dividir o custo.",
+    "Cadastrar o cartão e conferir a fatura no fim de cada mês."
+   ],
+   "correct": 1,
+   "rationale": "O PDF recomenda não cadastrar cartão durante os estudos: sem cartão, não há cobrança surpresa. Acompanhar o consumo no painel mostra quando você se aproxima dos limites gratuitos, que mudam com frequência.",
+   "distractorRationales": {
+    "0": "Preço mais alto não torna o custo mais previsível; só o aumenta.",
+    "2": "Compartilhar chaves é inseguro e tira o controle do consumo.",
+    "3": "Conferir a fatura só no fim do mês revela a cobrança depois que ela já aconteceu."
+   }
+  },
+  "q1.9-06": {
+   "decision": "reescrita",
+   "stem": "Por que executar um modelo de linguagem maior pode exigir mais recursos que executar um menor, em condições comparáveis?",
+   "options": [
+    "Porque modelos maiores sempre geram respostas mais longas.",
+    "Porque modelos maiores entendem mais idiomas ao mesmo tempo.",
+    "Porque modelos maiores precisam de internet mais rápida.",
+    "Porque cada token passa por cálculos com mais parâmetros."
+   ],
+   "correct": 3,
+   "rationale": "Mais parâmetros costumam elevar demanda computacional, mas custo real depende de várias escolhas de implementação.",
+   "distractorRationales": {
+    "0": "O tamanho do modelo não determina o tamanho da resposta.",
+    "1": "Idiomas não explicam o custo.",
+    "2": "Rodar o modelo depende de memória e processamento, não da internet."
+   }
+  }
+ }
+}

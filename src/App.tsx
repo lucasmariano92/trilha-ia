@@ -153,7 +153,7 @@ function Shell() {
             ))}
           </ul>
         </nav>
-        <p className="muted mt-4 px-3 text-[11px] leading-4">Dados salvos só neste navegador · sem login · v2.0.0-alpha.2</p>
+        <p className="muted mt-4 px-3 text-[11px] leading-4">Dados salvos só neste navegador · sem login · v2.0.0-alpha.4</p>
       </aside>
       {menuOpen && <div className="fixed inset-0 z-30 bg-black/40 lg:hidden" onClick={() => setMenuOpen(false)} aria-hidden="true" />}
 

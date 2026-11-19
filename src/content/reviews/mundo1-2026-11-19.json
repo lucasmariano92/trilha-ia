@@ -1,0 +1,870 @@
+{
+ "source": "Planilha \"Mundo_1_37_questoes_corrigidas.xlsx\" (revisão humana)",
+ "reviewedOn": "2026-11-19",
+ "items": {
+  "q1.1-01": {
+   "decision": "aprovada"
+  },
+  "q1.1-02": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Uma planilha marca um pedido como urgente somente quando encontra a palavra exata “urgente”. Não há treinamento nem análise de exemplos. Qual descrição é mais precisa?",
+   "options": [
+    "É uma automação baseada em regra explícita, sem aprendizado de máquina.",
+    "É um classificador supervisionado, pois atribui uma categoria.",
+    "É um sistema de aprendizado não supervisionado, pois não recebe rótulos.",
+    "É um modelo generativo, pois produz uma etiqueta de classificação."
+   ],
+   "correct": 0,
+   "rationale": "A regra foi definida manualmente e não foi aprendida a partir de dados; automação por regras não é necessariamente IA.",
+   "distractorRationales": {
+    "1": "Classificação não implica aprendizado supervisionado; faltam dados e treinamento.",
+    "2": "A ausência de rótulos não torna uma regra fixa aprendizado não supervisionado.",
+    "3": "Gerar um rótulo predefinido não caracteriza geração de conteúdo por modelo generativo."
+   }
+  },
+  "q1.1-03": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Em aprendizado profundo (deep learning), a que se refere principalmente a palavra “profundo”?",
+   "options": [
+    "Ao grande número de exemplos rotulados usados no treinamento.",
+    "À quantidade de parâmetros ajustáveis do modelo, independentemente da arquitetura.",
+    "À precisão superior em qualquer conjunto de dados.",
+    "À presença de múltiplas camadas de processamento em redes neurais."
+   ],
+   "correct": 3,
+   "rationale": "Profundidade descreve a organização de várias camadas de transformação de representações.",
+   "distractorRationales": {
+    "0": "Volume de dados não define profundidade da arquitetura.",
+    "1": "Modelos com muitos parâmetros não são necessariamente profundos.",
+    "2": "Profundidade não garante desempenho superior em todas as tarefas."
+   }
+  },
+  "q1.1-04": {
+   "decision": "aprovada"
+  },
+  "q1.1-05": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Um LLM que gera texto foi treinado com dados usando uma rede neural de múltiplas camadas. Qual classificação é adequada?",
+   "options": [
+    "É IA generativa, mas não aprendizado de máquina, pois produz respostas.",
+    "É uma aplicação de IA que usa aprendizado de máquina e profundo e pode realizar geração de texto.",
+    "Todo sistema de IA também é generativo e usa redes neurais profundas.",
+    "IA generativa e aprendizado profundo são exatamente a mesma categoria."
+   ],
+   "correct": 1,
+   "rationale": "Esse LLM se enquadra em IA, usa aprendizado de máquina e redes profundas e tem capacidade generativa; as categorias não são sinônimas nem formam sempre uma única hierarquia linear.",
+   "distractorRationales": {
+    "0": "Modelos generativos modernos podem ser treinados por aprendizado de máquina.",
+    "2": "Existem sistemas de IA não generativos e que não usam deep learning.",
+    "3": "Aprendizado profundo também é empregado em tarefas não generativas."
+   }
+  },
+  "q1.1-06": {
+   "decision": "aprovada"
+  },
+  "q1.1-07": {
+   "decision": "aprovada"
+  },
+  "q1.1-08": {
+   "decision": "aprovada"
+  },
+  "q1.1-09": {
+   "decision": "aprovada"
+  },
+  "q1.1-10": {
+   "decision": "aprovada"
+  },
+  "q1.1-11": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Qual sequência representa um fluxo didático comum — mas não obrigatório — de desenvolvimento de um assistente baseado em LLM?",
+   "options": [
+    "Ajuste supervisionado → pré-treinamento → coleta de dados.",
+    "Alinhamento → pré-treinamento → ajuste supervisionado.",
+    "Ajuste supervisionado → alinhamento → pré-treinamento.",
+    "Pré-treinamento → ajuste supervisionado → etapas de alinhamento."
+   ],
+   "correct": 3,
+   "rationale": "É uma sequência frequentemente ensinada; projetos reais podem combinar, omitir ou reorganizar etapas conforme a técnica.",
+   "distractorRationales": {
+    "0": "O pré-treinamento normalmente antecede o ajuste supervisionado.",
+    "1": "Alinhamento geralmente não antecede o pré-treinamento do modelo-base.",
+    "2": "Pré-treinamento não costuma ser a etapa final desse fluxo."
+   }
+  },
+  "q1.1-12": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Você envia “Qual é a capital da França?” a um modelo-base treinado apenas para prever a continuação de texto. Qual afirmação é mais segura?",
+   "options": [
+    "Ele necessariamente responderá “Paris” de forma direta.",
+    "Ele pode responder “Paris” ou continuar o padrão do texto; não foi necessariamente ajustado para seguir instruções.",
+    "Ele sempre rejeitará a pergunta por não ter alinhamento.",
+    "Ele só consegue completar frases, nunca produzir respostas factuais."
+   ],
+   "correct": 1,
+   "rationale": "O pré-treinamento ensina padrões de continuação; modelos-base podem responder perguntas, mas não há garantia de comportamento instrucional.",
+   "distractorRationales": {
+    "0": "O comportamento não é determinístico nem garantido.",
+    "2": "Modelos-base podem produzir texto sem etapa de alinhamento.",
+    "3": "A continuação pode conter uma resposta factual."
+   }
+  },
+  "q1.1-13": {
+   "decision": "aprovada"
+  },
+  "q1.1-14": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Em projetos de LLM de grande porte, qual etapa costuma concentrar grande parte do custo computacional total de treinamento inicial?",
+   "options": [
+    "O ajuste fino com poucos exemplos, por definição sempre mais caro.",
+    "A inferência de uma única resposta, por definição equivalente ao treinamento completo.",
+    "A avaliação manual de uma única resposta.",
+    "O pré-treinamento em larga escala, que ajusta parâmetros sobre grande volume de dados."
+   ],
+   "correct": 3,
+   "rationale": "Em LLMs grandes, o pré-treinamento frequentemente exige recursos muito elevados; custos concretos variam por arquitetura, dados e escala.",
+   "distractorRationales": {
+    "0": "Ajuste fino pode ser caro, mas não é necessariamente mais custoso que pré-treinamento amplo.",
+    "1": "Uma inferência isolada não equivale ao custo de treinar o modelo.",
+    "2": "Uma avaliação individual não representa o maior gasto computacional do treinamento."
+   }
+  },
+  "q1.1-15": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Uma colega afirma: “O alinhamento ensina todos os fatos ao modelo e elimina suas respostas erradas”. Qual avaliação é adequada?",
+   "options": [
+    "O pré-treinamento costuma fornecer grande parte das capacidades; o alinhamento pode modificar comportamento e conhecimento, mas não elimina erros.",
+    "O alinhamento substitui completamente o pré-treinamento e garante exatidão.",
+    "O alinhamento apenas reduz o número de parâmetros, sem afetar respostas.",
+    "O alinhamento impede qualquer mudança de desempenho factual."
+   ],
+   "correct": 0,
+   "rationale": "O alinhamento orienta comportamento e pode alterar desempenho factual, mas não garante respostas sempre corretas.",
+   "distractorRationales": {
+    "1": "Não substitui necessariamente pré-treinamento nem garante exatidão.",
+    "2": "Alinhamento não se limita à compressão de parâmetros.",
+    "3": "Etapas de alinhamento podem afetar conhecimento e desempenho."
+   }
+  },
+  "q1.1-16": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Em um chat comum, sem treinamento contínuo durante a conversa, o que ocorre com os pesos do modelo a cada mensagem?",
+   "options": [
+    "São retreinados automaticamente com cada pergunta.",
+    "São substituídos pelo histórico completo da conversa.",
+    "Permanecem fixos durante a inferência; o contexto pode mudar a resposta.",
+    "São atualizados somente quando o usuário avalia a resposta."
+   ],
+   "correct": 2,
+   "rationale": "Na inferência convencional, os pesos não são atualizados a cada mensagem. Aprendizado ou atualizações podem existir em processos separados.",
+   "distractorRationales": {
+    "0": "Inferência não equivale a retreinamento automático.",
+    "1": "Histórico de contexto não substitui pesos do modelo.",
+    "3": "Avaliações não atualizam diretamente os pesos em cada interação."
+   }
+  },
+  "q1.1-17": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Um chat não possui memória entre conversas nem recupera histórico antigo. Você ensinou uma regra em uma conversa e iniciou outra. Por que a regra pode não ser seguida?",
+   "options": [
+    "O modelo necessariamente apagou seus pesos ao terminar a conversa.",
+    "Uma nova conversa sempre redefine o modelo do zero por pré-treinamento.",
+    "A regra não está no contexto da nova conversa e não foi incorporada aos pesos por aquele diálogo.",
+    "Toda regra enviada pelo usuário se transforma automaticamente em memória persistente."
+   ],
+   "correct": 2,
+   "rationale": "Sem memória ou recuperação, o contexto anterior não está disponível na nova conversa; a conversa não retreina automaticamente os pesos.",
+   "distractorRationales": {
+    "0": "Pesos não são apagados ao encerrar o chat.",
+    "1": "Iniciar conversa não implica pré-treinamento.",
+    "3": "Persistência depende de recursos específicos, ausentes no cenário."
+   }
+  },
+  "q1.1-18": {
+   "decision": "aprovada"
+  },
+  "q1.1-19": {
+   "decision": "aprovada"
+  },
+  "q1.1-20": {
+   "decision": "aprovada"
+  },
+  "q1.2-01": {
+   "decision": "aprovada"
+  },
+  "q1.2-02": {
+   "decision": "aprovada"
+  },
+  "q1.2-03": {
+   "decision": "aprovada"
+  },
+  "q1.2-04": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Ao comparar a tokenização de textos equivalentes em português e inglês, qual conclusão é tecnicamente correta?",
+   "options": [
+    "Português sempre gera exatamente o dobro de tokens.",
+    "A quantidade depende do tokenizador e da redação; em alguns modelos, textos em português podem consumir mais tokens.",
+    "Idiomas com acentos são convertidos automaticamente para inglês antes da cobrança.",
+    "Todos os tokenizadores dividem cada palavra em um único token."
+   ],
+   "correct": 1,
+   "rationale": "Tokenizadores usam vocabulários e segmentações próprios; diferenças entre idiomas são tendências contextuais, não regras universais.",
+   "distractorRationales": {
+    "0": "Não há proporção fixa entre idiomas.",
+    "2": "Não existe regra geral de tradução obrigatória para cobrança.",
+    "3": "Uma palavra pode conter um ou vários tokens."
+   }
+  },
+  "q1.2-05": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Uma empresa vai traduzir para português instruções antes enviadas em inglês a uma API que cobra por token. Como estimar a mudança de custo?",
+   "options": [
+    "Assumir que o custo sempre cai porque português tem menos palavras.",
+    "Tokenizar as duas versões no modelo escolhido e comparar as contagens, considerando também o preço do serviço.",
+    "Assumir que o preço é igual porque o significado é o mesmo.",
+    "Multiplicar a quantidade de palavras por dois em qualquer idioma."
+   ],
+   "correct": 1,
+   "rationale": "O custo depende da quantidade efetiva de tokens, das tarifas e possivelmente de outros componentes da chamada; é preciso medir.",
+   "distractorRationales": {
+    "0": "Menos palavras não implica necessariamente menos tokens.",
+    "2": "Mesmo significado pode produzir tokenizações diferentes.",
+    "3": "Não há conversão universal de palavras em tokens."
+   }
+  },
+  "q1.2-06": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "O PDF da trilha usa a regra de bolso de cerca de 500 a 800 tokens por página de texto em português. Como interpretar essa faixa?",
+   "options": [
+    "É um limite técnico fixo de qualquer página PDF.",
+    "É a quantidade exata, independentemente do conteúdo.",
+    "É uma medida aplicável apenas a páginas em inglês.",
+    "É uma estimativa ilustrativa; densidade do texto e tokenizador podem alterar muito o total."
+   ],
+   "correct": 3,
+   "rationale": "A faixa de 500–800 tokens é apresentada como aproximação curricular, não como medição universal.",
+   "distractorRationales": {
+    "0": "Página não tem limite universal de tokens.",
+    "1": "Formato e conteúdo afetam a contagem.",
+    "2": "A estimativa citada é para português."
+   }
+  },
+  "q1.2-07": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Adotando exclusivamente a regra de bolso do PDF (500–800 tokens por página), qual faixa estimada corresponde a 8 páginas de entrada e 1 de saída, sem contar instruções extras?",
+   "options": [
+    "Entrada: 4.000–6.400; saída: 500–800 tokens.",
+    "Entrada: 500–800; saída: 4.000–6.400 tokens.",
+    "Entrada: 8.000–12.800; saída: 500–800 tokens.",
+    "Entrada: 4.000–6.400; saída: exatamente 1 token."
+   ],
+   "correct": 0,
+   "rationale": "O cálculo é 8 × (500–800) para entrada e 1 × (500–800) para saída. São estimativas; instruções e formatação podem acrescentar tokens.",
+   "distractorRationales": {
+    "1": "Inverte as estimativas de entrada e saída.",
+    "2": "Duplica indevidamente a entrada.",
+    "3": "Uma página não equivale a um token."
+   }
+  },
+  "q1.2-08": {
+   "decision": "aprovada"
+  },
+  "q1.2-09": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Um aplicativo reenvia integralmente o histórico da conversa a cada chamada, sem resumo nem cache de cobrança. Por que uma pergunta curta no fim pode custar mais tokens de entrada?",
+   "options": [
+    "Porque o modelo aumenta a tarifa a cada mensagem, independentemente dos tokens.",
+    "Porque o tokenizador duplica cada pergunta antiga automaticamente.",
+    "Porque a chamada inclui as mensagens anteriores além da pergunta atual.",
+    "Porque a janela de contexto cresce de tamanho sem limite."
+   ],
+   "correct": 2,
+   "rationale": "No cenário descrito, a entrada inclui o histórico reenviado, aumentando a contagem de tokens.",
+   "distractorRationales": {
+    "0": "O custo não aumenta automaticamente pelo número da mensagem.",
+    "1": "A duplicação não é uma regra de tokenização.",
+    "3": "A janela de contexto tem limites definidos pelo modelo."
+   }
+  },
+  "q1.2-10": {
+   "decision": "aprovada"
+  },
+  "q1.3-01": {
+   "decision": "aprovada"
+  },
+  "q1.3-02": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Ao planejar uma chamada a um modelo com limite de contexto, o que deve ser contabilizado no orçamento de tokens?",
+   "options": [
+    "Tokens das instruções, mensagens e conteúdos incluídos na entrada, além do espaço exigido ou reservado para a saída conforme a API.",
+    "Apenas os tokens da última mensagem do usuário.",
+    "Apenas os tokens dos documentos anexados, nunca das instruções.",
+    "Somente a saída; a entrada não consome capacidade."
+   ],
+   "correct": 0,
+   "rationale": "A entrada utiliza contexto; dependendo da API/modelo, a geração também precisa caber no limite total ou em limite próprio.",
+   "distractorRationales": {
+    "1": "Instruções e histórico também podem integrar a entrada.",
+    "2": "Instruções ocupam tokens quando enviadas.",
+    "3": "A entrada também ocupa capacidade de processamento/contexto."
+   }
+  },
+  "q1.3-03": {
+   "decision": "aprovada"
+  },
+  "q1.3-04": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Um aplicativo oferece “memória” entre conversas, armazenada fora do modelo. Como essa memória pode afetar o contexto de uma nova conversa?",
+   "options": [
+    "É gravada automaticamente nos pesos do modelo a cada chat.",
+    "Informações recuperadas ou resumidas podem ser inseridas na entrada e ocupar tokens de contexto.",
+    "Aumenta permanentemente a janela máxima do modelo.",
+    "É sempre enviada integralmente, sem seleção ou resumo."
+   ],
+   "correct": 1,
+   "rationale": "Memória externa pode ser recuperada, filtrada e incluída no contexto; não é sinônimo de mudança nos pesos.",
+   "distractorRationales": {
+    "0": "Memória de aplicativo não implica retreinamento dos pesos.",
+    "2": "Memória não altera automaticamente o limite do modelo.",
+    "3": "Sistemas podem selecionar ou resumir informações."
+   }
+  },
+  "q1.3-05": {
+   "decision": "descartada",
+   "comment": "Repete praticamente o mesmo objetivo e justificativa da questão 24 (idioma e consumo de tokens). Manter a 24 e substituir esta por outra habilidade do módulo 1.3."
+  },
+  "q1.3-06": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Um aplicativo recebe uma conversa maior do que o contexto aceito pelo modelo. Qual comportamento é possível?",
+   "options": [
+    "Os pesos absorvem automaticamente as mensagens mais antigas.",
+    "O modelo expande sozinho sua janela sem limite.",
+    "O sistema garante que tudo será mantido sem alterações.",
+    "O aplicativo pode truncar, resumir ou rejeitar a entrada, conforme a implementação."
+   ],
+   "correct": 3,
+   "rationale": "Aplicações tratam excesso de contexto de modos distintos; não se deve assumir uma política única.",
+   "distractorRationales": {
+    "0": "Contexto excedente não é incorporado automaticamente aos pesos.",
+    "1": "Há limites de contexto.",
+    "2": "Pode ocorrer perda, resumo ou erro de entrada."
+   }
+  },
+  "q1.3-07": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "No estudo “Lost in the Middle”, sobre uso de informações em contextos longos, qual padrão foi observado nos experimentos relatados?",
+   "options": [
+    "Em várias condições, modelos recuperavam melhor informações no início ou no fim do contexto do que no meio.",
+    "A posição da informação não afetou nenhuma condição avaliada.",
+    "O estudo provou que todo modelo sempre ignora o meio de qualquer documento.",
+    "O estudo demonstrou que aumentar a janela sempre melhora a precisão."
+   ],
+   "correct": 0,
+   "rationale": "Os experimentos relataram sensibilidade à posição da informação, não uma lei universal para todos os modelos e tarefas.",
+   "distractorRationales": {
+    "1": "A posição afetou desempenho em condições estudadas.",
+    "2": "O estudo não sustenta generalização universal.",
+    "3": "Janelas maiores não garantiram melhor uso de informações."
+   },
+   "referenceIds": [
+    "lost-in-the-middle"
+   ]
+  },
+  "q1.3-08": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Você informou uma restrição importante no início de uma conversa longa, mas a resposta final a viola. Qual diagnóstico é mais adequado?",
+   "options": [
+    "A violação prova que o modelo removeu a informação do contexto.",
+    "A violação prova que o modelo alterou seus pesos durante a conversa.",
+    "Verificar se a restrição ainda estava no contexto e se foi seguida; ela pode ter sido truncada ou ignorada mesmo presente.",
+    "Basta aumentar a temperatura para garantir que a restrição seja seguida."
+   ],
+   "correct": 2,
+   "rationale": "Falhas podem decorrer de truncamento, resumo ou desobediência à instrução; verifique a entrada e valide a saída.",
+   "distractorRationales": {
+    "0": "O erro não identifica uma causa única.",
+    "1": "Não há evidência de atualização dos pesos.",
+    "3": "Temperatura não garante conformidade com restrições."
+   }
+  },
+  "q1.3-09": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Ao pedir análise de um documento extenso com uma regra crítica de segurança, qual estratégia é mais robusta?",
+   "options": [
+    "Esconder a regra no meio do documento e confiar que será encontrada.",
+    "Repetir a regra apenas em um arquivo não enviado.",
+    "Destacar a regra em instrução apropriada, manter a tarefa clara e validar a resposta contra a regra.",
+    "Aumentar a janela e dispensar qualquer verificação da saída."
+   ],
+   "correct": 2,
+   "rationale": "Posicionamento e prioridade das instruções ajudam, mas validação externa é necessária para regras críticas.",
+   "distractorRationales": {
+    "0": "Informação no meio pode receber menos atenção em alguns cenários.",
+    "1": "Instrução ausente da entrada não pode orientar a chamada.",
+    "3": "Mais contexto não assegura obediência."
+   }
+  },
+  "q1.3-10": {
+   "decision": "aprovada"
+  },
+  "q1.4-01": {
+   "decision": "aprovada"
+  },
+  "q1.4-02": {
+   "decision": "aprovada"
+  },
+  "q1.4-03": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Uma avaliação recompensa respostas corretas, mas penaliza respostas “não sei”, mesmo quando a pergunta é incerta. Qual risco isso pode criar em modelos de linguagem?",
+   "options": [
+    "Reduzir a probabilidade de o modelo produzir qualquer texto.",
+    "Eliminar todos os erros factuais durante o treinamento.",
+    "Fazer o modelo utilizar obrigatoriamente fontes verificadas.",
+    "Incentivar palpites confiantes em vez de admitir incerteza, contribuindo para alucinações."
+   ],
+   "correct": 3,
+   "rationale": "Critérios de avaliação que favorecem palpites podem incentivar respostas não fundamentadas.",
+   "distractorRationales": {
+    "0": "O incentivo descrito não impede a geração de texto.",
+    "1": "Recompensar palpites não elimina erros.",
+    "2": "Recompensa por acerto não implica uso de fontes."
+   },
+   "referenceIds": [
+    "openai-why-hallucinate"
+   ]
+  },
+  "q1.4-04": {
+   "decision": "aprovada"
+  },
+  "q1.4-05": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Um assistente respondeu a uma consulta jurídica com números de processos, artigos de lei e links de decisões. Qual checagem deve ter prioridade?",
+   "options": [
+    "Conferir apenas a fluidez e o tom do texto.",
+    "Verificar a existência e a correspondência das fontes, dos números e das normas citadas.",
+    "Confirmar apenas se a resposta está bem formatada em tópicos.",
+    "Aceitar as referências se o modelo declarar alta confiança."
+   ],
+   "correct": 1,
+   "rationale": "Referências, números e normas são verificáveis e podem ser inventados ou atribuídos incorretamente.",
+   "distractorRationales": {
+    "0": "Fluidez não demonstra veracidade factual.",
+    "2": "Formatação não valida referências.",
+    "3": "Autoconfiança do modelo não é evidência independente."
+   }
+  },
+  "q1.4-06": {
+   "decision": "aprovada"
+  },
+  "q1.4-07": {
+   "decision": "aprovada"
+  },
+  "q1.4-08": {
+   "decision": "aprovada"
+  },
+  "q1.4-09": {
+   "decision": "aprovada"
+  },
+  "q1.4-10": {
+   "decision": "aprovada"
+  },
+  "q1.5-01": {
+   "decision": "aprovada"
+  },
+  "q1.5-02": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Em um sistema de busca semântica, por que embeddings de textos sobre “gato” e “cachorro” podem ficar próximos?",
+   "options": [
+    "Porque o treinamento pode representar relações semânticas semelhantes em vetores próximos, dependendo do modelo e do contexto.",
+    "Porque a distância é calculada pela ordem alfabética das palavras.",
+    "Porque todas as palavras sobre animais recebem o mesmo vetor.",
+    "Porque proximidade é garantida apenas quando duas palavras têm o mesmo número de letras."
+   ],
+   "correct": 0,
+   "rationale": "Embeddings podem refletir semelhança semântica; a proximidade concreta depende de modelo, contexto e métrica.",
+   "distractorRationales": {
+    "1": "A distância não é definida pela ordem alfabética.",
+    "2": "Palavras relacionadas não recebem necessariamente vetores idênticos.",
+    "3": "Comprimento da palavra não determina similaridade semântica."
+   }
+  },
+  "q1.5-03": {
+   "decision": "aprovada"
+  },
+  "q1.5-04": {
+   "decision": "aprovada"
+  },
+  "q1.5-05": {
+   "decision": "aprovada"
+  },
+  "q1.5-06": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Dois embeddings gerados pelo mesmo modelo têm similaridade de cosseno 0,95. O que é possível concluir diretamente?",
+   "options": [
+    "Os textos contêm exatamente 95% das mesmas palavras.",
+    "Os textos são equivalentes em todos os contextos.",
+    "A resposta gerada a partir deles será 95% correta.",
+    "Os vetores apontam em direções bastante próximas; isso pode indicar semelhança segundo esse modelo."
+   ],
+   "correct": 3,
+   "rationale": "Cosseno 0,95 indica forte alinhamento angular entre vetores; não garante equivalência de significado.",
+   "distractorRationales": {
+    "0": "Similaridade de cosseno não mede porcentagem de palavras idênticas.",
+    "1": "Proximidade vetorial não comprova equivalência total.",
+    "2": "A métrica não representa precisão de respostas."
+   }
+  },
+  "q1.5-07": {
+   "decision": "aprovada"
+  },
+  "q1.5-08": {
+   "decision": "aprovada"
+  },
+  "q1.5-09": {
+   "decision": "aprovada"
+  },
+  "q1.5-10": {
+   "decision": "aprovada"
+  },
+  "q1.6-01": {
+   "decision": "aprovada"
+  },
+  "q1.6-02": {
+   "decision": "aprovada"
+  },
+  "q1.6-03": {
+   "decision": "aprovada"
+  },
+  "q1.6-04": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Você quer extrair CNPJ e valor de notas fiscais com um LLM. Qual abordagem é mais confiável?",
+   "options": [
+    "Usar temperatura alta e aceitar a primeira saída como correta.",
+    "Usar saída estruturada e validações de formato e conteúdo; temperatura baixa pode ajudar na consistência.",
+    "Aumentar a temperatura para melhorar o reconhecimento de números.",
+    "Ignorar validação porque temperatura zero garante extração perfeita."
+   ],
+   "correct": 1,
+   "rationale": "Extração exige esquema, validação e conferência; temperatura baixa pode reduzir variação, mas não garante exatidão.",
+   "distractorRationales": {
+    "0": "Variabilidade alta não substitui conferência.",
+    "2": "Temperatura não melhora automaticamente reconhecimento de valores.",
+    "3": "Mesmo temperatura zero pode produzir erros."
+   }
+  },
+  "q1.6-05": {
+   "decision": "aprovada"
+  },
+  "q1.6-06": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Na amostragem top-p (nucleus sampling), o que representa um limiar de 0,9?",
+   "options": [
+    "Aumentar a temperatura em 90%.",
+    "Selecionar exatamente 90 tokens candidatos.",
+    "Garantir 90% de respostas corretas.",
+    "Formar um conjunto de tokens mais prováveis até atingir aproximadamente 90% de probabilidade acumulada e amostrar nele."
+   ],
+   "correct": 3,
+   "rationale": "Top-p seleciona um conjunto pela massa de probabilidade acumulada, com detalhes dependentes da implementação.",
+   "distractorRationales": {
+    "0": "Top-p é distinto de temperatura.",
+    "1": "O número de candidatos varia com a distribuição.",
+    "2": "Não é métrica de acurácia."
+   }
+  },
+  "q1.6-07": {
+   "decision": "aprovada"
+  },
+  "q1.6-08": {
+   "decision": "aprovada"
+  },
+  "q1.6-09": {
+   "decision": "aprovada"
+  },
+  "q1.6-10": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Você precisa de ideias variadas para nomes de uma padaria sem perder relevância. Qual estratégia é mais defensável?",
+   "options": [
+    "Testar ajustes moderados de amostragem, dar critérios claros no prompt e avaliar as sugestões obtidas.",
+    "Definir temperatura máxima e presumir que todas as ideias serão boas.",
+    "Usar temperatura zero e afirmar que a resposta será sempre única.",
+    "Ajustar top-p sem verificar se a API oferece esse parâmetro."
+   ],
+   "correct": 0,
+   "rationale": "Parâmetros influenciam diversidade, mas não garantem qualidade; critérios e avaliação continuam necessários.",
+   "distractorRationales": {
+    "1": "Mais aleatoriedade pode produzir sugestões inadequadas.",
+    "2": "Temperatura baixa não garante resposta única nem diversidade.",
+    "3": "Parâmetros disponíveis variam entre serviços."
+   }
+  },
+  "q1.7-01": {
+   "decision": "aprovada"
+  },
+  "q1.7-02": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Qual característica distingue modelos comercializados como voltados a raciocínio em várias etapas?",
+   "options": [
+    "Podem empregar processamento adicional antes da resposta final para lidar com tarefas encadeadas, sem necessariamente expor etapas internas.",
+    "Garantem resultados corretos em qualquer problema matemático.",
+    "Sempre revelam integralmente seus passos internos ao usuário.",
+    "Respondem obrigatoriamente mais rápido que modelos sem essa especialização."
+   ],
+   "correct": 0,
+   "rationale": "Esses modelos podem dedicar mais processamento à resolução de problemas; detalhes internos e visibilidade variam.",
+   "distractorRationales": {
+    "1": "Nenhum modelo garante acerto universal.",
+    "2": "Etapas internas podem não ser disponibilizadas.",
+    "3": "Processamento adicional pode aumentar latência."
+   }
+  },
+  "q1.7-03": {
+   "decision": "aprovada"
+  },
+  "q1.7-04": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Por que uma chamada a determinado modelo de raciocínio pode custar mais do que a chamada a outro modelo?",
+   "options": [
+    "Porque todos os fornecedores cobram uma taxa fixa universal por raciocínio.",
+    "Porque o modelo pode usar mais tokens ou processamento, e as tarifas dependem do fornecedor e do serviço.",
+    "Porque modelos de raciocínio só funcionam com imagens.",
+    "Porque o custo depende apenas do tamanho da pergunta digitada."
+   ],
+   "correct": 1,
+   "rationale": "O custo pode incluir tokens de raciocínio e diferentes tarifas; cobrança e medição variam por API.",
+   "distractorRationales": {
+    "0": "Não existe taxa fixa universal.",
+    "2": "Raciocínio não é exclusivo de imagens.",
+    "3": "Saída e processamento também influenciam custos."
+   }
+  },
+  "q1.7-05": {
+   "decision": "aprovada"
+  },
+  "q1.7-06": {
+   "decision": "aprovada"
+  },
+  "q1.7-07": {
+   "decision": "aprovada"
+  },
+  "q1.7-08": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "No contexto da recomendação do PDF para estudar modelos locais com um computador de 8 GB de RAM, qual caminho é mais prudente?",
+   "options": [
+    "Executar qualquer modelo de 70B sem verificar requisitos.",
+    "Presumir que todo modelo local exige assinatura paga.",
+    "Experimentar modelos menores, como os de 1–3B citados na trilha, verificando requisitos e alternativas gratuitas atuais.",
+    "Assumir que 8 GB garantem desempenho satisfatório em qualquer modelo quantizado."
+   ],
+   "correct": 2,
+   "rationale": "É orientação curricular contextual: tamanho, quantização, sistema e limites dos serviços podem mudar.",
+   "distractorRationales": {
+    "0": "Modelos de 70B normalmente exigem recursos muito superiores.",
+    "1": "Execução local pode ser gratuita, embora exija hardware.",
+    "3": "RAM isolada não garante desempenho."
+   }
+  },
+  "q1.7-09": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Um escritório quer analisar documentos internos sem enviá-los a um provedor externo de IA. Qual opção atende melhor a esse requisito, sem dispensar outras proteções?",
+   "options": [
+    "Enviar os arquivos para qualquer chat público e depois apagar a conversa.",
+    "Enviar documentos a uma API externa com nome de usuário genérico.",
+    "Executar um modelo local em infraestrutura controlada, com acesso restrito, atualizações e proteção dos dados.",
+    "Publicar os arquivos em um repositório privado e compartilhar a URL com terceiros."
+   ],
+   "correct": 2,
+   "rationale": "Execução local pode evitar envio ao provedor externo, mas exige controles de segurança e privacidade próprios.",
+   "distractorRationales": {
+    "0": "Excluir conversa não elimina o envio inicial a terceiros.",
+    "1": "Conta genérica não impede transferência dos documentos.",
+    "3": "Repositório privado não equivale a isolamento do processamento."
+   }
+  },
+  "q1.7-10": {
+   "decision": "aprovada"
+  },
+  "q1.8-01": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Ao consultar a ficha técnica de um modelo, o que normalmente significa “data de corte do conhecimento”?",
+   "options": [
+    "A data de expiração obrigatória do serviço.",
+    "A data em que o usuário abriu a conversa.",
+    "Um marco aproximado de atualização do conhecimento do modelo; não define sozinho todas as fontes ou ferramentas disponíveis.",
+    "A data da última pesquisa na internet feita pelo aplicativo."
+   ],
+   "correct": 2,
+   "rationale": "A data de corte indica um limite aproximado do conhecimento incorporado; acesso a ferramentas ou atualizações pode alterar o que o sistema consulta.",
+   "distractorRationales": {
+    "0": "Não é prazo de expiração.",
+    "1": "Não depende do início da conversa.",
+    "3": "Pesquisa externa é distinta de conhecimento incorporado."
+   }
+  },
+  "q1.8-02": {
+   "decision": "aprovada"
+  },
+  "q1.8-03": {
+   "decision": "aprovada"
+  },
+  "q1.8-04": {
+   "decision": "aprovada"
+  },
+  "q1.8-05": {
+   "decision": "aprovada"
+  },
+  "q1.8-06": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Um colaborador quer usar um chat público de IA para revisar uma mensagem de atendimento. Qual ação minimiza melhor a exposição de dados?",
+   "options": [
+    "Enviar a conversa integral, incluindo CPF e telefone, porque o objetivo é apenas revisar o texto.",
+    "Substituir o nome, mas manter CPF e número de contrato reais.",
+    "Enviar o texto original e solicitar ao modelo que não o memorize.",
+    "Remover ou substituir identificadores e dados confidenciais, usando conteúdo fictício sempre que possível."
+   ],
+   "correct": 3,
+   "rationale": "Minimização e anonimização/pseudonimização apropriadas reduzem exposição; não enviar segredos ou dados pessoais desnecessários.",
+   "distractorRationales": {
+    "0": "Finalidade de revisão não justifica exposição integral.",
+    "1": "CPF e contrato ainda podem identificar pessoas.",
+    "2": "Um pedido ao modelo não controla políticas de retenção do serviço."
+   }
+  },
+  "q1.8-07": {
+   "decision": "aprovada"
+  },
+  "q1.8-08": {
+   "decision": "aprovada"
+  },
+  "q1.8-09": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "O PDF recomenda usar dados fictícios ou públicos em experimentos com planos gratuitos de IA. Qual atitude é mais segura antes de enviar dados reais a um serviço?",
+   "options": [
+    "Assumir que todo plano gratuito proíbe dados reais tecnicamente.",
+    "Assumir que todo plano pago elimina qualquer retenção.",
+    "Consultar termos e política de tratamento atuais do serviço e evitar dados pessoais desnecessários, independentemente do plano.",
+    "Considerar que dados são privados porque o modelo responde em português."
+   ],
+   "correct": 2,
+   "rationale": "Políticas de uso e retenção mudam; a recomendação de dados fictícios reduz risco, mas deve ser combinada com consulta às condições vigentes.",
+   "distractorRationales": {
+    "0": "Não há proibição técnica universal.",
+    "1": "Pagamento não garante ausência de retenção.",
+    "3": "Idioma não determina privacidade."
+   }
+  },
+  "q1.8-10": {
+   "decision": "aprovada"
+  },
+  "q1.9-01": {
+   "decision": "aprovada"
+  },
+  "q1.9-02": {
+   "decision": "aprovada"
+  },
+  "q1.9-03": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Uma API cobra R$ 2 por milhão de tokens de entrada e R$ 8 por milhão de tokens de saída. Se você reduzir exatamente 1.000 tokens de apenas um desses lados, qual redução economiza mais?",
+   "options": [
+    "Reduzir entrada e saída gera a mesma economia por 1.000 tokens.",
+    "Reduzir 1.000 tokens de entrada economiza quatro vezes mais.",
+    "A economia depende apenas do horário da chamada.",
+    "Reduzir 1.000 tokens de saída economiza quatro vezes mais que reduzir 1.000 de entrada."
+   ],
+   "correct": 3,
+   "rationale": "A tarifa de saída é quatro vezes a de entrada; para a mesma quantidade de tokens, a economia também é quatro vezes maior.",
+   "distractorRationales": {
+    "0": "As tarifas por token são diferentes.",
+    "1": "Inverte a relação entre preços.",
+    "2": "O enunciado fixa tarifas e quantidade, sem preço por horário."
+   }
+  },
+  "q1.9-04": {
+   "decision": "descartada",
+   "comment": "Repete a questão 29 sobre reenvio do histórico e crescimento do contexto; manter a 29 e criar item que avalie cálculo ou mitigação de custo."
+  },
+  "q1.9-05": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Você está experimentando APIs de IA e quer evitar cobranças inesperadas. Qual prática oferece melhor controle?",
+   "options": [
+    "Usar um modelo caro sem monitorar uso, pois facilita o aprendizado.",
+    "Configurar limites de gasto quando disponíveis, alertas, acompanhamento de consumo e verificar as condições de cobrança.",
+    "Compartilhar a chave de API para dividir o custo automaticamente.",
+    "Confiar que não cadastrar cartão sempre impede qualquer cobrança futura."
+   ],
+   "correct": 1,
+   "rationale": "Orçamento, limites, alertas e revisão das condições são medidas mais robustas; alguns serviços não oferecem limites rígidos.",
+   "distractorRationales": {
+    "0": "Sem monitoramento, o risco aumenta.",
+    "2": "Compartilhar credenciais compromete segurança e controle de consumo.",
+    "3": "A ausência de cartão não é garantia universal."
+   }
+  },
+  "q1.9-06": {
+   "decision": "reescrita",
+   "comment": "REESCRITA — pendente de validação final. Ver texto anterior na aba “Antes das correções”.",
+   "stem": "Por que executar um modelo de linguagem maior pode exigir mais recursos que executar um menor, em condições comparáveis?",
+   "options": [
+    "Porque o custo depende apenas da quantidade de idiomas suportados.",
+    "Porque modelos maiores sempre geram respostas mais longas.",
+    "Porque a quantidade de parâmetros não afeta memória ou processamento.",
+    "Porque mais parâmetros frequentemente aumentam memória e operações, embora arquitetura, quantização e hardware também influenciem."
+   ],
+   "correct": 3,
+   "rationale": "Mais parâmetros costumam elevar demanda computacional, mas custo real depende de várias escolhas de implementação.",
+   "distractorRationales": {
+    "0": "Idiomas suportados não são o único determinante de custo.",
+    "1": "Tamanho do modelo não obriga respostas mais longas.",
+    "2": "Parâmetros podem influenciar memória e processamento."
+   }
+  },
+  "q1.9-07": {
+   "decision": "descartada",
+   "comment": "Repete o conteúdo e a resposta da questão 14 sobre custo computacional do pré-treinamento. Substituir por uma habilidade não coberta."
+  },
+  "q1.9-08": {
+   "decision": "aprovada"
+  },
+  "q1.9-09": {
+   "decision": "aprovada"
+  },
+  "q1.9-10": {
+   "decision": "aprovada"
+  }
+ }
+}

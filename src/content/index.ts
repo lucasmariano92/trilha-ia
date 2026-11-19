@@ -15,6 +15,9 @@ import { m1_6 } from './modules/m1-6';
 import { m1_7 } from './modules/m1-7';
 import { m1_8 } from './modules/m1-8';
 import { m1_9 } from './modules/m1-9';
+import { applyReview, type ReviewFile } from './reviews/apply';
+import reviewMundo1 from './reviews/mundo1-2026-11-19.json';
+import ajusteMundo1 from './reviews/mundo1-2026-11-19-ajuste-alternativas.json';
 
 /** Módulos já desenvolvidos nos três níveis (além do piloto 1.1). */
 const STRUCTURED: Record<string, ModuleContent> = { '1.2': m1_2, '1.3': m1_3, '1.4': m1_4, '1.5': m1_5, '1.6': m1_6, '1.7': m1_7, '1.8': m1_8, '1.9': m1_9 };
@@ -118,11 +121,13 @@ function withLessonRefs(list: Question[], lessonList: { checkQuestionIds: string
   });
 }
 
-export const questions: Question[] = [
-  ...questions1_1,
-  ...Object.values(STRUCTURED).flatMap((c) => withLessonRefs(c.questions, c.lessons)),
-  ...legacyQuestions,
-];
+/** Revisões humanas aplicadas ao banco (registro das decisões em src/content/reviews). */
+export const REVIEWS: ReviewFile[] = [{ ...(reviewMundo1 as ReviewFile), kind: 'humana' }, ajusteMundo1 as ReviewFile];
+
+export const questions: Question[] = REVIEWS.reduce(
+  (list, r) => applyReview(list, r),
+  [...questions1_1, ...Object.values(STRUCTURED).flatMap((c) => withLessonRefs(c.questions, c.lessons)), ...legacyQuestions],
+);
 
 const PDF_TERM_MODULE: Record<string, string> = {
   llm: '1.1', token: '1.2', 'janela-contexto': '1.3', alucinacao: '1.4', embedding: '1.5', temperatura: '1.6',
