@@ -1,0 +1,2 @@
+// configuração dos testes
+export {};

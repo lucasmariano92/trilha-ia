@@ -1,0 +1,327 @@
+{
+ "_fonte": "Texto dos módulos extraído do PDF \"Trilha de Aprendizagem em IA — do zero ao código (100% gratuita)\", 31/10/2026, @Lucas. Não editar manualmente sem conferir o PDF.",
+ "modules": [
+  {
+   "id": "1.1",
+   "title": "O que é um modelo (LLM)",
+   "isNew": false,
+   "text": "Um modelo de linguagem prevê o próximo pedaço de texto com base em padrões aprendidos em enormes volumes de dados. Entenda as fases: pré-treinamento, ajuste fino e alinhamento com feedback humano. Diferencie IA, machine learning, deep learning e IA generativa.",
+   "practice": "Peça a três IAs diferentes que expliquem como foram treinadas e compare as respostas."
+  },
+  {
+   "id": "1.2",
+   "title": "Token",
+   "isNew": false,
+   "text": "O modelo não lê palavras, lê tokens (pedaços de palavras). Em português, um texto costuma gastar mais tokens que o mesmo texto em inglês. Tokens definem custo, velocidade e limite de tamanho.",
+   "practice": "Cole um parágrafo em português e o mesmo em inglês no Tokenizer da OpenAI e compare a contagem."
+  },
+  {
+   "id": "1.3",
+   "title": "Janela de contexto",
+   "isNew": false,
+   "text": "É a \"memória de trabalho\" da conversa: tudo o que o modelo enxerga de uma vez (instruções, histórico, arquivos e resposta). O que passa do limite é cortado ou resumido. Modelos também prestam menos atenção ao meio de textos muito longos.",
+   "practice": "Numa conversa longa, pergunte sobre um detalhe dado no início e veja se o modelo lembra."
+  },
+  {
+   "id": "1.4",
+   "title": "Alucinação",
+   "isNew": false,
+   "text": "O modelo gera texto plausível, não necessariamente verdadeiro. Citações, números, leis e referências inventadas são os casos mais comuns. Formas de reduzir: dar a fonte no próprio prompt, pedir citações, permitir \"não sei\" e verificar.",
+   "practice": "Peça 5 livros com autor e ano sobre um tema de nicho e confira cada um."
+  },
+  {
+   "id": "1.5",
+   "title": "Embeddings",
+   "isNew": true,
+   "text": "Transformam texto em uma lista de números que representa o significado. Textos parecidos ficam \"perto\" nesse espaço. É a base da busca semântica e do RAG no Mundo 4.",
+   "practice": "Explore o Embedding Projector do TensorFlow e procure palavras vizinhas."
+  },
+  {
+   "id": "1.6",
+   "title": "Temperatura e parâmetros",
+   "isNew": true,
+   "text": "Temperatura controla a aleatoriedade: baixa para respostas consistentes (extração de dados), alta para criatividade (brainstorm). Conheça também top-p e limite máximo de tokens.",
+   "practice": "No Google AI Studio, rode o mesmo prompt com temperatura 0 e 1,5 três vezes cada."
+  },
+  {
+   "id": "1.7",
+   "title": "Tipos de modelo",
+   "isNew": true,
+   "text": "Modelos de texto, multimodais (imagem, áudio e vídeo), de raciocínio (\"pensam\" antes de responder), pequenos e locais, fechados e abertos (open weights).",
+   "practice": null
+  },
+  {
+   "id": "1.8",
+   "title": "Limites, riscos e privacidade",
+   "isNew": true,
+   "text": "Data de corte do conhecimento, vieses, dependência excessiva, direitos autorais e o que nunca colar numa IA: senhas, dados pessoais de terceiros, documentos sigilosos do trabalho.",
+   "practice": null
+  },
+  {
+   "id": "1.9",
+   "title": "Custo e infraestrutura",
+   "isNew": true,
+   "text": "Preço por milhão de tokens (entrada e saída custam diferente), por que modelos grandes são caros e quando um modelo pequeno basta.",
+   "practice": null
+  },
+  {
+   "id": "2.1",
+   "title": "Anatomia de um bom prompt",
+   "isNew": false,
+   "text": "Contexto (quem você é e para quê), tarefa clara, restrições, formato da saída e critério de qualidade. Seja específico como seria com um colega novo e inteligente que não conhece seu trabalho.",
+   "practice": null
+  },
+  {
+   "id": "2.2",
+   "title": "Técnicas de prompt",
+   "isNew": true,
+   "text": "Zero-shot e few-shot: pedir direto ou dar 2–3 exemplos do resultado desejado. Papel ou persona: \"Você é um revisor técnico…\". Raciocínio passo a passo: pedir que o modelo pense antes de responder. Delimitadores e tags: separar instruções de conteúdo com marcações como <documento>. Encadeamento: dividir uma tarefa grande em vários prompts menores. Saída estruturada: pedir JSON ou tabela com campos definidos (prepara o Mundo 3). Autocrítica: pedir que o modelo revise a própria resposta contra critérios.",
+   "practice": null
+  },
+  {
+   "id": "2.3",
+   "title": "System prompt e instruções personalizadas",
+   "isNew": false,
+   "text": "Diferença entre a instrução fixa (como o assistente deve se comportar) e a mensagem do usuário. Configure as instruções personalizadas da sua IA favorita.",
+   "practice": null
+  },
+  {
+   "id": "2.4",
+   "title": "Principais IAs do mercado",
+   "isNew": false,
+   "text": "Use os planos gratuitos e compare na prática: Claude (Anthropic): escrita, análise de documentos longos, código. ChatGPT (OpenAI): uso geral, geração de imagem, voz. Gemini (Google): integração com o Google, multimodal, contexto longo. Microsoft Copilot: integração com o ecossistema Microsoft. Perplexity: pesquisa com fontes citadas. DeepSeek, Qwen, Llama, Mistral e Gemma: modelos abertos, que você rodará localmente no Mundo 3. NotebookLM (Google): estudar a partir dos seus próprios documentos, respondendo só com base neles.",
+   "practice": null
+  },
+  {
+   "id": "2.5",
+   "title": "Avaliar respostas",
+   "isNew": true,
+   "text": "Crie uma rubrica simples (precisão, completude, formato, tom) e compare duas IAs na mesma tarefa. Verifique fatos em fontes primárias.",
+   "practice": null
+  },
+  {
+   "id": "2.6",
+   "title": "Recursos das plataformas",
+   "isNew": true,
+   "text": "Projetos e espaços de trabalho, assistentes personalizados, memória, pesquisa na web, pesquisa aprofundada, análise de planilhas e PDFs.",
+   "practice": null
+  },
+  {
+   "id": "2.7",
+   "title": "Multimodal",
+   "isNew": true,
+   "text": "Analisar imagens e prints, transcrever áudio, gerar imagens e entender os limites (texto em imagens, mãos, direitos de uso).",
+   "practice": null
+  },
+  {
+   "id": "2.8",
+   "title": "Biblioteca de prompts",
+   "isNew": true,
+   "text": "Guardar e versionar os prompts que funcionam, com variáveis entre colchetes, por exemplo [TEMA].",
+   "practice": null
+  },
+  {
+   "id": "3.1",
+   "title": "Como a web conversa",
+   "isNew": true,
+   "text": "Cliente e servidor, requisições HTTP (GET, POST), códigos de status (200, 401, 404, 429, 500), cabeçalhos e corpo da requisição.",
+   "practice": "Use o Hoppscotch (gratuito, no navegador) para chamar uma API pública, como a BrasilAPI para consultar um CEP."
+  },
+  {
+   "id": "3.2",
+   "title": "JSON",
+   "isNew": true,
+   "text": "Objetos, listas, tipos de dados e como navegar num JSON aninhado. É o idioma de quase toda API e de todo dado dentro do n8n.",
+   "practice": null
+  },
+  {
+   "id": "3.3",
+   "title": "API de modelos de IA",
+   "isNew": false,
+   "text": "Chave de API, endpoint, mensagens (system, user, assistant), parâmetros e leitura da resposta. Gere uma chave gratuita no Google AI Studio (sem cartão) e faça sua primeira chamada pelo Hoppscotch. Segurança: a chave é uma senha. Nunca a publique no GitHub, em prints ou em fluxos compartilhados. Erro 429 significa limite gratuito atingido: espere ou reduza a frequência.",
+   "practice": null
+  },
+  {
+   "id": "3.4",
+   "title": "Modelos locais com Ollama",
+   "isNew": true,
+   "text": "Instale o Ollama, baixe um modelo pequeno (por exemplo, da família Llama, Qwen ou Gemma) e chame pela API local em http://localhost:11434. Custo zero e sem limite de uso, ideal para testar automações à vontade.",
+   "practice": null
+  },
+  {
+   "id": "3.5",
+   "title": "n8n: instalação e fundamentos",
+   "isNew": false,
+   "text": "Rode a Community Edition no Docker, de graça e sem limite de execuções. Aprenda: gatilhos (manual, agendado, webhook), nós, expressões, credenciais, condicionais (IF, Switch), loops e tratamento de erros.",
+   "practice": "Um fluxo que, todo dia às 8h, busca a cotação do dólar numa API pública e envia para você pelo Telegram (bot gratuito)."
+  },
+  {
+   "id": "3.6",
+   "title": "Webhooks",
+   "isNew": true,
+   "text": "Uma URL que recebe dados quando algo acontece (um formulário enviado, uma mensagem recebida). Use o nó Webhook do n8n e teste com o Hoppscotch.",
+   "practice": null
+  },
+  {
+   "id": "3.7",
+   "title": "IA dentro do n8n",
+   "isNew": false,
+   "text": "Nós de LLM conectados ao Gemini (chave gratuita) ou ao Ollama: classificar e-mails, resumir textos, extrair campos em JSON.",
+   "practice": null
+  },
+  {
+   "id": "3.8",
+   "title": "Tool use / function calling",
+   "isNew": true,
+   "text": "É o que transforma um chatbot em agente: o modelo decide chamar uma ferramenta (buscar na web, consultar uma planilha, calcular), recebe o resultado e continua. Entenda o ciclo: pensar → chamar ferramenta → observar → responder.",
+   "practice": null
+  },
+  {
+   "id": "3.9",
+   "title": "Agentes no n8n",
+   "isNew": false,
+   "text": "Nó AI Agent com modelo, memória e ferramentas. Defina instruções claras, limite as ferramentas ao necessário e teste casos em que o agente deveria dizer \"não sei\".",
+   "practice": null
+  },
+  {
+   "id": "3.10",
+   "title": "MCP — Model Context Protocol",
+   "isNew": true,
+   "text": "Padrão aberto para conectar IAs a ferramentas e dados de forma reutilizável. Entenda cliente, servidor e ferramentas, e use um servidor MCP pronto no n8n ou num app de chat.",
+   "practice": null
+  },
+  {
+   "id": "3.11",
+   "title": "Quando NÃO usar agente",
+   "isNew": true,
+   "text": "Se o caminho é sempre o mesmo, um fluxo fixo é mais barato, rápido e previsível. Agente só quando os passos dependem da situação.",
+   "practice": null
+  },
+  {
+   "id": "4.1",
+   "title": "Python essencial",
+   "isNew": false,
+   "text": "(2 semanas) Variáveis, tipos, listas e dicionários, condicionais, loops, funções, leitura de arquivos, tratamento de erros, módulos e pip. Foque em manipular dicionários: é como JSON aparece em Python.",
+   "practice": null
+  },
+  {
+   "id": "4.2",
+   "title": "Ambiente de trabalho",
+   "isNew": true,
+   "text": "VS Code, ambiente virtual (venv ou uv), arquivo.env para chaves (com python-dotenv),.gitignore e Git básico. Alternativa sem instalação: Google Colab.",
+   "practice": null
+  },
+  {
+   "id": "4.3",
+   "title": "Chamar a IA direto, sem framework",
+   "isNew": true,
+   "text": "Use o SDK oficial do Gemini ou a biblioteca ollama para: uma pergunta simples, uma conversa com histórico, saída em JSON validada com Pydantic e uma chamada de ferramenta. Fazer isso \"na mão\" antes do LangChain evita que o framework vire caixa-preta.",
+   "practice": null
+  },
+  {
+   "id": "4.4",
+   "title": "Embeddings na prática",
+   "isNew": true,
+   "text": "Gere embeddings com um modelo aberto (por exemplo, via sentence-transformers ou Ollama), calcule similaridade de cosseno e faça uma busca semântica simples numa lista de frases.",
+   "practice": null
+  },
+  {
+   "id": "4.5",
+   "title": "Banco vetorial",
+   "isNew": true,
+   "text": "Guarde e consulte embeddings com o Chroma (local e gratuito). Conheça alternativas: FAISS, pgvector, Qdrant.",
+   "practice": null
+  },
+  {
+   "id": "4.6",
+   "title": "RAG completo",
+   "isNew": false,
+   "text": "As etapas, uma a uma: 1. Carregar documentos (PDF, texto, páginas web). 2. Dividir em pedaços (chunking): tamanho, sobreposição e divisão por seções. 3. Gerar embeddings e indexar no banco vetorial. 4. Buscar os trechos mais relevantes para a pergunta. 5. Montar o prompt com os trechos e pedir resposta com citação da fonte. 6. Melhorias: busca híbrida (palavra-chave + semântica), reranking e reescrita da pergunta.",
+   "practice": null
+  },
+  {
+   "id": "4.7",
+   "title": "LangChain básico",
+   "isNew": false,
+   "text": "Modelos, prompts, loaders, splitters, retrievers e como eles montam o RAG que você já fez à mão.",
+   "practice": null
+  },
+  {
+   "id": "4.8",
+   "title": "LangGraph",
+   "isNew": false,
+   "text": "Estado, nós, arestas e arestas condicionais; memória e persistência; humano no circuito (aprovação antes de agir); streaming; padrão ReAct; sistemas com vários agentes (supervisor). Use quando o fluxo tem ramificações, loops ou precisa de controle fino.",
+   "practice": null
+  },
+  {
+   "id": "4.9",
+   "title": "Interface simples",
+   "isNew": true,
+   "text": "Coloque uma tela no seu projeto com Gradio ou Streamlit, ambos gratuitos.",
+   "practice": null
+  },
+  {
+   "id": "4.10",
+   "title": "Avaliação — evals",
+   "isNew": true,
+   "text": "Monte um conjunto de 20–30 perguntas com respostas esperadas e meça: o RAG trouxe o trecho certo? A resposta é fiel aos trechos? Ferramentas: Ragas (open source) ou um script próprio usando um modelo como avaliador.",
+   "practice": null
+  },
+  {
+   "id": "4.11",
+   "title": "Observabilidade",
+   "isNew": true,
+   "text": "Rastreie cada chamada (prompt, resposta, tempo, tokens) com Langfuse (open source, pode rodar no Docker) ou LangSmith (tem plano gratuito com limites).",
+   "practice": null
+  },
+  {
+   "id": "5.1",
+   "title": "API própria com FastAPI",
+   "isNew": false,
+   "text": "Exponha seu RAG ou agente como uma API com rotas, validação com Pydantic e documentação automática. Assim o n8n do Mundo 3 pode chamar o código do Mundo 4.",
+   "practice": null
+  },
+  {
+   "id": "5.2",
+   "title": "Docker",
+   "isNew": false,
+   "text": "Empacote o projeto num container para rodar igual em qualquer lugar. Use docker compose para subir app, banco vetorial e Langfuse juntos.",
+   "practice": null
+  },
+  {
+   "id": "5.3",
+   "title": "Deploy gratuito",
+   "isNew": false,
+   "text": "Opções sem custo para demos: Hugging Face Spaces (Gradio, Streamlit ou Docker) e Streamlit Community Cloud. Use a chave gratuita do Gemini guardada como segredo da plataforma, nunca no código. Limites e regras de planos gratuitos mudam: confira antes de publicar.",
+   "practice": null
+  },
+  {
+   "id": "5.4",
+   "title": "Segurança em aplicações de IA",
+   "isNew": false,
+   "text": "Prompt injection direta e indireta (instruções maliciosas escondidas em documentos ou páginas que o RAG ou o agente lê). Vazamento de system prompt e de dados. Agentes com permissões demais: princípio do menor privilégio e aprovação humana para ações irreversíveis. Guardrails: validar entrada e saída, limitar temas, checar formato. Referência: OWASP Top 10 for LLM Applications.",
+   "practice": null
+  },
+  {
+   "id": "5.5",
+   "title": "LGPD e ética",
+   "isNew": true,
+   "text": "Dados pessoais e sensíveis, base legal, minimização, transparência com o usuário (avisar que está falando com uma IA) e cuidado ao enviar dados a APIs de terceiros. Consulte os guias da ANPD.",
+   "practice": null
+  },
+  {
+   "id": "5.6",
+   "title": "Monitoramento e custo",
+   "isNew": false,
+   "text": "Acompanhe latência, erros, tokens por requisição e qualidade (o eval do Mundo 4 rodando de novo a cada mudança). Estratégias de economia: cache de respostas, modelo menor para tarefas simples, prompts mais curtos e limite de requisições por usuário.",
+   "practice": null
+  },
+  {
+   "id": "5.7",
+   "title": "Fine-tuning: quando vale",
+   "isNew": true,
+   "text": "Primeiro prompt, depois RAG, por último fine-tuning. Ajuste fino serve para estilo e formato consistentes, não para ensinar fatos novos. Prática opcional: ajuste um modelo pequeno com LoRA no Google Colab gratuito usando Unsloth.",
+   "practice": null
+  }
+ ]
+}

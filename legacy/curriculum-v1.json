@@ -1,0 +1,2710 @@
+{
+  "worlds": [
+    {
+      "title": "Fundamentos de IA",
+      "weeks": 3,
+      "project": "Glossário vivo",
+      "goal": "Entender como os modelos funcionam e por que podem errar.",
+      "steps": [
+        "Explique 9 conceitos com suas palavras",
+        "Teste exemplos em ferramentas gratuitas",
+        "Registre três erros de respostas de IA e como verificou"
+      ]
+    },
+    {
+      "title": "IA sem código",
+      "weeks": 4,
+      "project": "Batalha de IAs",
+      "goal": "Produzir prompts melhores e avaliar respostas.",
+      "steps": [
+        "Escolha cinco tarefas do cotidiano",
+        "Compare três IAs usando os mesmos prompts",
+        "Crie uma biblioteca com dez prompts testados"
+      ]
+    },
+    {
+      "title": "Low-code, automações e agentes",
+      "weeks": 5,
+      "project": "Assistente pessoal no Telegram",
+      "goal": "Conectar modelos a APIs, automações e ferramentas.",
+      "steps": [
+        "Crie um fluxo no n8n com gatilho e condições",
+        "Conecte um modelo e ferramentas com dados fictícios",
+        "Exporte o fluxo sem credenciais e documente no GitHub"
+      ]
+    },
+    {
+      "title": "Programação com Python e IA",
+      "weeks": 8,
+      "project": "Tutor dos meus estudos",
+      "goal": "Criar um tutor com RAG, avaliação e interface.",
+      "steps": [
+        "Construa busca em documentos com embeddings",
+        "Adicione fluxo de decisão com LangGraph",
+        "Avalie vinte perguntas e documente resultados"
+      ]
+    },
+    {
+      "title": "IA em produção",
+      "weeks": 4,
+      "project": "Tutor no ar",
+      "goal": "Publicar, proteger e monitorar um aplicativo de IA.",
+      "steps": [
+        "Exponha o projeto via FastAPI e Docker",
+        "Publique uma demonstração com controles de segurança",
+        "Registre testes, limitações e custos no README"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "1.1",
+      "world": 1,
+      "title": "O que é um modelo (LLM)",
+      "body": "O que é um modelo (LLM). Um modelo de linguagem prevê o próximo pedaço de texto com base em padrões aprendidos em enormes volumes de dados. Entenda as fases: pré-treinamento, ajuste fino e alinhamento com feedback humano. Diferencie IA, machine learning, deep learning e IA generativa.",
+      "objective": "Compreender o que é um modelo (llm) e aplicar o conceito em uma situação prática.",
+      "practice": "Compare a explicação de “como funciona um LLM” em dois assistentes. Destaque três pontos comuns e confira afirmações importantes em documentação.",
+      "source": "PDF da trilha, Mundo 1",
+      "status": "base_pdf",
+      "expanded": "IA é o campo que busca construir sistemas capazes de realizar tarefas associadas à inteligência. Aprendizado de máquina (machine learning) é uma abordagem em que sistemas aprendem padrões a partir de dados. Aprendizado profundo (deep learning) usa redes neurais com múltiplas camadas. IA generativa produz conteúdo novo, como texto e imagens. Um modelo de linguagem grande (LLM) é treinado para prever tokens em sequências; depois pode passar por ajuste e alinhamento para seguir instruções. Isso não significa que suas respostas sejam sempre verdadeiras."
+    },
+    {
+      "id": "1.2",
+      "world": 1,
+      "title": "Token",
+      "body": "Token. O modelo não lê palavras, lê tokens (pedaços de palavras). Em português, um texto costuma gastar mais tokens que o mesmo texto em inglês. Tokens definem custo, velocidade e limite de tamanho. Prática: cole um parágrafo em português e o mesmo em inglês no Tokenizer da OpenAI e compare a contagem.",
+      "objective": "Compreender token e aplicar o conceito em uma situação prática.",
+      "practice": "Compare um parágrafo em português e outro em inglês num tokenizador e anote a contagem e as diferenças.",
+      "source": "PDF da trilha, Mundo 1",
+      "status": "base_pdf",
+      "expanded": "Token é uma unidade de texto processada pelo modelo: pode representar uma palavra, parte dela ou pontuação. Tokens influenciam tamanho de entrada, saída e custo em APIs. Não existe equivalência fixa entre tokens e palavras, e diferentes modelos usam tokenizadores diferentes."
+    },
+    {
+      "id": "1.3",
+      "world": 1,
+      "title": "Janela de contexto",
+      "body": "Janela de contexto. É a \"memória de trabalho\" da conversa: tudo o que o modelo enxerga de uma vez (instruções, histórico, arquivos e resposta). O que passa do limite é cortado ou resumido. Modelos também prestam menos atenção ao meio de textos muito longos. Prática: numa conversa longa, pergunte sobre um detalhe dado no início e veja se o modelo lembra.",
+      "objective": "Compreender janela de contexto e aplicar o conceito em uma situação prática.",
+      "practice": "Escreva uma conversa longa com um detalhe no início e depois peça ao modelo para recuperar o detalhe. Confira a resposta.",
+      "source": "PDF da trilha, Mundo 1",
+      "status": "base_pdf",
+      "expanded": "A janela de contexto é o volume de tokens que um modelo pode considerar numa chamada, incluindo instruções, histórico, documentos e resposta. Não é memória permanente: informações antigas podem deixar de estar disponíveis ou ser resumidas. Uma janela maior não garante atenção perfeita a todos os detalhes."
+    },
+    {
+      "id": "1.4",
+      "world": 1,
+      "title": "Alucinação",
+      "body": "Alucinação. O modelo gera texto plausível, não necessariamente verdadeiro. Citações, números, leis e referências inventadas são os casos mais comuns. Formas de reduzir: dar a fonte no próprio prompt, pedir citações, permitir \"não sei\" e verificar. Prática: peça 5 livros com autor e ano sobre um tema de nicho e confira cada um.",
+      "objective": "Compreender alucinação e aplicar o conceito em uma situação prática.",
+      "practice": "Peça cinco referências bibliográficas de um assunto específico e verifique cada uma em catálogos reais.",
+      "source": "PDF da trilha, Mundo 1",
+      "status": "base_pdf",
+      "expanded": "Alucinação é quando a IA produz uma informação plausível, porém falsa ou sem fundamento. Pode ocorrer com números, referências, autores e citações. Para reduzir riscos, forneça documentos de referência, permita a resposta “não sei” e valide afirmações em fontes independentes."
+    },
+    {
+      "id": "1.5",
+      "world": 1,
+      "title": "Embeddings",
+      "body": "Embeddings (novo). Transformam texto em uma lista de números que representa o significado. Textos parecidos ficam \"perto\" nesse espaço. É a base da busca semântica e do RAG no Mundo 4. Prática: explore o Embedding Projector do TensorFlow e procure palavras vizinhas.",
+      "objective": "Compreender embeddings e aplicar o conceito em uma situação prática.",
+      "practice": "Explique embeddings com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 1",
+      "status": "base_pdf"
+    },
+    {
+      "id": "1.6",
+      "world": 1,
+      "title": "Temperatura e parâmetros",
+      "body": "Temperatura e parâmetros (novo). Temperatura controla a aleatoriedade: baixa para respostas consistentes (extração de dados), alta para criatividade (brainstorm). Conheça também top-p e limite máximo de tokens. Prática: no Google AI Studio, rode o mesmo prompt com temperatura 0 e 1,5 três vezes cada.",
+      "objective": "Compreender temperatura e parâmetros e aplicar o conceito em uma situação prática.",
+      "practice": "Explique temperatura e parâmetros com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 1",
+      "status": "base_pdf"
+    },
+    {
+      "id": "1.7",
+      "world": 1,
+      "title": "Tipos de modelo",
+      "body": "Tipos de modelo (novo). Modelos de texto, multimodais (imagem, áudio e vídeo), de raciocínio (\"pensam\" antes de responder), pequenos e locais, fechados e abertos (open weights).",
+      "objective": "Compreender tipos de modelo e aplicar o conceito em uma situação prática.",
+      "practice": "Explique tipos de modelo com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 1",
+      "status": "base_pdf"
+    },
+    {
+      "id": "1.8",
+      "world": 1,
+      "title": "Limites, riscos e privacidade",
+      "body": "Limites, riscos e privacidade (novo). Data de corte do conhecimento, vieses, dependência excessiva, direitos autorais e o que nunca colar numa IA: senhas, dados pessoais de terceiros, documentos sigilosos do trabalho.",
+      "objective": "Compreender limites, riscos e privacidade e aplicar o conceito em uma situação prática.",
+      "practice": "Explique limites, riscos e privacidade com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 1",
+      "status": "base_pdf"
+    },
+    {
+      "id": "1.9",
+      "world": 1,
+      "title": "Custo e infraestrutura",
+      "body": "Custo e infraestrutura (novo). Preço por milhão de tokens (entrada e saída custam diferente), por que modelos grandes são caros e quando um modelo pequeno basta.",
+      "objective": "Compreender custo e infraestrutura e aplicar o conceito em uma situação prática.",
+      "practice": "Explique custo e infraestrutura com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 1",
+      "status": "base_pdf"
+    },
+    {
+      "id": "2.1",
+      "world": 2,
+      "title": "Anatomia de um bom prompt",
+      "body": "Anatomia de um bom prompt. Contexto (quem você é e para quê), tarefa clara, restrições, formato da saída e critério de qualidade. Seja específico como seria com um colega novo e inteligente que não conhece seu trabalho.",
+      "objective": "Compreender anatomia de um bom prompt e aplicar o conceito em uma situação prática.",
+      "practice": "Reescreva “me fale sobre automação” incluindo contexto, objetivo, público, formato e critérios de qualidade.",
+      "source": "PDF da trilha, Mundo 2",
+      "status": "base_pdf",
+      "expanded": "Um prompt eficaz informa o contexto, define a tarefa, especifica restrições, descreve o formato da resposta e estabelece critérios de qualidade. Por exemplo, em vez de “escreva sobre IA”, peça “explique IA para um iniciante em 150 palavras, com dois exemplos e uma limitação”. Bons prompts não dispensam a verificação dos fatos."
+    },
+    {
+      "id": "2.2",
+      "world": 2,
+      "title": "Técnicas de prompt",
+      "body": "Técnicas de prompt (novo). Zero-shot e few-shot: pedir direto ou dar 2–3 exemplos do resultado desejado. Papel ou persona: \"Você é um revisor técnico…\". Raciocínio passo a passo: pedir que o modelo pense antes de responder. Delimitadores e tags: separar instruções de conteúdo com marcações como <documento> . Encadeamento: dividir uma tarefa grande em vários prompts menores. Saída estruturada: pedir JSON ou tabela com campos definidos (prepara o Mundo 3). Autocrítica: pedir que o modelo revise a própria resposta contra critérios.",
+      "objective": "Compreender técnicas de prompt e aplicar o conceito em uma situação prática.",
+      "practice": "Explique técnicas de prompt com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 2",
+      "status": "base_pdf"
+    },
+    {
+      "id": "2.3",
+      "world": 2,
+      "title": "System prompt e instruções personalizadas",
+      "body": "System prompt e instruções personalizadas. Diferença entre a instrução fixa (como o assistente deve se comportar) e a mensagem do usuário. Configure as instruções personalizadas da sua IA favorita.",
+      "objective": "Compreender system prompt e instruções personalizadas e aplicar o conceito em uma situação prática.",
+      "practice": "Explique system prompt e instruções personalizadas com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 2",
+      "status": "base_pdf"
+    },
+    {
+      "id": "2.4",
+      "world": 2,
+      "title": "Principais IAs do mercado",
+      "body": "Principais IAs do mercado. Use os planos gratuitos e compare na prática: Claude (Anthropic): escrita, análise de documentos longos, código. ChatGPT (OpenAI): uso geral, geração de imagem, voz. Gemini (Google): integração com o Google, multimodal, contexto longo. Microsoft Copilot: integração com o ecossistema Microsoft. Perplexity: pesquisa com fontes citadas. DeepSeek, Qwen, Llama, Mistral e Gemma: modelos abertos, que você rodará localmente no Mundo 3. NotebookLM (Google): estudar a partir dos seus próprios documentos, respondendo só com base neles.",
+      "objective": "Compreender principais ias do mercado e aplicar o conceito em uma situação prática.",
+      "practice": "Explique principais ias do mercado com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 2",
+      "status": "base_pdf"
+    },
+    {
+      "id": "2.5",
+      "world": 2,
+      "title": "Avaliar respostas",
+      "body": "Avaliar respostas (novo). Crie uma rubrica simples (precisão, completude, formato, tom) e compare duas IAs na mesma tarefa. Verifique fatos em fontes primárias.",
+      "objective": "Compreender avaliar respostas e aplicar o conceito em uma situação prática.",
+      "practice": "Explique avaliar respostas com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 2",
+      "status": "base_pdf"
+    },
+    {
+      "id": "2.6",
+      "world": 2,
+      "title": "Recursos das plataformas",
+      "body": "Recursos das plataformas (novo). Projetos e espaços de trabalho, assistentes personalizados, memória, pesquisa na web, pesquisa aprofundada, análise de planilhas e PDFs.",
+      "objective": "Compreender recursos das plataformas e aplicar o conceito em uma situação prática.",
+      "practice": "Explique recursos das plataformas com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 2",
+      "status": "base_pdf"
+    },
+    {
+      "id": "2.7",
+      "world": 2,
+      "title": "Multimodal",
+      "body": "Multimodal (novo). Analisar imagens e prints, transcrever áudio, gerar imagens e entender os limites (texto em imagens, mãos, direitos de uso).",
+      "objective": "Compreender multimodal e aplicar o conceito em uma situação prática.",
+      "practice": "Explique multimodal com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 2",
+      "status": "base_pdf"
+    },
+    {
+      "id": "2.8",
+      "world": 2,
+      "title": "Biblioteca de prompts",
+      "body": "Biblioteca de prompts (novo). Guardar e versionar os prompts que funcionam, com variáveis entre colchetes, por exemplo [TEMA] .",
+      "objective": "Compreender biblioteca de prompts e aplicar o conceito em uma situação prática.",
+      "practice": "Explique biblioteca de prompts com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 2",
+      "status": "base_pdf"
+    },
+    {
+      "id": "3.1",
+      "world": 3,
+      "title": "Como a web conversa",
+      "body": "Como a web conversa (novo). Cliente e servidor, requisições HTTP (GET, POST), códigos de status (200, 401, 404, 429, 500), cabeçalhos e corpo da requisição. Prática: use o Hoppscotch (gratuito, no navegador) para chamar uma API pública, como a BrasilAPI para consultar um CEP.",
+      "objective": "Compreender como a web conversa e aplicar o conceito em uma situação prática.",
+      "practice": "Explique como a web conversa com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 3",
+      "status": "base_pdf"
+    },
+    {
+      "id": "3.2",
+      "world": 3,
+      "title": "JSON",
+      "body": "JSON (novo). Objetos, listas, tipos de dados e como navegar num JSON aninhado. É o idioma de quase toda API e de todo dado dentro do n8n.",
+      "objective": "Compreender json e aplicar o conceito em uma situação prática.",
+      "practice": "Escreva um JSON com nome, lista de três ferramentas e indicador booleano de conclusão. Verifique sua sintaxe.",
+      "source": "PDF da trilha, Mundo 3",
+      "status": "base_pdf",
+      "expanded": "JSON é um formato de dados estruturados. Um objeto contém pares chave-valor, enquanto listas contêm elementos ordenados. Strings ficam entre aspas duplas; números e booleanos não. APIs usam JSON para enviar e receber dados. Exemplo: {\"nome\":\"Ana\",\"ativo\":true,\"temas\":[\"IA\",\"Python\"]}."
+    },
+    {
+      "id": "3.3",
+      "world": 3,
+      "title": "API de modelos de IA",
+      "body": "API de modelos de IA. Chave de API, endpoint, mensagens (system, user, assistant), parâmetros e leitura da resposta. Gere uma chave gratuita no Google AI Studio (sem cartão) e faça sua primeira chamada pelo Hoppscotch. Segurança: a chave é uma senha. Nunca a publique no GitHub, em prints ou em fluxos compartilhados. Erro 429 significa limite gratuito atingido: espere ou reduza a frequência.",
+      "objective": "Compreender api de modelos de ia e aplicar o conceito em uma situação prática.",
+      "practice": "Explique api de modelos de ia com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 3",
+      "status": "base_pdf"
+    },
+    {
+      "id": "3.4",
+      "world": 3,
+      "title": "Modelos locais com Ollama",
+      "body": "Modelos locais com Ollama (novo). Instale o Ollama, baixe um modelo pequeno (por exemplo, da família Llama, Qwen ou Gemma) e chame pela API local em http://localhost:11434 . Custo zero e sem limite de uso, ideal para testar automações à vontade.",
+      "objective": "Compreender modelos locais com ollama e aplicar o conceito em uma situação prática.",
+      "practice": "Explique modelos locais com ollama com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 3",
+      "status": "base_pdf"
+    },
+    {
+      "id": "3.5",
+      "world": 3,
+      "title": "n8n: instalação e fundamentos",
+      "body": "n8n: instalação e fundamentos. Rode a Community Edition no Docker, de graça e sem limite de execuções. Aprenda: gatilhos (manual, agendado, webhook), nós, expressões, credenciais, condicionais (IF, Switch), loops e tratamento de erros. Prática: um fluxo que, todo dia às 8h, busca a cotação do dólar numa API pública e envia para você pelo Telegram (bot gratuito).",
+      "objective": "Compreender n8n: instalação e fundamentos e aplicar o conceito em uma situação prática.",
+      "practice": "Explique n8n: instalação e fundamentos com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 3",
+      "status": "base_pdf"
+    },
+    {
+      "id": "3.6",
+      "world": 3,
+      "title": "Webhooks",
+      "body": "Webhooks (novo). Uma URL que recebe dados quando algo acontece (um formulário enviado, uma mensagem recebida). Use o nó Webhook do n8n e teste com o Hoppscotch.",
+      "objective": "Compreender webhooks e aplicar o conceito em uma situação prática.",
+      "practice": "Explique webhooks com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 3",
+      "status": "base_pdf"
+    },
+    {
+      "id": "3.7",
+      "world": 3,
+      "title": "IA dentro do n8n",
+      "body": "IA dentro do n8n. Nós de LLM conectados ao Gemini (chave gratuita) ou ao Ollama: classificar e-mails, resumir textos, extrair campos em JSON.",
+      "objective": "Compreender ia dentro do n8n e aplicar o conceito em uma situação prática.",
+      "practice": "Explique ia dentro do n8n com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 3",
+      "status": "base_pdf"
+    },
+    {
+      "id": "3.8",
+      "world": 3,
+      "title": "Tool use / function calling",
+      "body": "Tool use / function calling (novo). É o que transforma um chatbot em agente: o modelo decide chamar uma ferramenta (buscar na web, consultar uma planilha, calcular), recebe o resultado e continua. Entenda o ciclo: pensar → chamar ferramenta → observar → responder.",
+      "objective": "Compreender tool use / function calling e aplicar o conceito em uma situação prática.",
+      "practice": "Explique tool use / function calling com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 3",
+      "status": "base_pdf"
+    },
+    {
+      "id": "3.9",
+      "world": 3,
+      "title": "Agentes no n8n",
+      "body": "Agentes no n8n. Nó AI Agent com modelo, memória e ferramentas. Defina instruções claras, limite as ferramentas ao necessário e teste casos em que o agente deveria dizer \"não sei\".",
+      "objective": "Compreender agentes no n8n e aplicar o conceito em uma situação prática.",
+      "practice": "Explique agentes no n8n com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 3",
+      "status": "base_pdf"
+    },
+    {
+      "id": "3.10",
+      "world": 3,
+      "title": "MCP — Model Context Protocol",
+      "body": "MCP — Model Context Protocol (novo). Padrão aberto para conectar IAs a ferramentas e dados de forma reutilizável. Entenda cliente, servidor e ferramentas, e use um servidor MCP pronto no n8n ou num app de chat.",
+      "objective": "Compreender mcp — model context protocol e aplicar o conceito em uma situação prática.",
+      "practice": "Explique mcp — model context protocol com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 3",
+      "status": "base_pdf"
+    },
+    {
+      "id": "3.11",
+      "world": 3,
+      "title": "Quando NÃO usar agente",
+      "body": "Quando NÃO usar agente (novo). Se o caminho é sempre o mesmo, um fluxo fixo é mais barato, rápido e previsível. Agente só quando os passos dependem da situação.",
+      "objective": "Compreender quando não usar agente e aplicar o conceito em uma situação prática.",
+      "practice": "Explique quando não usar agente com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 3",
+      "status": "base_pdf"
+    },
+    {
+      "id": "4.1",
+      "world": 4,
+      "title": "Python essencial",
+      "body": "Python essencial (2 semanas). Variáveis, tipos, listas e dicionários, condicionais, loops, funções, leitura de arquivos, tratamento de erros, módulos e pip. Foque em manipular dicionários: é como JSON aparece em Python.",
+      "objective": "Compreender python essencial e aplicar o conceito em uma situação prática.",
+      "practice": "No laboratório, escreva uma função que recebe uma lista de notas e devolve a média. Teste com [7, 8, 9].",
+      "source": "PDF da trilha, Mundo 4",
+      "status": "base_pdf",
+      "expanded": "Python é uma linguagem de programação com sintaxe acessível. Variáveis guardam valores; listas e dicionários organizam dados; condicionais tomam decisões; laços repetem ações; funções encapsulam tarefas. Exemplo: notas = [7, 8, 9]; media = sum(notas) / len(notas); print(media). O resultado é 8.0."
+    },
+    {
+      "id": "4.2",
+      "world": 4,
+      "title": "Ambiente de trabalho",
+      "body": "Ambiente de trabalho (novo). VS Code, ambiente virtual ( venv ou uv ), arquivo .env para chaves (com python-dotenv ), .gitignore e Git básico. Alternativa sem instalação: Google Colab.",
+      "objective": "Compreender ambiente de trabalho e aplicar o conceito em uma situação prática.",
+      "practice": "Explique ambiente de trabalho com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 4",
+      "status": "base_pdf"
+    },
+    {
+      "id": "4.3",
+      "world": 4,
+      "title": "Chamar a IA direto, sem framework",
+      "body": "Chamar a IA direto, sem framework (novo). Use o SDK oficial do Gemini ou a biblioteca ollama para: uma pergunta simples, uma conversa com histórico, saída em JSON validada com Pydantic e uma chamada de ferramenta. Fazer isso \"na mão\" antes do LangChain evita que o framework vire caixa-preta.",
+      "objective": "Compreender chamar a ia direto, sem framework e aplicar o conceito em uma situação prática.",
+      "practice": "Explique chamar a ia direto, sem framework com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 4",
+      "status": "base_pdf"
+    },
+    {
+      "id": "4.4",
+      "world": 4,
+      "title": "Embeddings na prática",
+      "body": "Embeddings na prática (novo). Gere embeddings com um modelo aberto (por exemplo, via sentence-transformers ou Ollama), calcule similaridade de cosseno e faça uma busca semântica simples numa lista de frases.",
+      "objective": "Compreender embeddings na prática e aplicar o conceito em uma situação prática.",
+      "practice": "Explique embeddings na prática com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 4",
+      "status": "base_pdf"
+    },
+    {
+      "id": "4.5",
+      "world": 4,
+      "title": "Banco vetorial",
+      "body": "Banco vetorial (novo). Guarde e consulte embeddings com o Chroma (local e gratuito). Conheça alternativas: FAISS, pgvector, Qdrant.",
+      "objective": "Compreender banco vetorial e aplicar o conceito em uma situação prática.",
+      "practice": "Explique banco vetorial com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 4",
+      "status": "base_pdf"
+    },
+    {
+      "id": "4.6",
+      "world": 4,
+      "title": "RAG completo",
+      "body": "RAG completo. As etapas, uma a uma: 1. Carregar documentos (PDF, texto, páginas web). 2. Dividir em pedaços (chunking): tamanho, sobreposição e divisão por seções. 3. Gerar embeddings e indexar no banco vetorial. 4. Buscar os trechos mais relevantes para a pergunta. 5. Montar o prompt com os trechos e pedir resposta com citação da fonte. 6. Melhorias: busca híbrida (palavra-chave + semântica), reranking e reescrita da pergunta.",
+      "objective": "Compreender rag completo e aplicar o conceito em uma situação prática.",
+      "practice": "Desenhe as etapas de um RAG: documentos → divisão → embeddings → índice → busca → resposta com fontes.",
+      "source": "PDF da trilha, Mundo 4",
+      "status": "base_pdf",
+      "expanded": "RAG significa geração aumentada por recuperação. Primeiro, documentos são divididos em trechos e indexados; depois, a pergunta recupera os trechos relevantes, que são enviados ao modelo para fundamentar a resposta. É importante avaliar tanto a recuperação quanto a fidelidade da resposta."
+    },
+    {
+      "id": "4.7",
+      "world": 4,
+      "title": "LangChain básico",
+      "body": "LangChain básico. Modelos, prompts, loaders, splitters, retrievers e como eles montam o RAG que você já fez à mão.",
+      "objective": "Compreender langchain básico e aplicar o conceito em uma situação prática.",
+      "practice": "Explique langchain básico com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 4",
+      "status": "base_pdf"
+    },
+    {
+      "id": "4.8",
+      "world": 4,
+      "title": "LangGraph",
+      "body": "LangGraph. Estado, nós, arestas e arestas condicionais; memória e persistência; humano no circuito (aprovação antes de agir); streaming; padrão ReAct; sistemas com vários agentes (supervisor). Use quando o fluxo tem ramificações, loops ou precisa de controle fino.",
+      "objective": "Compreender langgraph e aplicar o conceito em uma situação prática.",
+      "practice": "Explique langgraph com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 4",
+      "status": "base_pdf"
+    },
+    {
+      "id": "4.9",
+      "world": 4,
+      "title": "Interface simples",
+      "body": "Interface simples (novo). Coloque uma tela no seu projeto com Gradio ou Streamlit, ambos gratuitos.",
+      "objective": "Compreender interface simples e aplicar o conceito em uma situação prática.",
+      "practice": "Explique interface simples com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 4",
+      "status": "base_pdf"
+    },
+    {
+      "id": "4.10",
+      "world": 4,
+      "title": "Avaliação — evals",
+      "body": "Avaliação — evals (novo). Monte um conjunto de 20–30 perguntas com respostas esperadas e meça: o RAG trouxe o trecho certo? A resposta é fiel aos trechos? Ferramentas: Ragas (open source) ou um script próprio usando um modelo como avaliador.",
+      "objective": "Compreender avaliação — evals e aplicar o conceito em uma situação prática.",
+      "practice": "Explique avaliação — evals com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 4",
+      "status": "base_pdf"
+    },
+    {
+      "id": "4.11",
+      "world": 4,
+      "title": "Observabilidade",
+      "body": "Observabilidade (novo). Rastreie cada chamada (prompt, resposta, tempo, tokens) com Langfuse (open source, pode rodar no Docker) ou LangSmith (tem plano gratuito com limites).",
+      "objective": "Compreender observabilidade e aplicar o conceito em uma situação prática.",
+      "practice": "Explique observabilidade com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 4",
+      "status": "base_pdf"
+    },
+    {
+      "id": "5.1",
+      "world": 5,
+      "title": "API própria com FastAPI",
+      "body": "API própria com FastAPI. Exponha seu RAG ou agente como uma API com rotas, validação com Pydantic e documentação automática. Assim o n8n do Mundo 3 pode chamar o código do Mundo 4.",
+      "objective": "Compreender api própria com fastapi e aplicar o conceito em uma situação prática.",
+      "practice": "Explique api própria com fastapi com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 5",
+      "status": "base_pdf"
+    },
+    {
+      "id": "5.2",
+      "world": 5,
+      "title": "Docker",
+      "body": "Docker. Empacote o projeto num container para rodar igual em qualquer lugar. Use docker compose para subir app, banco vetorial e Langfuse juntos.",
+      "objective": "Compreender docker e aplicar o conceito em uma situação prática.",
+      "practice": "Explique docker com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 5",
+      "status": "base_pdf"
+    },
+    {
+      "id": "5.3",
+      "world": 5,
+      "title": "Deploy gratuito",
+      "body": "Deploy gratuito. Opções sem custo para demos: Hugging Face Spaces (Gradio, Streamlit ou Docker) e Streamlit Community Cloud. Use a chave gratuita do Gemini guardada como segredo da plataforma, nunca no código. Limites e regras de planos gratuitos mudam: confira antes de publicar.",
+      "objective": "Compreender deploy gratuito e aplicar o conceito em uma situação prática.",
+      "practice": "Explique deploy gratuito com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 5",
+      "status": "base_pdf"
+    },
+    {
+      "id": "5.4",
+      "world": 5,
+      "title": "Segurança em aplicações de IA",
+      "body": "Conceito abordado na trilha original. Estude a definição, observe um exemplo e faça uma prática curta para verificar seu entendimento.",
+      "objective": "Compreender segurança em aplicações de ia e aplicar o conceito em uma situação prática.",
+      "practice": "Escreva três exemplos de instruções maliciosas em documentos fictícios e proponha uma defesa para cada um.",
+      "source": "PDF da trilha, Mundo 5",
+      "status": "base_pdf",
+      "expanded": "Aplicações de IA podem sofrer prompt injection quando conteúdo não confiável tenta dar instruções ao modelo. Também há riscos de vazamento de dados e uso excessivo de ferramentas. Aplique privilégio mínimo, validação de entradas e saídas, aprovação humana para ações sensíveis e testes de segurança."
+    },
+    {
+      "id": "5.5",
+      "world": 5,
+      "title": "LGPD e ética",
+      "body": "LGPD e ética (novo). Dados pessoais e sensíveis, base legal, minimização, transparência com o usuário (avisar que está falando com uma IA) e cuidado ao enviar dados a APIs de terceiros. Consulte os guias da ANPD.",
+      "objective": "Compreender lgpd e ética e aplicar o conceito em uma situação prática.",
+      "practice": "Explique lgpd e ética com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 5",
+      "status": "base_pdf"
+    },
+    {
+      "id": "5.6",
+      "world": 5,
+      "title": "Monitoramento e custo",
+      "body": "Monitoramento e custo. Acompanhe latência, erros, tokens por requisição e qualidade (o eval do Mundo 4 rodando de novo a cada mudança). Estratégias de economia: cache de respostas, modelo menor para tarefas simples, prompts mais curtos e limite de requisições por usuário.",
+      "objective": "Compreender monitoramento e custo e aplicar o conceito em uma situação prática.",
+      "practice": "Explique monitoramento e custo com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 5",
+      "status": "base_pdf"
+    },
+    {
+      "id": "5.7",
+      "world": 5,
+      "title": "Fine-tuning: quando vale",
+      "body": "Fine-tuning: quando vale (novo). Primeiro prompt, depois RAG, por último fine- tuning. Ajuste fino serve para estilo e formato consistentes, não para ensinar fatos novos. Prática opcional: ajuste um modelo pequeno com LoRA no Google Colab gratuito usando Unsloth.",
+      "objective": "Compreender fine-tuning: quando vale e aplicar o conceito em uma situação prática.",
+      "practice": "Explique fine-tuning: quando vale com suas próprias palavras. Em seguida, crie um exemplo real ou um pequeno teste e registre o resultado.",
+      "source": "PDF da trilha, Mundo 5",
+      "status": "base_pdf"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-1.1",
+      "lessonId": "1.1",
+      "stem": "Qual alternativa melhor descreve um LLM?",
+      "options": [
+        "Um sistema que sempre consulta a internet",
+        "Um modelo treinado para prever tokens com base no contexto",
+        "Um banco de dados com respostas fixas",
+        "Um programa que nunca erra"
+      ],
+      "correct": 1,
+      "explanation": "LLMs geram sequências de tokens a partir de padrões aprendidos e do contexto.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.2",
+      "lessonId": "1.2",
+      "stem": "O que é um token?",
+      "options": [
+        "Sempre uma palavra completa",
+        "Uma unidade de texto usada pelo modelo",
+        "Um arquivo de imagem",
+        "Uma senha de API"
+      ],
+      "correct": 1,
+      "explanation": "Tokens podem ser palavras, partes de palavras ou pontuação.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.3",
+      "lessonId": "1.3",
+      "stem": "A janela de contexto representa:",
+      "options": [
+        "Memória permanente entre todas as conversas",
+        "A quantidade de tokens considerada em uma chamada",
+        "A velocidade da internet",
+        "O número de usuários simultâneos"
+      ],
+      "correct": 1,
+      "explanation": "Ela delimita quanto conteúdo o modelo considera de uma vez.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.4",
+      "lessonId": "1.4",
+      "stem": "Qual atitude reduz o risco de alucinações?",
+      "options": [
+        "Confiar em qualquer citação",
+        "Verificar referências em fontes confiáveis",
+        "Aumentar sempre a temperatura",
+        "Remover documentos de apoio"
+      ],
+      "correct": 1,
+      "explanation": "A verificação externa é essencial para afirmações factuais.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.5",
+      "lessonId": "1.5",
+      "stem": "Para que servem embeddings?",
+      "options": [
+        "Compactar arquivos ZIP",
+        "Representar conteúdo em vetores para comparação semântica",
+        "Armazenar senhas em texto",
+        "Garantir respostas verdadeiras"
+      ],
+      "correct": 1,
+      "explanation": "Embeddings permitem comparar proximidade semântica.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.6",
+      "lessonId": "1.6",
+      "stem": "A temperatura geralmente controla:",
+      "options": [
+        "A quantidade de RAM",
+        "A aleatoriedade da geração",
+        "O preço fixo da assinatura",
+        "A conexão com a internet"
+      ],
+      "correct": 1,
+      "explanation": "Temperatura afeta a distribuição de probabilidades na geração.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.7",
+      "lessonId": "1.7",
+      "stem": "Um modelo multimodal pode processar:",
+      "options": [
+        "Somente números",
+        "Mais de uma modalidade, como texto e imagem",
+        "Apenas arquivos ZIP",
+        "Somente prompts em inglês"
+      ],
+      "correct": 1,
+      "explanation": "Modelos multimodais trabalham com diferentes tipos de entrada ou saída.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.8",
+      "lessonId": "1.8",
+      "stem": "O que NÃO deve ser colado num chatbot público sem autorização?",
+      "options": [
+        "Um exemplo fictício",
+        "Uma pergunta sobre Python",
+        "Uma senha real de cliente",
+        "Uma definição de token"
+      ],
+      "correct": 2,
+      "explanation": "Credenciais e dados sensíveis devem ser protegidos.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.9",
+      "lessonId": "1.9",
+      "stem": "O custo de uma API de LLM costuma depender de:",
+      "options": [
+        "Somente do nome do usuário",
+        "Tokens e modelo utilizado",
+        "Cor do navegador",
+        "Número de pastas no computador"
+      ],
+      "correct": 1,
+      "explanation": "Muitos serviços cobram conforme tokens de entrada e saída e o modelo.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.1",
+      "lessonId": "2.1",
+      "stem": "Qual prompt tende a ser mais útil?",
+      "options": [
+        "Fale de IA",
+        "Explique IA para iniciantes em 150 palavras com dois exemplos",
+        "Escreva qualquer coisa",
+        "Responda sem contexto"
+      ],
+      "correct": 1,
+      "explanation": "Contexto, tarefa e formato tornam o pedido mais claro.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.2",
+      "lessonId": "2.2",
+      "stem": "Few-shot significa:",
+      "options": [
+        "Dar exemplos no prompt",
+        "Não dar instruções",
+        "Usar apenas voz",
+        "Desligar a IA"
+      ],
+      "correct": 0,
+      "explanation": "Few-shot fornece exemplos para orientar a saída.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.3",
+      "lessonId": "2.3",
+      "stem": "Um system prompt serve para:",
+      "options": [
+        "Definir instruções de comportamento do assistente",
+        "Instalar o sistema operacional",
+        "Criar senhas automaticamente",
+        "Garantir dados corretos"
+      ],
+      "correct": 0,
+      "explanation": "Instruções de sistema orientam o comportamento do modelo.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.4",
+      "lessonId": "2.4",
+      "stem": "Para comparar modelos de IA com justiça, você deve:",
+      "options": [
+        "Usar tarefas totalmente diferentes",
+        "Testar a mesma tarefa com critérios claros",
+        "Escolher pelo logotipo",
+        "Ignorar os erros"
+      ],
+      "correct": 1,
+      "explanation": "Um teste comparável usa tarefas e critérios consistentes.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.5",
+      "lessonId": "2.5",
+      "stem": "Uma rubrica de avaliação pode medir:",
+      "options": [
+        "Precisão, completude e formato",
+        "Somente tamanho do texto",
+        "A cor da interface",
+        "A marca do computador"
+      ],
+      "correct": 0,
+      "explanation": "Rubricas tornam critérios de qualidade explícitos.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.6",
+      "lessonId": "2.6",
+      "stem": "Qual recurso facilita trabalhar com materiais reunidos?",
+      "options": [
+        "Projetos e espaços de trabalho",
+        "Apagar o histórico sem backup",
+        "Desativar arquivos",
+        "Trocar o teclado"
+      ],
+      "correct": 0,
+      "explanation": "Espaços de trabalho podem agrupar instruções e arquivos.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.7",
+      "lessonId": "2.7",
+      "stem": "Multimodalidade envolve:",
+      "options": [
+        "Somente texto",
+        "Texto, imagem ou áudio conforme o modelo",
+        "Somente tabelas",
+        "Apenas código Python"
+      ],
+      "correct": 1,
+      "explanation": "Modelos multimodais processam diferentes modalidades.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.8",
+      "lessonId": "2.8",
+      "stem": "Por que versionar prompts?",
+      "options": [
+        "Para comparar alterações e resultados",
+        "Para aumentar a temperatura",
+        "Para eliminar testes",
+        "Para substituir backups"
+      ],
+      "correct": 0,
+      "explanation": "Versões permitem identificar o que melhorou ou piorou.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.1",
+      "lessonId": "3.1",
+      "stem": "Qual código HTTP indica recurso não encontrado?",
+      "options": [
+        "200",
+        "404",
+        "201",
+        "302"
+      ],
+      "correct": 1,
+      "explanation": "404 significa recurso não encontrado.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.2",
+      "lessonId": "3.2",
+      "stem": "Qual é um JSON válido?",
+      "options": [
+        "{nome: Ana}",
+        "{\"nome\":\"Ana\"}",
+        "(nome = Ana)",
+        "nome => Ana"
+      ],
+      "correct": 1,
+      "explanation": "JSON exige aspas duplas em chaves e strings.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.3",
+      "lessonId": "3.3",
+      "stem": "Uma chave de API deve ser:",
+      "options": [
+        "Publicada no GitHub",
+        "Mantida em segredo",
+        "Enviada em prints públicos",
+        "Colocada no README"
+      ],
+      "correct": 1,
+      "explanation": "Chaves são credenciais e devem ser protegidas.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.4",
+      "lessonId": "3.4",
+      "stem": "Ollama permite principalmente:",
+      "options": [
+        "Rodar modelos locais compatíveis",
+        "Criar redes sociais",
+        "Registrar domínios",
+        "Editar planilhas online"
+      ],
+      "correct": 0,
+      "explanation": "Ollama executa modelos localmente em máquinas compatíveis.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.5",
+      "lessonId": "3.5",
+      "stem": "No n8n, um gatilho é:",
+      "options": [
+        "O evento que inicia um fluxo",
+        "Um banco vetorial",
+        "Um token",
+        "Um modelo de imagem"
+      ],
+      "correct": 0,
+      "explanation": "Triggers iniciam execuções de fluxos.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.6",
+      "lessonId": "3.6",
+      "stem": "Webhook é:",
+      "options": [
+        "Uma URL que recebe eventos",
+        "Um modelo de linguagem",
+        "Uma senha",
+        "Um banco de dados vetorial"
+      ],
+      "correct": 0,
+      "explanation": "Webhooks recebem notificações ou dados via HTTP.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.7",
+      "lessonId": "3.7",
+      "stem": "Uma aplicação útil de IA no n8n é:",
+      "options": [
+        "Classificar mensagens",
+        "Aumentar RAM fisicamente",
+        "Consertar o teclado",
+        "Garantir respostas sem erros"
+      ],
+      "correct": 0,
+      "explanation": "Nós de IA podem classificar e extrair informações.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.8",
+      "lessonId": "3.8",
+      "stem": "Function calling permite ao modelo:",
+      "options": [
+        "Solicitar execução de ferramentas definidas",
+        "Instalar qualquer programa sem permissão",
+        "Acessar senhas automaticamente",
+        "Eliminar validação"
+      ],
+      "correct": 0,
+      "explanation": "O modelo pode selecionar ferramentas, mas o sistema executa e controla permissões.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.9",
+      "lessonId": "3.9",
+      "stem": "Um agente com ferramentas deve ter:",
+      "options": [
+        "Permissões mínimas necessárias",
+        "Acesso irrestrito a tudo",
+        "Credenciais públicas",
+        "Nenhum registro de erros"
+      ],
+      "correct": 0,
+      "explanation": "Privilégio mínimo reduz riscos.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.10",
+      "lessonId": "3.10",
+      "stem": "MCP busca padronizar:",
+      "options": [
+        "Conexão de modelos com ferramentas e dados",
+        "A velocidade do Wi-Fi",
+        "A sintaxe do Python",
+        "O formato de imagens JPEG"
+      ],
+      "correct": 0,
+      "explanation": "MCP define interfaces para integração com ferramentas e dados.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.11",
+      "lessonId": "3.11",
+      "stem": "Quando um fluxo fixo é preferível?",
+      "options": [
+        "Quando as etapas são sempre previsíveis",
+        "Quando toda decisão exige pesquisa",
+        "Quando o modelo deve improvisar",
+        "Quando não há regras"
+      ],
+      "correct": 0,
+      "explanation": "Fluxos fixos costumam ser mais previsíveis e econômicos.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.1",
+      "lessonId": "4.1",
+      "stem": "Em Python, qual estrutura associa chaves a valores?",
+      "options": [
+        "Dicionário",
+        "Lista simples",
+        "Comentário",
+        "Importação"
+      ],
+      "correct": 0,
+      "explanation": "Dicionários representam pares chave-valor.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.2",
+      "lessonId": "4.2",
+      "stem": "Para que serve um arquivo .gitignore?",
+      "options": [
+        "Evitar versionar arquivos selecionados",
+        "Executar testes",
+        "Criar imagens",
+        "Publicar senhas"
+      ],
+      "correct": 0,
+      "explanation": "Ele especifica arquivos que o Git deve ignorar.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.3",
+      "lessonId": "4.3",
+      "stem": "Por que chamar uma API sem framework primeiro?",
+      "options": [
+        "Para entender a requisição e resposta",
+        "Para eliminar a documentação",
+        "Para ignorar erros",
+        "Para substituir Python"
+      ],
+      "correct": 0,
+      "explanation": "A chamada direta ajuda a compreender as etapas.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.4",
+      "lessonId": "4.4",
+      "stem": "Similaridade de cosseno é usada para:",
+      "options": [
+        "Comparar vetores",
+        "Compactar vídeos",
+        "Criar chaves secretas",
+        "Aumentar tokens"
+      ],
+      "correct": 0,
+      "explanation": "Ela mede alinhamento entre vetores.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.5",
+      "lessonId": "4.5",
+      "stem": "Um banco vetorial é útil para:",
+      "options": [
+        "Buscar vetores semelhantes",
+        "Editar fotos",
+        "Criar contas bancárias",
+        "Substituir backups"
+      ],
+      "correct": 0,
+      "explanation": "Índices vetoriais facilitam buscas por similaridade.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.6",
+      "lessonId": "4.6",
+      "stem": "Qual etapa faz parte de RAG?",
+      "options": [
+        "Recuperar trechos relevantes antes de gerar resposta",
+        "Ignorar documentos",
+        "Treinar um modelo do zero sempre",
+        "Desativar citações"
+      ],
+      "correct": 0,
+      "explanation": "RAG usa recuperação de conteúdo como contexto para geração.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.7",
+      "lessonId": "4.7",
+      "stem": "LangChain ajuda a:",
+      "options": [
+        "Compor componentes de aplicações com LLMs",
+        "Substituir o sistema operacional",
+        "Criar hardware",
+        "Garantir ausência de falhas"
+      ],
+      "correct": 0,
+      "explanation": "O framework integra modelos, prompts e recuperadores.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.8",
+      "lessonId": "4.8",
+      "stem": "LangGraph organiza fluxos em:",
+      "options": [
+        "Nós, arestas e estado",
+        "Planilhas e macros",
+        "Imagens e vídeos",
+        "Tabelas SQL apenas"
+      ],
+      "correct": 0,
+      "explanation": "LangGraph modela aplicações como grafos com estado.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.9",
+      "lessonId": "4.9",
+      "stem": "Uma ferramenta para criar interfaces simples em Python é:",
+      "options": [
+        "Gradio",
+        "Gitignore",
+        "HTTP 404",
+        "Tokenizer"
+      ],
+      "correct": 0,
+      "explanation": "Gradio permite criar interfaces de demonstração.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.10",
+      "lessonId": "4.10",
+      "stem": "Evals são usados para:",
+      "options": [
+        "Medir qualidade com casos de teste",
+        "Esconder erros",
+        "Aumentar preço",
+        "Desativar logs"
+      ],
+      "correct": 0,
+      "explanation": "Avaliações sistemáticas ajudam a medir e melhorar resultados.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.11",
+      "lessonId": "4.11",
+      "stem": "Observabilidade acompanha:",
+      "options": [
+        "Chamadas, latência e erros",
+        "Somente cores da tela",
+        "A temperatura do escritório",
+        "A bateria do celular"
+      ],
+      "correct": 0,
+      "explanation": "Logs e métricas ajudam a entender comportamento e falhas.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.1",
+      "lessonId": "5.1",
+      "stem": "FastAPI é utilizado para:",
+      "options": [
+        "Construir APIs em Python",
+        "Criar vetores de imagem",
+        "Gerar senhas de terceiros",
+        "Treinar GPUs fisicamente"
+      ],
+      "correct": 0,
+      "explanation": "FastAPI é um framework para APIs web em Python.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.2",
+      "lessonId": "5.2",
+      "stem": "Docker facilita:",
+      "options": [
+        "Empacotar aplicações em containers",
+        "Corrigir respostas falsas automaticamente",
+        "Gerar provas oficiais",
+        "Aumentar memória física"
+      ],
+      "correct": 0,
+      "explanation": "Containers tornam ambientes mais reproduzíveis.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.3",
+      "lessonId": "5.3",
+      "stem": "Ao publicar uma demo, credenciais devem ficar:",
+      "options": [
+        "Em variáveis secretas da plataforma",
+        "No código público",
+        "No README",
+        "Na URL pública"
+      ],
+      "correct": 0,
+      "explanation": "Segredos devem ficar em mecanismos seguros de configuração.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.4",
+      "lessonId": "5.4",
+      "stem": "Prompt injection é:",
+      "options": [
+        "Tentativa de inserir instruções maliciosas em conteúdo",
+        "Uma forma de compactação",
+        "Uma linguagem de programação",
+        "Um algoritmo de revisão"
+      ],
+      "correct": 0,
+      "explanation": "Conteúdo não confiável pode tentar manipular o comportamento do modelo.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.5",
+      "lessonId": "5.5",
+      "stem": "Minimização de dados significa:",
+      "options": [
+        "Coletar apenas dados necessários",
+        "Coletar tudo por precaução",
+        "Publicar dados pessoais",
+        "Dispensar transparência"
+      ],
+      "correct": 0,
+      "explanation": "A LGPD valoriza adequação e necessidade no tratamento.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.6",
+      "lessonId": "5.6",
+      "stem": "Qual métrica ajuda a monitorar uma API de IA?",
+      "options": [
+        "Latência e taxa de erros",
+        "Cor do botão",
+        "Número de abas abertas",
+        "Tamanho do monitor"
+      ],
+      "correct": 0,
+      "explanation": "Tempo de resposta e falhas são métricas operacionais.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.7",
+      "lessonId": "5.7",
+      "stem": "Fine-tuning modifica principalmente:",
+      "options": [
+        "Parâmetros do modelo durante ajuste",
+        "O monitor do usuário",
+        "O endereço IP",
+        "O formato de um PDF"
+      ],
+      "correct": 0,
+      "explanation": "Ajuste fino atualiza pesos com dados de treinamento.",
+      "difficulty": "básico",
+      "status": "complementar",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.1-v2",
+      "lessonId": "1.1",
+      "stem": "Em uma situação prática, qual alternativa melhor descreve um LLM?",
+      "options": [
+        "Um sistema que sempre consulta a internet",
+        "Um modelo treinado para prever tokens com base no contexto",
+        "Um banco de dados com respostas fixas",
+        "Um programa que nunca erra"
+      ],
+      "correct": 1,
+      "explanation": "LLMs geram sequências de tokens a partir de padrões aprendidos e do contexto.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.2-v2",
+      "lessonId": "1.2",
+      "stem": "Em uma situação prática, o que é um token?",
+      "options": [
+        "Sempre uma palavra completa",
+        "Uma unidade de texto usada pelo modelo",
+        "Um arquivo de imagem",
+        "Uma senha de API"
+      ],
+      "correct": 1,
+      "explanation": "Tokens podem ser palavras, partes de palavras ou pontuação.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.3-v2",
+      "lessonId": "1.3",
+      "stem": "Em uma situação prática, a janela de contexto representa:",
+      "options": [
+        "Memória permanente entre todas as conversas",
+        "A quantidade de tokens considerada em uma chamada",
+        "A velocidade da internet",
+        "O número de usuários simultâneos"
+      ],
+      "correct": 1,
+      "explanation": "Ela delimita quanto conteúdo o modelo considera de uma vez.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.4-v2",
+      "lessonId": "1.4",
+      "stem": "Em uma situação prática, qual atitude reduz o risco de alucinações?",
+      "options": [
+        "Confiar em qualquer citação",
+        "Verificar referências em fontes confiáveis",
+        "Aumentar sempre a temperatura",
+        "Remover documentos de apoio"
+      ],
+      "correct": 1,
+      "explanation": "A verificação externa é essencial para afirmações factuais.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.5-v2",
+      "lessonId": "1.5",
+      "stem": "Em uma situação prática, para que servem embeddings?",
+      "options": [
+        "Compactar arquivos ZIP",
+        "Representar conteúdo em vetores para comparação semântica",
+        "Armazenar senhas em texto",
+        "Garantir respostas verdadeiras"
+      ],
+      "correct": 1,
+      "explanation": "Embeddings permitem comparar proximidade semântica.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.6-v2",
+      "lessonId": "1.6",
+      "stem": "Em uma situação prática, a temperatura geralmente controla:",
+      "options": [
+        "A quantidade de RAM",
+        "A aleatoriedade da geração",
+        "O preço fixo da assinatura",
+        "A conexão com a internet"
+      ],
+      "correct": 1,
+      "explanation": "Temperatura afeta a distribuição de probabilidades na geração.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.7-v2",
+      "lessonId": "1.7",
+      "stem": "Em uma situação prática, um modelo multimodal pode processar:",
+      "options": [
+        "Somente números",
+        "Mais de uma modalidade, como texto e imagem",
+        "Apenas arquivos ZIP",
+        "Somente prompts em inglês"
+      ],
+      "correct": 1,
+      "explanation": "Modelos multimodais trabalham com diferentes tipos de entrada ou saída.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.8-v2",
+      "lessonId": "1.8",
+      "stem": "Em uma situação prática, o que NÃO deve ser colado num chatbot público sem autorização?",
+      "options": [
+        "Um exemplo fictício",
+        "Uma pergunta sobre Python",
+        "Uma senha real de cliente",
+        "Uma definição de token"
+      ],
+      "correct": 2,
+      "explanation": "Credenciais e dados sensíveis devem ser protegidos.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.9-v2",
+      "lessonId": "1.9",
+      "stem": "Em uma situação prática, o custo de uma API de LLM costuma depender de:",
+      "options": [
+        "Somente do nome do usuário",
+        "Tokens e modelo utilizado",
+        "Cor do navegador",
+        "Número de pastas no computador"
+      ],
+      "correct": 1,
+      "explanation": "Muitos serviços cobram conforme tokens de entrada e saída e o modelo.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.1-v2",
+      "lessonId": "2.1",
+      "stem": "Em uma situação prática, qual prompt tende a ser mais útil?",
+      "options": [
+        "Fale de IA",
+        "Explique IA para iniciantes em 150 palavras com dois exemplos",
+        "Escreva qualquer coisa",
+        "Responda sem contexto"
+      ],
+      "correct": 1,
+      "explanation": "Contexto, tarefa e formato tornam o pedido mais claro.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.2-v2",
+      "lessonId": "2.2",
+      "stem": "Em uma situação prática, few-shot significa:",
+      "options": [
+        "Dar exemplos no prompt",
+        "Não dar instruções",
+        "Usar apenas voz",
+        "Desligar a IA"
+      ],
+      "correct": 0,
+      "explanation": "Few-shot fornece exemplos para orientar a saída.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.3-v2",
+      "lessonId": "2.3",
+      "stem": "Em uma situação prática, um system prompt serve para:",
+      "options": [
+        "Definir instruções de comportamento do assistente",
+        "Instalar o sistema operacional",
+        "Criar senhas automaticamente",
+        "Garantir dados corretos"
+      ],
+      "correct": 0,
+      "explanation": "Instruções de sistema orientam o comportamento do modelo.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.4-v2",
+      "lessonId": "2.4",
+      "stem": "Em uma situação prática, para comparar modelos de IA com justiça, você deve:",
+      "options": [
+        "Usar tarefas totalmente diferentes",
+        "Testar a mesma tarefa com critérios claros",
+        "Escolher pelo logotipo",
+        "Ignorar os erros"
+      ],
+      "correct": 1,
+      "explanation": "Um teste comparável usa tarefas e critérios consistentes.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.5-v2",
+      "lessonId": "2.5",
+      "stem": "Em uma situação prática, uma rubrica de avaliação pode medir:",
+      "options": [
+        "Precisão, completude e formato",
+        "Somente tamanho do texto",
+        "A cor da interface",
+        "A marca do computador"
+      ],
+      "correct": 0,
+      "explanation": "Rubricas tornam critérios de qualidade explícitos.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.6-v2",
+      "lessonId": "2.6",
+      "stem": "Em uma situação prática, qual recurso facilita trabalhar com materiais reunidos?",
+      "options": [
+        "Projetos e espaços de trabalho",
+        "Apagar o histórico sem backup",
+        "Desativar arquivos",
+        "Trocar o teclado"
+      ],
+      "correct": 0,
+      "explanation": "Espaços de trabalho podem agrupar instruções e arquivos.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.7-v2",
+      "lessonId": "2.7",
+      "stem": "Em uma situação prática, multimodalidade envolve:",
+      "options": [
+        "Somente texto",
+        "Texto, imagem ou áudio conforme o modelo",
+        "Somente tabelas",
+        "Apenas código Python"
+      ],
+      "correct": 1,
+      "explanation": "Modelos multimodais processam diferentes modalidades.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.8-v2",
+      "lessonId": "2.8",
+      "stem": "Em uma situação prática, por que versionar prompts?",
+      "options": [
+        "Para comparar alterações e resultados",
+        "Para aumentar a temperatura",
+        "Para eliminar testes",
+        "Para substituir backups"
+      ],
+      "correct": 0,
+      "explanation": "Versões permitem identificar o que melhorou ou piorou.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.1-v2",
+      "lessonId": "3.1",
+      "stem": "Em uma situação prática, qual código HTTP indica recurso não encontrado?",
+      "options": [
+        "200",
+        "404",
+        "201",
+        "302"
+      ],
+      "correct": 1,
+      "explanation": "404 significa recurso não encontrado.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.2-v2",
+      "lessonId": "3.2",
+      "stem": "Em uma situação prática, qual é um JSON válido?",
+      "options": [
+        "{nome: Ana}",
+        "{\"nome\":\"Ana\"}",
+        "(nome = Ana)",
+        "nome => Ana"
+      ],
+      "correct": 1,
+      "explanation": "JSON exige aspas duplas em chaves e strings.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.3-v2",
+      "lessonId": "3.3",
+      "stem": "Em uma situação prática, uma chave de API deve ser:",
+      "options": [
+        "Publicada no GitHub",
+        "Mantida em segredo",
+        "Enviada em prints públicos",
+        "Colocada no README"
+      ],
+      "correct": 1,
+      "explanation": "Chaves são credenciais e devem ser protegidas.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.4-v2",
+      "lessonId": "3.4",
+      "stem": "Em uma situação prática, ollama permite principalmente:",
+      "options": [
+        "Rodar modelos locais compatíveis",
+        "Criar redes sociais",
+        "Registrar domínios",
+        "Editar planilhas online"
+      ],
+      "correct": 0,
+      "explanation": "Ollama executa modelos localmente em máquinas compatíveis.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.5-v2",
+      "lessonId": "3.5",
+      "stem": "Em uma situação prática, no n8n, um gatilho é:",
+      "options": [
+        "O evento que inicia um fluxo",
+        "Um banco vetorial",
+        "Um token",
+        "Um modelo de imagem"
+      ],
+      "correct": 0,
+      "explanation": "Triggers iniciam execuções de fluxos.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.6-v2",
+      "lessonId": "3.6",
+      "stem": "Em uma situação prática, webhook é:",
+      "options": [
+        "Uma URL que recebe eventos",
+        "Um modelo de linguagem",
+        "Uma senha",
+        "Um banco de dados vetorial"
+      ],
+      "correct": 0,
+      "explanation": "Webhooks recebem notificações ou dados via HTTP.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.7-v2",
+      "lessonId": "3.7",
+      "stem": "Em uma situação prática, uma aplicação útil de IA no n8n é:",
+      "options": [
+        "Classificar mensagens",
+        "Aumentar RAM fisicamente",
+        "Consertar o teclado",
+        "Garantir respostas sem erros"
+      ],
+      "correct": 0,
+      "explanation": "Nós de IA podem classificar e extrair informações.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.8-v2",
+      "lessonId": "3.8",
+      "stem": "Em uma situação prática, function calling permite ao modelo:",
+      "options": [
+        "Solicitar execução de ferramentas definidas",
+        "Instalar qualquer programa sem permissão",
+        "Acessar senhas automaticamente",
+        "Eliminar validação"
+      ],
+      "correct": 0,
+      "explanation": "O modelo pode selecionar ferramentas, mas o sistema executa e controla permissões.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.9-v2",
+      "lessonId": "3.9",
+      "stem": "Em uma situação prática, um agente com ferramentas deve ter:",
+      "options": [
+        "Permissões mínimas necessárias",
+        "Acesso irrestrito a tudo",
+        "Credenciais públicas",
+        "Nenhum registro de erros"
+      ],
+      "correct": 0,
+      "explanation": "Privilégio mínimo reduz riscos.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.10-v2",
+      "lessonId": "3.10",
+      "stem": "Em uma situação prática, mCP busca padronizar:",
+      "options": [
+        "Conexão de modelos com ferramentas e dados",
+        "A velocidade do Wi-Fi",
+        "A sintaxe do Python",
+        "O formato de imagens JPEG"
+      ],
+      "correct": 0,
+      "explanation": "MCP define interfaces para integração com ferramentas e dados.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.11-v2",
+      "lessonId": "3.11",
+      "stem": "Em uma situação prática, quando um fluxo fixo é preferível?",
+      "options": [
+        "Quando as etapas são sempre previsíveis",
+        "Quando toda decisão exige pesquisa",
+        "Quando o modelo deve improvisar",
+        "Quando não há regras"
+      ],
+      "correct": 0,
+      "explanation": "Fluxos fixos costumam ser mais previsíveis e econômicos.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.1-v2",
+      "lessonId": "4.1",
+      "stem": "Em uma situação prática, em Python, qual estrutura associa chaves a valores?",
+      "options": [
+        "Dicionário",
+        "Lista simples",
+        "Comentário",
+        "Importação"
+      ],
+      "correct": 0,
+      "explanation": "Dicionários representam pares chave-valor.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.2-v2",
+      "lessonId": "4.2",
+      "stem": "Em uma situação prática, para que serve um arquivo .gitignore?",
+      "options": [
+        "Evitar versionar arquivos selecionados",
+        "Executar testes",
+        "Criar imagens",
+        "Publicar senhas"
+      ],
+      "correct": 0,
+      "explanation": "Ele especifica arquivos que o Git deve ignorar.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.3-v2",
+      "lessonId": "4.3",
+      "stem": "Em uma situação prática, por que chamar uma API sem framework primeiro?",
+      "options": [
+        "Para entender a requisição e resposta",
+        "Para eliminar a documentação",
+        "Para ignorar erros",
+        "Para substituir Python"
+      ],
+      "correct": 0,
+      "explanation": "A chamada direta ajuda a compreender as etapas.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.4-v2",
+      "lessonId": "4.4",
+      "stem": "Em uma situação prática, similaridade de cosseno é usada para:",
+      "options": [
+        "Comparar vetores",
+        "Compactar vídeos",
+        "Criar chaves secretas",
+        "Aumentar tokens"
+      ],
+      "correct": 0,
+      "explanation": "Ela mede alinhamento entre vetores.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.5-v2",
+      "lessonId": "4.5",
+      "stem": "Em uma situação prática, um banco vetorial é útil para:",
+      "options": [
+        "Buscar vetores semelhantes",
+        "Editar fotos",
+        "Criar contas bancárias",
+        "Substituir backups"
+      ],
+      "correct": 0,
+      "explanation": "Índices vetoriais facilitam buscas por similaridade.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.6-v2",
+      "lessonId": "4.6",
+      "stem": "Em uma situação prática, qual etapa faz parte de RAG?",
+      "options": [
+        "Recuperar trechos relevantes antes de gerar resposta",
+        "Ignorar documentos",
+        "Treinar um modelo do zero sempre",
+        "Desativar citações"
+      ],
+      "correct": 0,
+      "explanation": "RAG usa recuperação de conteúdo como contexto para geração.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.7-v2",
+      "lessonId": "4.7",
+      "stem": "Em uma situação prática, langChain ajuda a:",
+      "options": [
+        "Compor componentes de aplicações com LLMs",
+        "Substituir o sistema operacional",
+        "Criar hardware",
+        "Garantir ausência de falhas"
+      ],
+      "correct": 0,
+      "explanation": "O framework integra modelos, prompts e recuperadores.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.8-v2",
+      "lessonId": "4.8",
+      "stem": "Em uma situação prática, langGraph organiza fluxos em:",
+      "options": [
+        "Nós, arestas e estado",
+        "Planilhas e macros",
+        "Imagens e vídeos",
+        "Tabelas SQL apenas"
+      ],
+      "correct": 0,
+      "explanation": "LangGraph modela aplicações como grafos com estado.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.9-v2",
+      "lessonId": "4.9",
+      "stem": "Em uma situação prática, uma ferramenta para criar interfaces simples em Python é:",
+      "options": [
+        "Gradio",
+        "Gitignore",
+        "HTTP 404",
+        "Tokenizer"
+      ],
+      "correct": 0,
+      "explanation": "Gradio permite criar interfaces de demonstração.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.10-v2",
+      "lessonId": "4.10",
+      "stem": "Em uma situação prática, evals são usados para:",
+      "options": [
+        "Medir qualidade com casos de teste",
+        "Esconder erros",
+        "Aumentar preço",
+        "Desativar logs"
+      ],
+      "correct": 0,
+      "explanation": "Avaliações sistemáticas ajudam a medir e melhorar resultados.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.11-v2",
+      "lessonId": "4.11",
+      "stem": "Em uma situação prática, observabilidade acompanha:",
+      "options": [
+        "Chamadas, latência e erros",
+        "Somente cores da tela",
+        "A temperatura do escritório",
+        "A bateria do celular"
+      ],
+      "correct": 0,
+      "explanation": "Logs e métricas ajudam a entender comportamento e falhas.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.1-v2",
+      "lessonId": "5.1",
+      "stem": "Em uma situação prática, fastAPI é utilizado para:",
+      "options": [
+        "Construir APIs em Python",
+        "Criar vetores de imagem",
+        "Gerar senhas de terceiros",
+        "Treinar GPUs fisicamente"
+      ],
+      "correct": 0,
+      "explanation": "FastAPI é um framework para APIs web em Python.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.2-v2",
+      "lessonId": "5.2",
+      "stem": "Em uma situação prática, docker facilita:",
+      "options": [
+        "Empacotar aplicações em containers",
+        "Corrigir respostas falsas automaticamente",
+        "Gerar provas oficiais",
+        "Aumentar memória física"
+      ],
+      "correct": 0,
+      "explanation": "Containers tornam ambientes mais reproduzíveis.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.3-v2",
+      "lessonId": "5.3",
+      "stem": "Em uma situação prática, ao publicar uma demo, credenciais devem ficar:",
+      "options": [
+        "Em variáveis secretas da plataforma",
+        "No código público",
+        "No README",
+        "Na URL pública"
+      ],
+      "correct": 0,
+      "explanation": "Segredos devem ficar em mecanismos seguros de configuração.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.4-v2",
+      "lessonId": "5.4",
+      "stem": "Em uma situação prática, prompt injection é:",
+      "options": [
+        "Tentativa de inserir instruções maliciosas em conteúdo",
+        "Uma forma de compactação",
+        "Uma linguagem de programação",
+        "Um algoritmo de revisão"
+      ],
+      "correct": 0,
+      "explanation": "Conteúdo não confiável pode tentar manipular o comportamento do modelo.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.5-v2",
+      "lessonId": "5.5",
+      "stem": "Em uma situação prática, minimização de dados significa:",
+      "options": [
+        "Coletar apenas dados necessários",
+        "Coletar tudo por precaução",
+        "Publicar dados pessoais",
+        "Dispensar transparência"
+      ],
+      "correct": 0,
+      "explanation": "A LGPD valoriza adequação e necessidade no tratamento.",
+      "difficulty": "básico",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.1-v3",
+      "lessonId": "1.1",
+      "stem": "Revisão de conceito: Qual alternativa melhor descreve um LLM?",
+      "options": [
+        "Um sistema que sempre consulta a internet",
+        "Um modelo treinado para prever tokens com base no contexto",
+        "Um banco de dados com respostas fixas",
+        "Um programa que nunca erra"
+      ],
+      "correct": 1,
+      "explanation": "LLMs geram sequências de tokens a partir de padrões aprendidos e do contexto.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.2-v3",
+      "lessonId": "1.2",
+      "stem": "Revisão de conceito: O que é um token?",
+      "options": [
+        "Sempre uma palavra completa",
+        "Uma unidade de texto usada pelo modelo",
+        "Um arquivo de imagem",
+        "Uma senha de API"
+      ],
+      "correct": 1,
+      "explanation": "Tokens podem ser palavras, partes de palavras ou pontuação.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.3-v3",
+      "lessonId": "1.3",
+      "stem": "Revisão de conceito: A janela de contexto representa:",
+      "options": [
+        "Memória permanente entre todas as conversas",
+        "A quantidade de tokens considerada em uma chamada",
+        "A velocidade da internet",
+        "O número de usuários simultâneos"
+      ],
+      "correct": 1,
+      "explanation": "Ela delimita quanto conteúdo o modelo considera de uma vez.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.4-v3",
+      "lessonId": "1.4",
+      "stem": "Revisão de conceito: Qual atitude reduz o risco de alucinações?",
+      "options": [
+        "Confiar em qualquer citação",
+        "Verificar referências em fontes confiáveis",
+        "Aumentar sempre a temperatura",
+        "Remover documentos de apoio"
+      ],
+      "correct": 1,
+      "explanation": "A verificação externa é essencial para afirmações factuais.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.5-v3",
+      "lessonId": "1.5",
+      "stem": "Revisão de conceito: Para que servem embeddings?",
+      "options": [
+        "Compactar arquivos ZIP",
+        "Representar conteúdo em vetores para comparação semântica",
+        "Armazenar senhas em texto",
+        "Garantir respostas verdadeiras"
+      ],
+      "correct": 1,
+      "explanation": "Embeddings permitem comparar proximidade semântica.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.6-v3",
+      "lessonId": "1.6",
+      "stem": "Revisão de conceito: A temperatura geralmente controla:",
+      "options": [
+        "A quantidade de RAM",
+        "A aleatoriedade da geração",
+        "O preço fixo da assinatura",
+        "A conexão com a internet"
+      ],
+      "correct": 1,
+      "explanation": "Temperatura afeta a distribuição de probabilidades na geração.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.7-v3",
+      "lessonId": "1.7",
+      "stem": "Revisão de conceito: Um modelo multimodal pode processar:",
+      "options": [
+        "Somente números",
+        "Mais de uma modalidade, como texto e imagem",
+        "Apenas arquivos ZIP",
+        "Somente prompts em inglês"
+      ],
+      "correct": 1,
+      "explanation": "Modelos multimodais trabalham com diferentes tipos de entrada ou saída.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.8-v3",
+      "lessonId": "1.8",
+      "stem": "Revisão de conceito: O que NÃO deve ser colado num chatbot público sem autorização?",
+      "options": [
+        "Um exemplo fictício",
+        "Uma pergunta sobre Python",
+        "Uma senha real de cliente",
+        "Uma definição de token"
+      ],
+      "correct": 2,
+      "explanation": "Credenciais e dados sensíveis devem ser protegidos.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-1.9-v3",
+      "lessonId": "1.9",
+      "stem": "Revisão de conceito: O custo de uma API de LLM costuma depender de:",
+      "options": [
+        "Somente do nome do usuário",
+        "Tokens e modelo utilizado",
+        "Cor do navegador",
+        "Número de pastas no computador"
+      ],
+      "correct": 1,
+      "explanation": "Muitos serviços cobram conforme tokens de entrada e saída e o modelo.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.1-v3",
+      "lessonId": "2.1",
+      "stem": "Revisão de conceito: Qual prompt tende a ser mais útil?",
+      "options": [
+        "Fale de IA",
+        "Explique IA para iniciantes em 150 palavras com dois exemplos",
+        "Escreva qualquer coisa",
+        "Responda sem contexto"
+      ],
+      "correct": 1,
+      "explanation": "Contexto, tarefa e formato tornam o pedido mais claro.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.2-v3",
+      "lessonId": "2.2",
+      "stem": "Revisão de conceito: Few-shot significa:",
+      "options": [
+        "Dar exemplos no prompt",
+        "Não dar instruções",
+        "Usar apenas voz",
+        "Desligar a IA"
+      ],
+      "correct": 0,
+      "explanation": "Few-shot fornece exemplos para orientar a saída.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.3-v3",
+      "lessonId": "2.3",
+      "stem": "Revisão de conceito: Um system prompt serve para:",
+      "options": [
+        "Definir instruções de comportamento do assistente",
+        "Instalar o sistema operacional",
+        "Criar senhas automaticamente",
+        "Garantir dados corretos"
+      ],
+      "correct": 0,
+      "explanation": "Instruções de sistema orientam o comportamento do modelo.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.4-v3",
+      "lessonId": "2.4",
+      "stem": "Revisão de conceito: Para comparar modelos de IA com justiça, você deve:",
+      "options": [
+        "Usar tarefas totalmente diferentes",
+        "Testar a mesma tarefa com critérios claros",
+        "Escolher pelo logotipo",
+        "Ignorar os erros"
+      ],
+      "correct": 1,
+      "explanation": "Um teste comparável usa tarefas e critérios consistentes.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.5-v3",
+      "lessonId": "2.5",
+      "stem": "Revisão de conceito: Uma rubrica de avaliação pode medir:",
+      "options": [
+        "Precisão, completude e formato",
+        "Somente tamanho do texto",
+        "A cor da interface",
+        "A marca do computador"
+      ],
+      "correct": 0,
+      "explanation": "Rubricas tornam critérios de qualidade explícitos.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.6-v3",
+      "lessonId": "2.6",
+      "stem": "Revisão de conceito: Qual recurso facilita trabalhar com materiais reunidos?",
+      "options": [
+        "Projetos e espaços de trabalho",
+        "Apagar o histórico sem backup",
+        "Desativar arquivos",
+        "Trocar o teclado"
+      ],
+      "correct": 0,
+      "explanation": "Espaços de trabalho podem agrupar instruções e arquivos.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.7-v3",
+      "lessonId": "2.7",
+      "stem": "Revisão de conceito: Multimodalidade envolve:",
+      "options": [
+        "Somente texto",
+        "Texto, imagem ou áudio conforme o modelo",
+        "Somente tabelas",
+        "Apenas código Python"
+      ],
+      "correct": 1,
+      "explanation": "Modelos multimodais processam diferentes modalidades.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-2.8-v3",
+      "lessonId": "2.8",
+      "stem": "Revisão de conceito: Por que versionar prompts?",
+      "options": [
+        "Para comparar alterações e resultados",
+        "Para aumentar a temperatura",
+        "Para eliminar testes",
+        "Para substituir backups"
+      ],
+      "correct": 0,
+      "explanation": "Versões permitem identificar o que melhorou ou piorou.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.1-v3",
+      "lessonId": "3.1",
+      "stem": "Revisão de conceito: Qual código HTTP indica recurso não encontrado?",
+      "options": [
+        "200",
+        "404",
+        "201",
+        "302"
+      ],
+      "correct": 1,
+      "explanation": "404 significa recurso não encontrado.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.2-v3",
+      "lessonId": "3.2",
+      "stem": "Revisão de conceito: Qual é um JSON válido?",
+      "options": [
+        "{nome: Ana}",
+        "{\"nome\":\"Ana\"}",
+        "(nome = Ana)",
+        "nome => Ana"
+      ],
+      "correct": 1,
+      "explanation": "JSON exige aspas duplas em chaves e strings.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.3-v3",
+      "lessonId": "3.3",
+      "stem": "Revisão de conceito: Uma chave de API deve ser:",
+      "options": [
+        "Publicada no GitHub",
+        "Mantida em segredo",
+        "Enviada em prints públicos",
+        "Colocada no README"
+      ],
+      "correct": 1,
+      "explanation": "Chaves são credenciais e devem ser protegidas.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.4-v3",
+      "lessonId": "3.4",
+      "stem": "Revisão de conceito: Ollama permite principalmente:",
+      "options": [
+        "Rodar modelos locais compatíveis",
+        "Criar redes sociais",
+        "Registrar domínios",
+        "Editar planilhas online"
+      ],
+      "correct": 0,
+      "explanation": "Ollama executa modelos localmente em máquinas compatíveis.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.5-v3",
+      "lessonId": "3.5",
+      "stem": "Revisão de conceito: No n8n, um gatilho é:",
+      "options": [
+        "O evento que inicia um fluxo",
+        "Um banco vetorial",
+        "Um token",
+        "Um modelo de imagem"
+      ],
+      "correct": 0,
+      "explanation": "Triggers iniciam execuções de fluxos.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.6-v3",
+      "lessonId": "3.6",
+      "stem": "Revisão de conceito: Webhook é:",
+      "options": [
+        "Uma URL que recebe eventos",
+        "Um modelo de linguagem",
+        "Uma senha",
+        "Um banco de dados vetorial"
+      ],
+      "correct": 0,
+      "explanation": "Webhooks recebem notificações ou dados via HTTP.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.7-v3",
+      "lessonId": "3.7",
+      "stem": "Revisão de conceito: Uma aplicação útil de IA no n8n é:",
+      "options": [
+        "Classificar mensagens",
+        "Aumentar RAM fisicamente",
+        "Consertar o teclado",
+        "Garantir respostas sem erros"
+      ],
+      "correct": 0,
+      "explanation": "Nós de IA podem classificar e extrair informações.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.8-v3",
+      "lessonId": "3.8",
+      "stem": "Revisão de conceito: Function calling permite ao modelo:",
+      "options": [
+        "Solicitar execução de ferramentas definidas",
+        "Instalar qualquer programa sem permissão",
+        "Acessar senhas automaticamente",
+        "Eliminar validação"
+      ],
+      "correct": 0,
+      "explanation": "O modelo pode selecionar ferramentas, mas o sistema executa e controla permissões.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.9-v3",
+      "lessonId": "3.9",
+      "stem": "Revisão de conceito: Um agente com ferramentas deve ter:",
+      "options": [
+        "Permissões mínimas necessárias",
+        "Acesso irrestrito a tudo",
+        "Credenciais públicas",
+        "Nenhum registro de erros"
+      ],
+      "correct": 0,
+      "explanation": "Privilégio mínimo reduz riscos.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.10-v3",
+      "lessonId": "3.10",
+      "stem": "Revisão de conceito: MCP busca padronizar:",
+      "options": [
+        "Conexão de modelos com ferramentas e dados",
+        "A velocidade do Wi-Fi",
+        "A sintaxe do Python",
+        "O formato de imagens JPEG"
+      ],
+      "correct": 0,
+      "explanation": "MCP define interfaces para integração com ferramentas e dados.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-3.11-v3",
+      "lessonId": "3.11",
+      "stem": "Revisão de conceito: Quando um fluxo fixo é preferível?",
+      "options": [
+        "Quando as etapas são sempre previsíveis",
+        "Quando toda decisão exige pesquisa",
+        "Quando o modelo deve improvisar",
+        "Quando não há regras"
+      ],
+      "correct": 0,
+      "explanation": "Fluxos fixos costumam ser mais previsíveis e econômicos.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.1-v3",
+      "lessonId": "4.1",
+      "stem": "Revisão de conceito: Em Python, qual estrutura associa chaves a valores?",
+      "options": [
+        "Dicionário",
+        "Lista simples",
+        "Comentário",
+        "Importação"
+      ],
+      "correct": 0,
+      "explanation": "Dicionários representam pares chave-valor.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.2-v3",
+      "lessonId": "4.2",
+      "stem": "Revisão de conceito: Para que serve um arquivo .gitignore?",
+      "options": [
+        "Evitar versionar arquivos selecionados",
+        "Executar testes",
+        "Criar imagens",
+        "Publicar senhas"
+      ],
+      "correct": 0,
+      "explanation": "Ele especifica arquivos que o Git deve ignorar.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.3-v3",
+      "lessonId": "4.3",
+      "stem": "Revisão de conceito: Por que chamar uma API sem framework primeiro?",
+      "options": [
+        "Para entender a requisição e resposta",
+        "Para eliminar a documentação",
+        "Para ignorar erros",
+        "Para substituir Python"
+      ],
+      "correct": 0,
+      "explanation": "A chamada direta ajuda a compreender as etapas.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.4-v3",
+      "lessonId": "4.4",
+      "stem": "Revisão de conceito: Similaridade de cosseno é usada para:",
+      "options": [
+        "Comparar vetores",
+        "Compactar vídeos",
+        "Criar chaves secretas",
+        "Aumentar tokens"
+      ],
+      "correct": 0,
+      "explanation": "Ela mede alinhamento entre vetores.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.5-v3",
+      "lessonId": "4.5",
+      "stem": "Revisão de conceito: Um banco vetorial é útil para:",
+      "options": [
+        "Buscar vetores semelhantes",
+        "Editar fotos",
+        "Criar contas bancárias",
+        "Substituir backups"
+      ],
+      "correct": 0,
+      "explanation": "Índices vetoriais facilitam buscas por similaridade.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.6-v3",
+      "lessonId": "4.6",
+      "stem": "Revisão de conceito: Qual etapa faz parte de RAG?",
+      "options": [
+        "Recuperar trechos relevantes antes de gerar resposta",
+        "Ignorar documentos",
+        "Treinar um modelo do zero sempre",
+        "Desativar citações"
+      ],
+      "correct": 0,
+      "explanation": "RAG usa recuperação de conteúdo como contexto para geração.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.7-v3",
+      "lessonId": "4.7",
+      "stem": "Revisão de conceito: LangChain ajuda a:",
+      "options": [
+        "Compor componentes de aplicações com LLMs",
+        "Substituir o sistema operacional",
+        "Criar hardware",
+        "Garantir ausência de falhas"
+      ],
+      "correct": 0,
+      "explanation": "O framework integra modelos, prompts e recuperadores.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.8-v3",
+      "lessonId": "4.8",
+      "stem": "Revisão de conceito: LangGraph organiza fluxos em:",
+      "options": [
+        "Nós, arestas e estado",
+        "Planilhas e macros",
+        "Imagens e vídeos",
+        "Tabelas SQL apenas"
+      ],
+      "correct": 0,
+      "explanation": "LangGraph modela aplicações como grafos com estado.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.9-v3",
+      "lessonId": "4.9",
+      "stem": "Revisão de conceito: Uma ferramenta para criar interfaces simples em Python é:",
+      "options": [
+        "Gradio",
+        "Gitignore",
+        "HTTP 404",
+        "Tokenizer"
+      ],
+      "correct": 0,
+      "explanation": "Gradio permite criar interfaces de demonstração.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.10-v3",
+      "lessonId": "4.10",
+      "stem": "Revisão de conceito: Evals são usados para:",
+      "options": [
+        "Medir qualidade com casos de teste",
+        "Esconder erros",
+        "Aumentar preço",
+        "Desativar logs"
+      ],
+      "correct": 0,
+      "explanation": "Avaliações sistemáticas ajudam a medir e melhorar resultados.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-4.11-v3",
+      "lessonId": "4.11",
+      "stem": "Revisão de conceito: Observabilidade acompanha:",
+      "options": [
+        "Chamadas, latência e erros",
+        "Somente cores da tela",
+        "A temperatura do escritório",
+        "A bateria do celular"
+      ],
+      "correct": 0,
+      "explanation": "Logs e métricas ajudam a entender comportamento e falhas.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.1-v3",
+      "lessonId": "5.1",
+      "stem": "Revisão de conceito: FastAPI é utilizado para:",
+      "options": [
+        "Construir APIs em Python",
+        "Criar vetores de imagem",
+        "Gerar senhas de terceiros",
+        "Treinar GPUs fisicamente"
+      ],
+      "correct": 0,
+      "explanation": "FastAPI é um framework para APIs web em Python.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.2-v3",
+      "lessonId": "5.2",
+      "stem": "Revisão de conceito: Docker facilita:",
+      "options": [
+        "Empacotar aplicações em containers",
+        "Corrigir respostas falsas automaticamente",
+        "Gerar provas oficiais",
+        "Aumentar memória física"
+      ],
+      "correct": 0,
+      "explanation": "Containers tornam ambientes mais reproduzíveis.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.3-v3",
+      "lessonId": "5.3",
+      "stem": "Revisão de conceito: Ao publicar uma demo, credenciais devem ficar:",
+      "options": [
+        "Em variáveis secretas da plataforma",
+        "No código público",
+        "No README",
+        "Na URL pública"
+      ],
+      "correct": 0,
+      "explanation": "Segredos devem ficar em mecanismos seguros de configuração.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.4-v3",
+      "lessonId": "5.4",
+      "stem": "Revisão de conceito: Prompt injection é:",
+      "options": [
+        "Tentativa de inserir instruções maliciosas em conteúdo",
+        "Uma forma de compactação",
+        "Uma linguagem de programação",
+        "Um algoritmo de revisão"
+      ],
+      "correct": 0,
+      "explanation": "Conteúdo não confiável pode tentar manipular o comportamento do modelo.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    },
+    {
+      "id": "q-5.5-v3",
+      "lessonId": "5.5",
+      "stem": "Revisão de conceito: Minimização de dados significa:",
+      "options": [
+        "Coletar apenas dados necessários",
+        "Coletar tudo por precaução",
+        "Publicar dados pessoais",
+        "Dispensar transparência"
+      ],
+      "correct": 0,
+      "explanation": "A LGPD valoriza adequação e necessidade no tratamento.",
+      "difficulty": "intermediário",
+      "status": "provisorio",
+      "source": "Conceito da trilha + elaboração didática; revisar antes de uso formal"
+    }
+  ],
+  "resources": [
+    {
+      "name": "Elements of AI",
+      "url": "https://www.elementsofai.com/"
+    },
+    {
+      "name": "Hugging Face LLM Course",
+      "url": "https://huggingface.co/learn/llm-course/"
+    },
+    {
+      "name": "Documentação Python",
+      "url": "https://docs.python.org/pt-br/3/tutorial/"
+    },
+    {
+      "name": "Documentação n8n",
+      "url": "https://docs.n8n.io/"
+    },
+    {
+      "name": "Documentação FastAPI",
+      "url": "https://fastapi.tiangolo.com/pt/"
+    },
+    {
+      "name": "OWASP GenAI Security",
+      "url": "https://genai.owasp.org/"
+    },
+    {
+      "name": "Documentação LangGraph",
+      "url": "https://docs.langchain.com/oss/python/langgraph/overview"
+    },
+    {
+      "name": "ANPD",
+      "url": "https://www.gov.br/anpd/pt-br"
+    }
+  ]
+}

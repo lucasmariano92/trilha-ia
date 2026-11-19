@@ -1,0 +1,590 @@
+{
+ "_nota": "Questões-base herdadas da v1 (uma por módulo). Estado: provisórias. Problemas conhecidos: alternativas incorretas muitas vezes óbvias, sem explicação por alternativa, sem referência específica. As 88 \"variantes\" da v1 foram removidas por serem cópias com palavras trocadas.",
+ "questions": [
+  {
+   "id": "q-1.2",
+   "moduleId": "1.2",
+   "stem": "O que é um token?",
+   "options": [
+    "Sempre uma palavra completa",
+    "Uma unidade de texto usada pelo modelo",
+    "Um arquivo de imagem",
+    "Uma senha de API"
+   ],
+   "correct": 1,
+   "rationale": "Tokens podem ser palavras, partes de palavras ou pontuação."
+  },
+  {
+   "id": "q-1.3",
+   "moduleId": "1.3",
+   "stem": "A janela de contexto representa:",
+   "options": [
+    "Memória permanente entre todas as conversas",
+    "A quantidade de tokens considerada em uma chamada",
+    "A velocidade da internet",
+    "O número de usuários simultâneos"
+   ],
+   "correct": 1,
+   "rationale": "Ela delimita quanto conteúdo o modelo considera de uma vez."
+  },
+  {
+   "id": "q-1.4",
+   "moduleId": "1.4",
+   "stem": "Qual atitude reduz o risco de alucinações?",
+   "options": [
+    "Confiar em qualquer citação",
+    "Verificar referências em fontes confiáveis",
+    "Aumentar sempre a temperatura",
+    "Remover documentos de apoio"
+   ],
+   "correct": 1,
+   "rationale": "A verificação externa é essencial para afirmações factuais."
+  },
+  {
+   "id": "q-1.5",
+   "moduleId": "1.5",
+   "stem": "Para que servem embeddings?",
+   "options": [
+    "Compactar arquivos ZIP",
+    "Representar conteúdo em vetores para comparação semântica",
+    "Armazenar senhas em texto",
+    "Garantir respostas verdadeiras"
+   ],
+   "correct": 1,
+   "rationale": "Embeddings permitem comparar proximidade semântica."
+  },
+  {
+   "id": "q-1.6",
+   "moduleId": "1.6",
+   "stem": "A temperatura geralmente controla:",
+   "options": [
+    "A quantidade de RAM",
+    "A aleatoriedade da geração",
+    "O preço fixo da assinatura",
+    "A conexão com a internet"
+   ],
+   "correct": 1,
+   "rationale": "Temperatura afeta a distribuição de probabilidades na geração."
+  },
+  {
+   "id": "q-1.7",
+   "moduleId": "1.7",
+   "stem": "Um modelo multimodal pode processar:",
+   "options": [
+    "Somente números",
+    "Mais de uma modalidade, como texto e imagem",
+    "Apenas arquivos ZIP",
+    "Somente prompts em inglês"
+   ],
+   "correct": 1,
+   "rationale": "Modelos multimodais trabalham com diferentes tipos de entrada ou saída."
+  },
+  {
+   "id": "q-1.8",
+   "moduleId": "1.8",
+   "stem": "O que NÃO deve ser colado num chatbot público sem autorização?",
+   "options": [
+    "Um exemplo fictício",
+    "Uma pergunta sobre Python",
+    "Uma senha real de cliente",
+    "Uma definição de token"
+   ],
+   "correct": 2,
+   "rationale": "Credenciais e dados sensíveis devem ser protegidos."
+  },
+  {
+   "id": "q-1.9",
+   "moduleId": "1.9",
+   "stem": "O custo de uma API de LLM costuma depender de:",
+   "options": [
+    "Somente do nome do usuário",
+    "Tokens e modelo utilizado",
+    "Cor do navegador",
+    "Número de pastas no computador"
+   ],
+   "correct": 1,
+   "rationale": "Muitos serviços cobram conforme tokens de entrada e saída e o modelo."
+  },
+  {
+   "id": "q-2.1",
+   "moduleId": "2.1",
+   "stem": "Qual prompt tende a ser mais útil?",
+   "options": [
+    "Fale de IA",
+    "Explique IA para iniciantes em 150 palavras com dois exemplos",
+    "Escreva qualquer coisa",
+    "Responda sem contexto"
+   ],
+   "correct": 1,
+   "rationale": "Contexto, tarefa e formato tornam o pedido mais claro."
+  },
+  {
+   "id": "q-2.2",
+   "moduleId": "2.2",
+   "stem": "Few-shot significa:",
+   "options": [
+    "Dar exemplos no prompt",
+    "Não dar instruções",
+    "Usar apenas voz",
+    "Desligar a IA"
+   ],
+   "correct": 0,
+   "rationale": "Few-shot fornece exemplos para orientar a saída."
+  },
+  {
+   "id": "q-2.3",
+   "moduleId": "2.3",
+   "stem": "Um system prompt serve para:",
+   "options": [
+    "Definir instruções de comportamento do assistente",
+    "Instalar o sistema operacional",
+    "Criar senhas automaticamente",
+    "Garantir dados corretos"
+   ],
+   "correct": 0,
+   "rationale": "Instruções de sistema orientam o comportamento do modelo."
+  },
+  {
+   "id": "q-2.4",
+   "moduleId": "2.4",
+   "stem": "Para comparar modelos de IA com justiça, você deve:",
+   "options": [
+    "Usar tarefas totalmente diferentes",
+    "Testar a mesma tarefa com critérios claros",
+    "Escolher pelo logotipo",
+    "Ignorar os erros"
+   ],
+   "correct": 1,
+   "rationale": "Um teste comparável usa tarefas e critérios consistentes."
+  },
+  {
+   "id": "q-2.5",
+   "moduleId": "2.5",
+   "stem": "Uma rubrica de avaliação pode medir:",
+   "options": [
+    "Precisão, completude e formato",
+    "Somente tamanho do texto",
+    "A cor da interface",
+    "A marca do computador"
+   ],
+   "correct": 0,
+   "rationale": "Rubricas tornam critérios de qualidade explícitos."
+  },
+  {
+   "id": "q-2.6",
+   "moduleId": "2.6",
+   "stem": "Qual recurso facilita trabalhar com materiais reunidos?",
+   "options": [
+    "Projetos e espaços de trabalho",
+    "Apagar o histórico sem backup",
+    "Desativar arquivos",
+    "Trocar o teclado"
+   ],
+   "correct": 0,
+   "rationale": "Espaços de trabalho podem agrupar instruções e arquivos."
+  },
+  {
+   "id": "q-2.7",
+   "moduleId": "2.7",
+   "stem": "Multimodalidade envolve:",
+   "options": [
+    "Somente texto",
+    "Texto, imagem ou áudio conforme o modelo",
+    "Somente tabelas",
+    "Apenas código Python"
+   ],
+   "correct": 1,
+   "rationale": "Modelos multimodais processam diferentes modalidades."
+  },
+  {
+   "id": "q-2.8",
+   "moduleId": "2.8",
+   "stem": "Por que versionar prompts?",
+   "options": [
+    "Para comparar alterações e resultados",
+    "Para aumentar a temperatura",
+    "Para eliminar testes",
+    "Para substituir backups"
+   ],
+   "correct": 0,
+   "rationale": "Versões permitem identificar o que melhorou ou piorou."
+  },
+  {
+   "id": "q-3.1",
+   "moduleId": "3.1",
+   "stem": "Qual código HTTP indica recurso não encontrado?",
+   "options": [
+    "200",
+    "404",
+    "201",
+    "302"
+   ],
+   "correct": 1,
+   "rationale": "404 significa recurso não encontrado."
+  },
+  {
+   "id": "q-3.2",
+   "moduleId": "3.2",
+   "stem": "Qual é um JSON válido?",
+   "options": [
+    "{nome: Ana}",
+    "{\"nome\":\"Ana\"}",
+    "(nome = Ana)",
+    "nome => Ana"
+   ],
+   "correct": 1,
+   "rationale": "JSON exige aspas duplas em chaves e strings."
+  },
+  {
+   "id": "q-3.3",
+   "moduleId": "3.3",
+   "stem": "Uma chave de API deve ser:",
+   "options": [
+    "Publicada no GitHub",
+    "Mantida em segredo",
+    "Enviada em prints públicos",
+    "Colocada no README"
+   ],
+   "correct": 1,
+   "rationale": "Chaves são credenciais e devem ser protegidas."
+  },
+  {
+   "id": "q-3.4",
+   "moduleId": "3.4",
+   "stem": "Ollama permite principalmente:",
+   "options": [
+    "Rodar modelos locais compatíveis",
+    "Criar redes sociais",
+    "Registrar domínios",
+    "Editar planilhas online"
+   ],
+   "correct": 0,
+   "rationale": "Ollama executa modelos localmente em máquinas compatíveis."
+  },
+  {
+   "id": "q-3.5",
+   "moduleId": "3.5",
+   "stem": "No n8n, um gatilho é:",
+   "options": [
+    "O evento que inicia um fluxo",
+    "Um banco vetorial",
+    "Um token",
+    "Um modelo de imagem"
+   ],
+   "correct": 0,
+   "rationale": "Triggers iniciam execuções de fluxos."
+  },
+  {
+   "id": "q-3.6",
+   "moduleId": "3.6",
+   "stem": "Webhook é:",
+   "options": [
+    "Uma URL que recebe eventos",
+    "Um modelo de linguagem",
+    "Uma senha",
+    "Um banco de dados vetorial"
+   ],
+   "correct": 0,
+   "rationale": "Webhooks recebem notificações ou dados via HTTP."
+  },
+  {
+   "id": "q-3.7",
+   "moduleId": "3.7",
+   "stem": "Uma aplicação útil de IA no n8n é:",
+   "options": [
+    "Classificar mensagens",
+    "Aumentar RAM fisicamente",
+    "Consertar o teclado",
+    "Garantir respostas sem erros"
+   ],
+   "correct": 0,
+   "rationale": "Nós de IA podem classificar e extrair informações."
+  },
+  {
+   "id": "q-3.8",
+   "moduleId": "3.8",
+   "stem": "Function calling permite ao modelo:",
+   "options": [
+    "Solicitar execução de ferramentas definidas",
+    "Instalar qualquer programa sem permissão",
+    "Acessar senhas automaticamente",
+    "Eliminar validação"
+   ],
+   "correct": 0,
+   "rationale": "O modelo pode selecionar ferramentas, mas o sistema executa e controla permissões."
+  },
+  {
+   "id": "q-3.9",
+   "moduleId": "3.9",
+   "stem": "Um agente com ferramentas deve ter:",
+   "options": [
+    "Permissões mínimas necessárias",
+    "Acesso irrestrito a tudo",
+    "Credenciais públicas",
+    "Nenhum registro de erros"
+   ],
+   "correct": 0,
+   "rationale": "Privilégio mínimo reduz riscos."
+  },
+  {
+   "id": "q-3.10",
+   "moduleId": "3.10",
+   "stem": "MCP busca padronizar:",
+   "options": [
+    "Conexão de modelos com ferramentas e dados",
+    "A velocidade do Wi-Fi",
+    "A sintaxe do Python",
+    "O formato de imagens JPEG"
+   ],
+   "correct": 0,
+   "rationale": "MCP define interfaces para integração com ferramentas e dados."
+  },
+  {
+   "id": "q-3.11",
+   "moduleId": "3.11",
+   "stem": "Quando um fluxo fixo é preferível?",
+   "options": [
+    "Quando as etapas são sempre previsíveis",
+    "Quando toda decisão exige pesquisa",
+    "Quando o modelo deve improvisar",
+    "Quando não há regras"
+   ],
+   "correct": 0,
+   "rationale": "Fluxos fixos costumam ser mais previsíveis e econômicos."
+  },
+  {
+   "id": "q-4.1",
+   "moduleId": "4.1",
+   "stem": "Em Python, qual estrutura associa chaves a valores?",
+   "options": [
+    "Dicionário",
+    "Lista simples",
+    "Comentário",
+    "Importação"
+   ],
+   "correct": 0,
+   "rationale": "Dicionários representam pares chave-valor."
+  },
+  {
+   "id": "q-4.2",
+   "moduleId": "4.2",
+   "stem": "Para que serve um arquivo .gitignore?",
+   "options": [
+    "Evitar versionar arquivos selecionados",
+    "Executar testes",
+    "Criar imagens",
+    "Publicar senhas"
+   ],
+   "correct": 0,
+   "rationale": "Ele especifica arquivos que o Git deve ignorar."
+  },
+  {
+   "id": "q-4.3",
+   "moduleId": "4.3",
+   "stem": "Por que chamar uma API sem framework primeiro?",
+   "options": [
+    "Para entender a requisição e resposta",
+    "Para eliminar a documentação",
+    "Para ignorar erros",
+    "Para substituir Python"
+   ],
+   "correct": 0,
+   "rationale": "A chamada direta ajuda a compreender as etapas."
+  },
+  {
+   "id": "q-4.4",
+   "moduleId": "4.4",
+   "stem": "Similaridade de cosseno é usada para:",
+   "options": [
+    "Comparar vetores",
+    "Compactar vídeos",
+    "Criar chaves secretas",
+    "Aumentar tokens"
+   ],
+   "correct": 0,
+   "rationale": "Ela mede alinhamento entre vetores."
+  },
+  {
+   "id": "q-4.5",
+   "moduleId": "4.5",
+   "stem": "Um banco vetorial é útil para:",
+   "options": [
+    "Buscar vetores semelhantes",
+    "Editar fotos",
+    "Criar contas bancárias",
+    "Substituir backups"
+   ],
+   "correct": 0,
+   "rationale": "Índices vetoriais facilitam buscas por similaridade."
+  },
+  {
+   "id": "q-4.6",
+   "moduleId": "4.6",
+   "stem": "Qual etapa faz parte de RAG?",
+   "options": [
+    "Recuperar trechos relevantes antes de gerar resposta",
+    "Ignorar documentos",
+    "Treinar um modelo do zero sempre",
+    "Desativar citações"
+   ],
+   "correct": 0,
+   "rationale": "RAG usa recuperação de conteúdo como contexto para geração."
+  },
+  {
+   "id": "q-4.7",
+   "moduleId": "4.7",
+   "stem": "LangChain ajuda a:",
+   "options": [
+    "Compor componentes de aplicações com LLMs",
+    "Substituir o sistema operacional",
+    "Criar hardware",
+    "Garantir ausência de falhas"
+   ],
+   "correct": 0,
+   "rationale": "O framework integra modelos, prompts e recuperadores."
+  },
+  {
+   "id": "q-4.8",
+   "moduleId": "4.8",
+   "stem": "LangGraph organiza fluxos em:",
+   "options": [
+    "Nós, arestas e estado",
+    "Planilhas e macros",
+    "Imagens e vídeos",
+    "Tabelas SQL apenas"
+   ],
+   "correct": 0,
+   "rationale": "LangGraph modela aplicações como grafos com estado."
+  },
+  {
+   "id": "q-4.9",
+   "moduleId": "4.9",
+   "stem": "Uma ferramenta para criar interfaces simples em Python é:",
+   "options": [
+    "Gradio",
+    "Gitignore",
+    "HTTP 404",
+    "Tokenizer"
+   ],
+   "correct": 0,
+   "rationale": "Gradio permite criar interfaces de demonstração."
+  },
+  {
+   "id": "q-4.10",
+   "moduleId": "4.10",
+   "stem": "Evals são usados para:",
+   "options": [
+    "Medir qualidade com casos de teste",
+    "Esconder erros",
+    "Aumentar preço",
+    "Desativar logs"
+   ],
+   "correct": 0,
+   "rationale": "Avaliações sistemáticas ajudam a medir e melhorar resultados."
+  },
+  {
+   "id": "q-4.11",
+   "moduleId": "4.11",
+   "stem": "Observabilidade acompanha:",
+   "options": [
+    "Chamadas, latência e erros",
+    "Somente cores da tela",
+    "A temperatura do escritório",
+    "A bateria do celular"
+   ],
+   "correct": 0,
+   "rationale": "Logs e métricas ajudam a entender comportamento e falhas."
+  },
+  {
+   "id": "q-5.1",
+   "moduleId": "5.1",
+   "stem": "FastAPI é utilizado para:",
+   "options": [
+    "Construir APIs em Python",
+    "Criar vetores de imagem",
+    "Gerar senhas de terceiros",
+    "Treinar GPUs fisicamente"
+   ],
+   "correct": 0,
+   "rationale": "FastAPI é um framework para APIs web em Python."
+  },
+  {
+   "id": "q-5.2",
+   "moduleId": "5.2",
+   "stem": "Docker facilita:",
+   "options": [
+    "Empacotar aplicações em containers",
+    "Corrigir respostas falsas automaticamente",
+    "Gerar provas oficiais",
+    "Aumentar memória física"
+   ],
+   "correct": 0,
+   "rationale": "Containers tornam ambientes mais reproduzíveis."
+  },
+  {
+   "id": "q-5.3",
+   "moduleId": "5.3",
+   "stem": "Ao publicar uma demo, credenciais devem ficar:",
+   "options": [
+    "Em variáveis secretas da plataforma",
+    "No código público",
+    "No README",
+    "Na URL pública"
+   ],
+   "correct": 0,
+   "rationale": "Segredos devem ficar em mecanismos seguros de configuração."
+  },
+  {
+   "id": "q-5.4",
+   "moduleId": "5.4",
+   "stem": "Prompt injection é:",
+   "options": [
+    "Tentativa de inserir instruções maliciosas em conteúdo",
+    "Uma forma de compactação",
+    "Uma linguagem de programação",
+    "Um algoritmo de revisão"
+   ],
+   "correct": 0,
+   "rationale": "Conteúdo não confiável pode tentar manipular o comportamento do modelo."
+  },
+  {
+   "id": "q-5.5",
+   "moduleId": "5.5",
+   "stem": "Minimização de dados significa:",
+   "options": [
+    "Coletar apenas dados necessários",
+    "Coletar tudo por precaução",
+    "Publicar dados pessoais",
+    "Dispensar transparência"
+   ],
+   "correct": 0,
+   "rationale": "A LGPD valoriza adequação e necessidade no tratamento."
+  },
+  {
+   "id": "q-5.6",
+   "moduleId": "5.6",
+   "stem": "Qual métrica ajuda a monitorar uma API de IA?",
+   "options": [
+    "Latência e taxa de erros",
+    "Cor do botão",
+    "Número de abas abertas",
+    "Tamanho do monitor"
+   ],
+   "correct": 0,
+   "rationale": "Tempo de resposta e falhas são métricas operacionais."
+  },
+  {
+   "id": "q-5.7",
+   "moduleId": "5.7",
+   "stem": "Fine-tuning modifica principalmente:",
+   "options": [
+    "Parâmetros do modelo durante ajuste",
+    "O monitor do usuário",
+    "O endereço IP",
+    "O formato de um PDF"
+   ],
+   "correct": 0,
+   "rationale": "Ajuste fino atualiza pesos com dados de treinamento."
+  }
+ ]
+}

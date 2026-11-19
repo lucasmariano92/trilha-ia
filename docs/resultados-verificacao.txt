@@ -1,0 +1,24 @@
+## npm run typecheck
+OK: sem erros de tipo
+
+## npm test
+ RUN  v5.1.1 /home/claude/trilha-ia
+ Test Files  5 passed (5)
+      Tests  207 passed (207)
+   Start at  20:53:38
+   Duration  5.76s (tests 60%, environment 29%, import 9%, transform 2%)
+    Isolate  5 workers spawned · ~383ms startup each (spawn + environment, per file)
+             at least ~1.53s faster with isolate: false — reuses workers across files instead of one per file
+
+## npm run build
+dist/assets/index-4yUp0SHV.css   36.62 kB │ gzip:   6.90 kB
+dist/assets/index-kHpaZ1Mg.js   749.92 kB │ gzip: 222.84 kB
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 874ms
+
+## npm audit
+found 0 vulnerabilities
